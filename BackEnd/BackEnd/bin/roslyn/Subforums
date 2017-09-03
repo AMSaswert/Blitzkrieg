@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ArrayOfSubforum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Subforum>
+    <Id>1543809578</Id>
+    <Name>Funny</Name>
+    <Description>hot topics</Description>
+    <IconURL>http://localhost:54042/Content/Icons/icon-0.ico</IconURL>
+    <Rules>do w/e</Rules>
+    <LeadModeratorUsername>moderator</LeadModeratorUsername>
+  </Subforum>
+  <Subforum>
+    <Id>184967240</Id>
+    <Name>World</Name>
+    <Description>controversial topics</Description>
+    <IconURL>http://localhost:54042/Content/Icons/icon-1.ico</IconURL>
+    <Rules>w/e</Rules>
+    <LeadModeratorUsername>appu</LeadModeratorUsername>
+  </Subforum>
+  <Subforum>
+    <Id>1686066117</Id>
+    <Name>Movies</Name>
+    <Description>new topics</Description>
+    <IconURL>http://localhost:54042/Content/Icons/icon-2.ico</IconURL>
+    <Rules>w/e</Rules>
+    <LeadModeratorUsername>moderator</LeadModeratorUsername>
+  </Subforum>
+  <Subforum>
+    <Id>582026085</Id>
+    <Name>Gaming</Name>
+    <Description>opular topics</Description>
+    <IconURL>http://localhost:54042/Content/Icons/icon-3.ico</IconURL>
+    <Rules>w/e</Rules>
+    <LeadModeratorUsername>appu</LeadModeratorUsername>
+  </Subforum>
+</ArrayOfSubforum>

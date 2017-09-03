@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfSubforumModeration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SubforumModeration>
+    <Id>1260479078</Id>
+    <ModeratorUsername>aca</ModeratorUsername>
+    <SubforumId>1543809578</SubforumId>
+  </SubforumModeration>
+  <SubforumModeration>
+    <Id>515734884</Id>
+    <ModeratorUsername>moderator</ModeratorUsername>
+    <SubforumId>184967240</SubforumId>
+  </SubforumModeration>
+  <SubforumModeration>
+    <Id>196136578</Id>
+    <ModeratorUsername>aca</ModeratorUsername>
+    <SubforumId>1686066117</SubforumId>
+  </SubforumModeration>
+  <SubforumModeration>
+    <Id>2121446423</Id>
+    <ModeratorUsername>moderator</ModeratorUsername>
+    <SubforumId>582026085</SubforumId>
+  </SubforumModeration>
+</ArrayOfSubforumModeration>

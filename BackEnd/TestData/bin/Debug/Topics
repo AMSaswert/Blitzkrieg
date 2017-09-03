@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<ArrayOfTopic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Topic>
+    <Id>1653396437</Id>
+    <SubforumId>92258085</SubforumId>
+    <Name>Topic 1 bla bla bla bla bla bla bla bla bla bla blaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>415605848</Id>
+    <SubforumId>92258085</SubforumId>
+    <Name>Topic 2 bla bla</Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>1726419473</Id>
+    <SubforumId>479800197</SubforumId>
+    <Name>Topic 3 bla bla bla bla bla bla bla bla </Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>730296610</Id>
+    <SubforumId>479800197</SubforumId>
+    <Name>Topic 4 bla bla bla bla bla</Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>852211904</Id>
+    <SubforumId>92258085</SubforumId>
+    <Name>Topic 5 </Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>427433261</Id>
+    <SubforumId>92258085</SubforumId>
+    <Name>Topic 8 bla bla bla bla bla bla bla bla bla bla bla</Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>1680888554</Id>
+    <SubforumId>92258085</SubforumId>
+    <Name>Topic 7 bla bla bla bla bla bla bla bla bla bla bla</Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>1177097833</Id>
+    <SubforumId>479800197</SubforumId>
+    <Name>Topic 8 bla </Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+  <Topic>
+    <Id>1684736957</Id>
+    <SubforumId>479800197</SubforumId>
+    <Name>Topic 6 bla bla bla bla </Name>
+    <TopicType>Text</TopicType>
+    <AuthorUsername>babinskizoltan</AuthorUsername>
+    <Content>test test</Content>
+    <CreationDate>2017-08-02T23:19:12.5800015+02:00</CreationDate>
+    <LikesNo>0</LikesNo>
+    <DislikesNo>0</DislikesNo>
+  </Topic>
+</ArrayOfTopic>

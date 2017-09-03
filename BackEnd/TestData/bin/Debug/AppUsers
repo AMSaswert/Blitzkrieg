@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ArrayOfAppUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AppUser>
+    <Id>1488888151</Id>
+    <Name>admin</Name>
+    <Surname>admin</Surname>
+    <ContactPhone>021/12345</ContactPhone>
+    <RegistrationDate>2017-08-02T23:19:12.5769993+02:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+  </AppUser>
+  <AppUser>
+    <Id>1151126855</Id>
+    <Name>Aleksandar</Name>
+    <Surname>Misljenovic</Surname>
+    <ContactPhone>021/1353545</ContactPhone>
+    <RegistrationDate>2017-08-02T23:19:12.5769993+02:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+  </AppUser>
+  <AppUser>
+    <Id>840855344</Id>
+    <Name>Moderator</Name>
+    <Surname>Moderator</Surname>
+    <ContactPhone>021/8778585</ContactPhone>
+    <RegistrationDate>2017-08-02T23:19:12.5769993+02:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+  </AppUser>
+</ArrayOfAppUser>
