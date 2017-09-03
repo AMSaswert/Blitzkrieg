@@ -10,32 +10,29 @@ namespace BackEnd.Models
     public class AppUser
     {
 
-        public AppUser()
-        {
-            this.BookmarkedSubforums = new List<Subforum>();
-            this.SavedComments = new List<Comment>();
-            this.SavedTopics = new List<Topic>();
-        }
-        public int Id { get; set; }
+        public string Id { get; set; }
 
-        [Required]
-        [StringLength(256)]
+        public string UserName { get; set; }
+
+        public string Email { get; set; }
+
+        public string Password { get; set; }
+
+        public string Role { get; set; }
+
         public string Name { get; set; }
 
-        [Required]
-        [StringLength(256)]
         public string Surname { get; set; }
 
-        [StringLength(256)]
         public string ContactPhone { get; set; }
 
-        [Required]
         public DateTime RegistrationDate { get; set; }
+        
+        public List<int> BookmarkedSubforums { get; set; }
 
-        // regularni korisnik
-        public List<Subforum> BookmarkedSubforums { get; set; }
-        public List<Topic> SavedTopics { get; set; }
-        public List<Comment> SavedComments { get; set; }
+        public List<int> SavedTopics { get; set; }
+
+        public List<int> SavedComments { get; set; }
 
 
 
