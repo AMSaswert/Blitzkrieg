@@ -10,7 +10,7 @@ namespace BackEnd.Models
     public class AppUser
     {
 
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         public string UserName { get; set; }
 
@@ -33,6 +33,8 @@ namespace BackEnd.Models
         public List<int> SavedTopics { get; set; }
 
         public List<int> SavedComments { get; set; }
+
+        public List<Message> ReceivedMessages { get; set; }
 
 
 

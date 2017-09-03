@@ -1,35 +1,286 @@
 <?xml version="1.0"?>
 <ArrayOfSubforum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Subforum>
-    <Id>92258085</Id>
+    <Id>600238823</Id>
     <Name>Funny</Name>
     <Description>hot topics</Description>
     <IconURL>http://localhost:54042/Content/Icons/icon-0.ico</IconURL>
     <Rules>do w/e</Rules>
     <LeadModeratorUsername>moderator</LeadModeratorUsername>
+    <Topics>
+      <Topic>
+        <Id>497466008</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 1 bla bla bla bla bla bla bla bla bla bla blaaaaaaa</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4525381+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>1710336194</Id>
+            <TopicId>497466008</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4550476+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments>
+              <Comment>
+                <Id>510512603</Id>
+                <TopicId>497466008</TopicId>
+                <AuthorUsername>aca</AuthorUsername>
+                <CreationDate>2017-09-04T00:44:10.4570419+02:00</CreationDate>
+                <ParentCommentId>1710336194</ParentCommentId>
+                <Text>ojsaaaaaa</Text>
+                <LikesNo>0</LikesNo>
+                <DislikesNo>0</DislikesNo>
+                <Edited>false</Edited>
+                <Removed>false</Removed>
+              </Comment>
+            </ChildrenComments>
+            <Text>is gud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+          <Comment>
+            <Id>166624868</Id>
+            <TopicId>497466008</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>isdasdasdsaads gud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+        </Comments>
+      </Topic>
+      <Topic>
+        <Id>1769489399</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 5 </Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>204520529</Id>
+            <TopicId>1769489399</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>asddsadsdsais gadsadsasddsaud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+        </Comments>
+      </Topic>
+      <Topic>
+        <Id>1415864276</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 8 bla bla bla bla bla bla bla bla bla bla bla</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+      </Topic>
+    </Topics>
   </Subforum>
   <Subforum>
-    <Id>479800197</Id>
+    <Id>1445048630</Id>
     <Name>World</Name>
     <Description>controversial topics</Description>
     <IconURL>http://localhost:54042/Content/Icons/icon-1.ico</IconURL>
     <Rules>w/e</Rules>
     <LeadModeratorUsername>appu</LeadModeratorUsername>
+    <Topics>
+      <Topic>
+        <Id>432391166</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 2 bla bla</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+      </Topic>
+      <Topic>
+        <Id>2100800758</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 7 bla bla bla bla bla bla bla bla bla bla bla</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>794157896</Id>
+            <TopicId>2100800758</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is gsdadasdasasddsa</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+          <Comment>
+            <Id>1632635735</Id>
+            <TopicId>2100800758</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is ssadasdasdadsasddsaasddsasdagud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+        </Comments>
+      </Topic>
+    </Topics>
   </Subforum>
   <Subforum>
-    <Id>1206446130</Id>
+    <Id>2099986798</Id>
     <Name>Movies</Name>
     <Description>new topics</Description>
     <IconURL>http://localhost:54042/Content/Icons/icon-2.ico</IconURL>
     <Rules>w/e</Rules>
     <LeadModeratorUsername>moderator</LeadModeratorUsername>
+    <Topics>
+      <Topic>
+        <Id>489751285</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 3 bla bla bla bla bla bla bla bla </Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+      </Topic>
+      <Topic>
+        <Id>21315171</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 8 bla </Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>596246484</Id>
+            <TopicId>21315171</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is gadssdasadsdaasdud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+          <Comment>
+            <Id>1119515399</Id>
+            <TopicId>21315171</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>idasdasdsas gud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+        </Comments>
+      </Topic>
+    </Topics>
   </Subforum>
   <Subforum>
-    <Id>529009064</Id>
+    <Id>768603272</Id>
     <Name>Gaming</Name>
     <Description>opular topics</Description>
     <IconURL>http://localhost:54042/Content/Icons/icon-3.ico</IconURL>
     <Rules>w/e</Rules>
     <LeadModeratorUsername>appu</LeadModeratorUsername>
+    <Topics>
+      <Topic>
+        <Id>417032632</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 4 bla bla bla bla bla</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+      </Topic>
+      <Topic>
+        <Id>540515241</Id>
+        <SubforumId>0</SubforumId>
+        <Name>Topic 6 bla bla bla bla </Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>babinskizoltan</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2017-09-04T00:44:10.4535668+02:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>1206324602</Id>
+            <TopicId>540515241</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is adsdasasddsaasdasdsdadassaddasdadagud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+          <Comment>
+            <Id>1800343566</Id>
+            <TopicId>540515241</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2017-09-04T00:44:10.4555683+02:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is dasdsasdaadsgud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+          </Comment>
+        </Comments>
+      </Topic>
+    </Topics>
   </Subforum>
 </ArrayOfSubforum>

@@ -1,33 +1,36 @@
 <?xml version="1.0"?>
 <ArrayOfAppUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AppUser>
-    <Id>1488888151</Id>
+    <Id>1051180933</Id>
+    <UserName>admin</UserName>
+    <Email>admin@yahoo.com</Email>
+    <Password>admin</Password>
+    <Role>Admin</Role>
     <Name>admin</Name>
     <Surname>admin</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2017-08-02T23:19:12.5769993+02:00</RegistrationDate>
-    <BookmarkedSubforums />
-    <SavedTopics />
-    <SavedComments />
+    <RegistrationDate>2017-09-04T00:44:10.4485633+02:00</RegistrationDate>
   </AppUser>
   <AppUser>
-    <Id>1151126855</Id>
+    <Id>557862221</Id>
+    <UserName>aca</UserName>
+    <Email>aca@yahoo.com</Email>
+    <Password>aca</Password>
+    <Role>AppUser</Role>
     <Name>Aleksandar</Name>
     <Surname>Misljenovic</Surname>
     <ContactPhone>021/1353545</ContactPhone>
-    <RegistrationDate>2017-08-02T23:19:12.5769993+02:00</RegistrationDate>
-    <BookmarkedSubforums />
-    <SavedTopics />
-    <SavedComments />
+    <RegistrationDate>2017-09-04T00:44:10.4490639+02:00</RegistrationDate>
   </AppUser>
   <AppUser>
-    <Id>840855344</Id>
+    <Id>350756827</Id>
+    <UserName>moderator</UserName>
+    <Email>moderator@yahoo.com</Email>
+    <Password>moderator</Password>
+    <Role>Moderator</Role>
     <Name>Moderator</Name>
     <Surname>Moderator</Surname>
     <ContactPhone>021/8778585</ContactPhone>
-    <RegistrationDate>2017-08-02T23:19:12.5769993+02:00</RegistrationDate>
-    <BookmarkedSubforums />
-    <SavedTopics />
-    <SavedComments />
+    <RegistrationDate>2017-09-04T00:44:10.4490639+02:00</RegistrationDate>
   </AppUser>
 </ArrayOfAppUser>

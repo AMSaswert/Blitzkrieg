@@ -195,14 +195,10 @@
     <Compile Include="Models\Complaint.cs" />
     <Compile Include="Models\CustomBAIdentityUser.cs" />
     <Compile Include="Models\DataIO.cs" />
-    <Compile Include="Models\EntityType.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Models.cs" />
     <Compile Include="Models\Subforum.cs" />
-    <Compile Include="Models\SubforumModeration.cs" />
     <Compile Include="Models\Topic.cs" />
-    <Compile Include="Models\TopicType.cs" />
-    <Compile Include="Models\Vote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
