@@ -13,7 +13,7 @@ namespace BackEnd.Models
         Link
     }
 
-    [Serializable]
+  
     public class Topic
     {
         public int Id { get; set; }

@@ -27,7 +27,12 @@ namespace TestData
                 Email = "admin@yahoo.com",
                 Password = "admin",
                 Role = "Admin",
-                RegistrationDate = DateTime.Now
+                RegistrationDate = DateTime.Now,
+                BookmarkedSubforums = new List<int>(),
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "Bem ti lebac" }, new Message { Id = random.Next(), Content = "aaaaaaaaa" } },
+                SavedComments = new List<int>(),
+                SavedTopics = new List<int>()
+                
             });
             AppUsers.Add(new AppUser()
             {
@@ -39,7 +44,11 @@ namespace TestData
                 Password = "aca",
                 Role = "AppUser",
                 ContactPhone = "021/1353545",
-                RegistrationDate = DateTime.Now
+                RegistrationDate = DateTime.Now,
+                BookmarkedSubforums = new List<int>(),
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "opassada" }, new Message { Id = random.Next(), Content = "ajsasa" } },
+                SavedComments = new List<int>(),
+                SavedTopics = new List<int>()
             });
 
             AppUsers.Add(new AppUser()
@@ -52,7 +61,11 @@ namespace TestData
                 Email = "moderator@yahoo.com",
                 Password = "moderator",
                 Role = "Moderator",
-                RegistrationDate = DateTime.Now
+                RegistrationDate = DateTime.Now,
+                BookmarkedSubforums = new List<int>(),
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "mhmhm" }, new Message { Id = random.Next(), Content = "frik" } },
+                SavedComments = new List<int>(),
+                SavedTopics = new List<int>()
             });
 
             CreateSubforum(random, "Funny", "hot topics", "do w/e", "moderator", "http://localhost:54042/Content/Icons/icon-0.ico");
@@ -81,12 +94,29 @@ namespace TestData
             CreateComment(random, "is dasdsasdaadsgud", "aca", Subforums[3], 1);
             CreateComment(random, "isdasdasdsaads gud", "aca", Subforums[0], 0);
             CreateChildComment(random, "ojsaaaaaa", "aca", Subforums[0], 0,Subforums[0].Topics[0].Comments[0].Id);
+            CreateComplaint(random, "zzzzzzzzzz", EntityType.Comment, random.Next(), "aca");
+            CreateComplaint(random, "aaaaaaaaaa", EntityType.Message, random.Next(), "aca");
+            CreateComplaint(random, "bbbbbbbbbb", EntityType.Subforum, random.Next(), "aca");
+            CreateComplaint(random, "kkkkkkkkkk", EntityType.Topic, random.Next(), "aca");
 
             serializer.SerializeObject(AppUsers, "AppUsers");
             serializer.SerializeObject(Complaints, "Complaints");
             serializer.SerializeObject(Subforums, "Subforums");
             
 
+        }
+
+        static void CreateComplaint(Random random,string text,EntityType type,int entityId,string AuthorUsername)
+        {
+            Complaints.Add(new Complaint()
+            {
+                Id = random.Next(),
+                Text = text,
+                EntityType = type,
+                EntityId = entityId,
+                AuthorUsername = AuthorUsername,
+                CreationDate = DateTime.Now
+            });
         }
 
         static void CreateSubforum(Random random, string name, string description, string rules, string leadModerator, string iconURL)

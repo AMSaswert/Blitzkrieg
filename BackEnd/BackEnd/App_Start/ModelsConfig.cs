@@ -1,4 +1,5 @@
-﻿using BackEnd.Models;
+﻿using BackEnd.Controllers;
+using BackEnd.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace BackEnd.App_Start
     public class ModelsConfig
     {
         static DataIO serializer = new DataIO();
-        static string address = @"E:\Fax\Web 1\Web1 - slave\BackEnd\TestData\bin\Debug\";
+        static string address = @"C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\";
         public static void Deserialze()
         {
             Models.Models.AppUsers.AddRange(serializer.DeSerializeObject<List<AppUser>>(address + "AppUsers"));

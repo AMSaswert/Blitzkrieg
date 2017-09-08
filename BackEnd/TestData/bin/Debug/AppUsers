@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ArrayOfAppUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AppUser>
-    <Id>1051180933</Id>
+    <Id>1956481846</Id>
     <UserName>admin</UserName>
     <Email>admin@yahoo.com</Email>
     <Password>admin</Password>
@@ -9,10 +9,25 @@
     <Name>admin</Name>
     <Surname>admin</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2017-09-04T00:44:10.4485633+02:00</RegistrationDate>
+    <RegistrationDate>2017-09-07T16:24:04.0444419+02:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+    <ReceivedMessages>
+      <Message>
+        <Id>1849754863</Id>
+        <Content>Bem ti lebac</Content>
+        <Seen>false</Seen>
+      </Message>
+      <Message>
+        <Id>809016759</Id>
+        <Content>aaaaaaaaa</Content>
+        <Seen>false</Seen>
+      </Message>
+    </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>557862221</Id>
+    <Id>1358194778</Id>
     <UserName>aca</UserName>
     <Email>aca@yahoo.com</Email>
     <Password>aca</Password>
@@ -20,10 +35,25 @@
     <Name>Aleksandar</Name>
     <Surname>Misljenovic</Surname>
     <ContactPhone>021/1353545</ContactPhone>
-    <RegistrationDate>2017-09-04T00:44:10.4490639+02:00</RegistrationDate>
+    <RegistrationDate>2017-09-07T16:24:04.0449424+02:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+    <ReceivedMessages>
+      <Message>
+        <Id>728654873</Id>
+        <Content>opassada</Content>
+        <Seen>false</Seen>
+      </Message>
+      <Message>
+        <Id>1973564010</Id>
+        <Content>ajsasa</Content>
+        <Seen>false</Seen>
+      </Message>
+    </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>350756827</Id>
+    <Id>621468027</Id>
     <UserName>moderator</UserName>
     <Email>moderator@yahoo.com</Email>
     <Password>moderator</Password>
@@ -31,6 +61,21 @@
     <Name>Moderator</Name>
     <Surname>Moderator</Surname>
     <ContactPhone>021/8778585</ContactPhone>
-    <RegistrationDate>2017-09-04T00:44:10.4490639+02:00</RegistrationDate>
+    <RegistrationDate>2017-09-07T16:24:04.0449424+02:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+    <ReceivedMessages>
+      <Message>
+        <Id>691479183</Id>
+        <Content>mhmhm</Content>
+        <Seen>false</Seen>
+      </Message>
+      <Message>
+        <Id>893830580</Id>
+        <Content>frik</Content>
+        <Seen>false</Seen>
+      </Message>
+    </ReceivedMessages>
   </AppUser>
 </ArrayOfAppUser>

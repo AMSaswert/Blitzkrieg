@@ -1,0 +1,83 @@
+<li *ngFor="let complaint of complaints">
+    <span>{{complaint.Id}}</span>
+    <span>{{complaint.Text}}</span>
+    <span>{{complaint.CreationDate}}</span>
+    <span>{{complaint.EntityType}}</span>
+    <span>{{complaint.EntityId}}</span>
+    <span>{{complaint.AuthorUsername}}</span>
+  </li>
+
+
+<div>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+    <tr>
+        <td>
+            <label for="Id">Id</label>
+            <input type="text" name="Id" ngModel>
+            </td>
+            <td>
+            <label for="Text">Text</label>
+            <input type="text" name="Text" ngModel>
+            </td>
+            <td>
+            <label for="EntityId">EntityId</label>
+            <input type="text" name="EntityId" ngModel>
+            </td>
+            <td>
+            <label for="AuthorUsername">AuthorUsername</label>
+            <input type="text" name="AuthorUsername" ngModel>
+            </td>
+            <td>
+                <input type="submit" >
+            </td>
+    </tr>
+
+    
+
+</form>
+</div>
+
+<div>
+    <form #d="ngForm" (ngSubmit)="edit(d.value, d)">
+        <tr>
+            <td>
+                <label for="Id">Id</label>
+                <input type="text" name="Id" ngModel>
+                </td>
+                <td>
+                <label for="Text">Text</label>
+                <input type="text" name="Text" ngModel>
+                </td>
+                <td>
+                <label for="EntityId">EntityId</label>
+                <input type="text" name="EntityId" ngModel>
+                </td>
+                <td>
+                <label for="AuthorUsername">AuthorUsername</label>
+                <input type="text" name="AuthorUsername" ngModel>
+                </td>
+                <td>
+                    <input type="submit" >
+                </td>
+        </tr>
+
+        
+
+    </form>
+</div>
+
+<div>
+    <form #m="ngForm" (ngSubmit)="delete(m.value, m)">
+        <tr>
+            <td>
+                <label for="Id">Id</label>
+                <input type="text" name="Id" ngModel>
+                </td>
+                <td>
+                    <input type="submit" >
+                </td>
+        </tr>
+    </form>
+</div>
+     
+ 

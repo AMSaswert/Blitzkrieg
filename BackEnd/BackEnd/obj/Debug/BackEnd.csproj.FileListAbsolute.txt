@@ -57,3 +57,6 @@ C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\BackEnd\bin\Antlr3.Runtime.pdb
 C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\BackEnd\obj\Debug\BackEnd.csprojResolveAssemblyReference.cache
 C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\BackEnd\obj\Debug\BackEnd.dll
 C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\BackEnd\obj\Debug\BackEnd.pdb
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\BackEnd\bin\System.Web.Cors.dll
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\BackEnd\bin\System.Web.Http.Cors.dll
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\BackEnd\bin\System.Web.Http.Cors.xml

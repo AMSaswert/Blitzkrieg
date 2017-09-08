@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BackEnd.Models
 {
-    [Serializable]
+  
     public class Subforum
     {
         public int Id { get; set; }

@@ -13,7 +13,7 @@ namespace BackEnd.Models
         Comment,
         Message
     }
-    [Serializable]
+
     public class Complaint
     {
         public int Id { get; set; }

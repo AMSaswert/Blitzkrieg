@@ -40,3 +40,9 @@ C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\System.Web.WebPag
 C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\obj\Debug\TestData.csprojResolveAssemblyReference.cache
 C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\obj\Debug\TestData.exe
 C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\obj\Debug\TestData.pdb
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\WebGrease.dll
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\System.Web.Cors.dll
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\System.Web.Http.Cors.xml
+C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\Antlr3.Runtime.pdb

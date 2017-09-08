@@ -1,0 +1,53 @@
+<li *ngFor="let topic of topics">
+    <span>{{topic.Id}}</span>
+    <span>{{topic.SubforumId}}</span>
+    <span>{{topic.Name}}</span>
+    <span>{{topic.TopicType}}</span>
+    <span>{{topic.AuthorUsername}}</span>
+    <span>{{topic.Content}}</span>
+    <span>{{topic.CreationDate}}</span>
+    <span>{{topic.LikesNum}}</span>
+    <span>{{topic.DislikesNum}}</span>
+  </li>
+
+
+  <div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+      <tr>
+            <td>
+              <label for="Id">Id</label>
+              <input type="text" name="Id" ngModel>
+              </td>
+              <td>
+              <label for="SubforumId">SubforumId</label>
+              <input type="text" name="SubforumId" ngModel>
+               </td>
+              <td>
+              <label for="Name">Name</label>
+              <input type="text" name="Name" ngModel>
+              </td>
+              <td>
+              <label for="AuthorUsername">AuthorUsername</label>
+              <input type="text" name="AuthorUsername" ngModel>
+               </td>
+               <td>
+                <label for="Content">Content</label>
+                <input type="text" name="Content" ngModel>
+                </td>
+                <td>
+                <label for="LikesNum">LikesNum</label>
+                <input type="text" name="LikesNum" ngModel>
+                 </td>
+                <td>
+                <label for="DislikesNum">DislikesNum</label>
+                <input type="text" name="DislikesNum" ngModel>
+                </td>
+              <td>
+                  <input type="submit" >
+              </td>
+      </tr>
+  
+      
+  
+  </form>
+  </div>

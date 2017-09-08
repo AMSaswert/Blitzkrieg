@@ -1,0 +1,64 @@
+<li *ngFor="let comment of comments">
+        <span>{{comment.Id}}</span>
+        <span>{{comment.TopicId}}</span>
+        <span>{{comment.AuthorUsername}}</span>
+        <span>{{comment.CreationDate}}</span>
+        <span>{{comment.ParentCommentId}}</span>
+        <span>{{comment.Text}}</span>
+        <span>{{comment.LikesNo}}</span>
+        <span>{{comment.DislikesNo}}</span>
+      </li>
+
+
+
+<div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+        <tr>
+            <td>
+                <label for="Id">Id</label>
+                <input type="text" name="Id" ngModel>
+                </td>
+                <td>
+                <label for="TopicId">TopicId</label>
+                <input type="text" name="TopicId" ngModel>
+                </td>
+                <td>
+                <label for="AuthorUsername">AuthorUsername</label>
+                <input type="text" name="AuthorUsername" ngModel>
+                </td>
+                <td>
+                <label for="ParentCommentId">ParentCommentId</label>
+                <input type="text" name="ParentCommentId" ngModel>
+                </td>
+                <td>
+                <label for="Text">Text</label>
+                <input type="text" name="Text" ngModel>
+                </td>
+                <td>
+                <label for="LikesNo">LikesNo</label>
+                <input type="text" name="LikesNo" ngModel>
+                </td>
+                <td>
+                <label for="DislikesNo">DislikesNo</label>
+                <input type="text" name="DislikesNo" ngModel>
+                </td>
+                <td>
+                    <input type="submit" >
+                </td>
+        </tr>
+    
+        
+    
+    </form>
+    </div>
+
+<div>
+    <form #d="ngForm" (ngSubmit)="delete(d.value, d)">
+        <tr>
+
+            <td>
+                <input type="submit" >
+            </td>
+        </tr>   
+    </form>
+    </div>
