@@ -13,7 +13,6 @@ namespace BackEnd.Controllers
     public class CommentsController : ApiController
     {
         DataIO serializer = new DataIO();
-        string address = @"C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\";
         // GET: api/Comments
         public IQueryable<Comment> Get(int id)
         {
@@ -40,7 +39,7 @@ namespace BackEnd.Controllers
             Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
             Topic topic = sub.Topics.Where(x => x.Id == id).FirstOrDefault();
             topic.Comments.Add(comm);
-            serializer.SerializeObject(Models.Models.Subforums,address + "Subforums");
+            serializer.SerializeObject(Models.Models.Subforums,"Subforums");
         }
 
         // DELETE: api/Comments/5
@@ -53,7 +52,7 @@ namespace BackEnd.Controllers
             List<Comment> list = comment.init(comment.ChildrenComments);
             comment.ChildrenComments.Clear();
             comment.ChildrenComments.AddRange(list);
-            serializer.SerializeObject(Models.Models.Subforums, address + "Subforums");
+            serializer.SerializeObject(Models.Models.Subforums,"Subforums");
 
         }
     }

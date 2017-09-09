@@ -12,7 +12,6 @@ namespace BackEnd.Controllers
     public class ComplaintsController : ApiController
     {
         DataIO serializer = new DataIO();
-        string address = @"C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\";
         // GET: api/Complaints
         public IQueryable<Complaint> Get()
         {
@@ -30,7 +29,7 @@ namespace BackEnd.Controllers
         {
             Complaint compl = JsonConvert.DeserializeObject<Complaint>(complaint.ToString());
             Models.Models.Complaints.Add(compl);
-            serializer.SerializeObject(Models.Models.Complaints,address + "Complaints");
+            serializer.SerializeObject(Models.Models.Complaints,"Complaints");
 
         }
 
@@ -40,7 +39,7 @@ namespace BackEnd.Controllers
             Complaint compl = JsonConvert.DeserializeObject<Complaint>(complaint.ToString());
             Models.Models.Complaints.Remove(Models.Models.Complaints.Where(x => x.Id == id).FirstOrDefault());
             Models.Models.Complaints.Add(compl);
-            serializer.SerializeObject(Models.Models.Complaints, address + "Complaints");
+            serializer.SerializeObject(Models.Models.Complaints,"Complaints");
         }
 
         // DELETE: api/Complaints/5
@@ -48,7 +47,7 @@ namespace BackEnd.Controllers
         public void Delete(int id)
         {
             Models.Models.Complaints.Remove(Models.Models.Complaints.Where(x => x.Id == id).FirstOrDefault());
-            serializer.SerializeObject(Models.Models.Complaints, address + "Complaints");
+            serializer.SerializeObject(Models.Models.Complaints,"Complaints");
         }
     }
 }

@@ -12,7 +12,7 @@ namespace BackEnd.Models
 {
     public class DataIO
     {
-
+        public string address = @"C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\";
         public void SerializeObject<T>(T serializableObject, string fileName)
         {
             if (serializableObject == null) { return; }
@@ -28,7 +28,7 @@ namespace BackEnd.Models
                     serializer.Serialize(stream, serializableObject);
                     stream.Position = 0;
                     xmlDocument.Load(stream);
-                    xmlDocument.Save(fileName);
+                    xmlDocument.Save(address + fileName);
                     stream.Close();
                      
                 }
@@ -49,7 +49,7 @@ namespace BackEnd.Models
                 string attributeXml = string.Empty;
 
                 XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(fileName);
+                xmlDocument.Load(address + fileName);
                 string xmlString = xmlDocument.OuterXml;
 
                 using (StringReader read = new StringReader(xmlString))
@@ -73,5 +73,6 @@ namespace BackEnd.Models
 
             return objectOut;
         }
+
     }
 }

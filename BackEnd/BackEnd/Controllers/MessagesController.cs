@@ -13,7 +13,6 @@ namespace BackEnd.Controllers
     {
 
         DataIO serializer = new DataIO();
-        string address = @"C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\";
         // GET: api/Messages
         //public IQueryable<Message> Get(int id)
         //{
@@ -53,7 +52,7 @@ namespace BackEnd.Controllers
             AppUser au = Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
             au.ReceivedMessages.Remove(au.ReceivedMessages.Where(y => y.Id == msg.Id).FirstOrDefault());
             au.ReceivedMessages.Add(msg);
-            serializer.SerializeObject(Models.Models.AppUsers, address + "AppUsers");
+            serializer.SerializeObject(Models.Models.AppUsers,"AppUsers");
             //Message msg = JsonConvert.DeserializeObject<Message>(message.ToString());
             //AppUser au = Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
             //foreach(var x in au.ReceivedMessages)
@@ -77,7 +76,7 @@ namespace BackEnd.Controllers
             //Message msg = JsonConvert.DeserializeObject<Message>(message.ToString());
             AppUser au = Models.Models.AppUsers.Where(e => e.ReceivedMessages.Where(y => y.Id == id).FirstOrDefault() == e.ReceivedMessages.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
             au.ReceivedMessages.Remove(au.ReceivedMessages.Where(y => y.Id == id).FirstOrDefault());
-            serializer.SerializeObject(Models.Models.AppUsers, address + "AppUsers");
+            serializer.SerializeObject(Models.Models.AppUsers,"AppUsers");
         }
     }
 }

@@ -14,7 +14,6 @@ namespace TestData
         static List<Subforum> Subforums = new List<Subforum>();
         static void Main(string[] args)
         {
-            string address = @"E:\Fax\Web 1\Web1 - slave\BackEnd\BackEnd\bin\";
             DataIO serializer = new DataIO();
             Random random = new Random((int)DateTime.Now.Ticks);
             AppUsers.Add(new AppUser()

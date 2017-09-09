@@ -29,8 +29,14 @@ export class TopicComponent implements OnInit{
 
     onSubmit(topic: Topic, form: NgForm) {
         
+        topic.CreationDate = new Date(Date.now());
+        topic.TopicType = TopicType.Text;
+        topic.UsersWhoVoted = new Array<AppUser>();
+
         form.reset();
-        window.location.reload();
+        this.httpTopicService.getData().subscribe(
+            (prod: any) => {this.topics = prod; console.log(this.topics)},//You can set the type to Product.
+             error => {alert("Unsuccessful fetch operation!"); console.log(error);});
         
       }
 

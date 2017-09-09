@@ -11,7 +11,7 @@ import { Comment } from '../models/comment.model';
 
 export class CommentComponent implements OnInit{
 
-    comments: Comment[];
+  comments: Comment[];
     
 
     constructor(private httpCommentService: CommentService ) {
@@ -20,7 +20,7 @@ export class CommentComponent implements OnInit{
 
     ngOnInit() {
                 
-        this.httpCommentService.getDatabyId(1722859085).subscribe(
+        this.httpCommentService.getDatabyId(1622326492).subscribe(
             (prod: any) => {this.comments = prod; console.log(this.comments)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
              
@@ -32,7 +32,7 @@ export class CommentComponent implements OnInit{
         comment.ChildrenComments = new Array<Comment>();
         comment.UsersWhoVoted = new Array<AppUser>();
 
-        this.httpCommentService.put(1722859085,comment);
+        this.httpCommentService.put(1622326492,comment);
         form.reset();
         window.location.reload();
         

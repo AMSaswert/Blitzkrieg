@@ -11,7 +11,6 @@ namespace BackEnd.Controllers
     public class TopicsController : ApiController
     {
         DataIO serializer = new DataIO();
-        string address = @"C:\Users\Saswert\Desktop\Blitzkrieg\BackEnd\TestData\bin\Debug\";
         // GET: api/Topics
         public IQueryable<Topic> Get()
         {

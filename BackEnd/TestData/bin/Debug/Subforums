@@ -7,6 +7,7 @@
     <IconURL>http://localhost:54042/Content/Icons/icon-0.ico</IconURL>
     <Rules>do w/e</Rules>
     <LeadModeratorUsername>moderator</LeadModeratorUsername>
+    <Moderators />
     <Topics>
       <Topic>
         <Id>1622326492</Id>
@@ -32,11 +33,13 @@
                 <AuthorUsername>aca</AuthorUsername>
                 <CreationDate>2017-09-07T16:24:04.0489453+02:00</CreationDate>
                 <ParentCommentId>1032557963</ParentCommentId>
+                <ChildrenComments />
                 <Text>ojsaaaaaa</Text>
                 <LikesNo>0</LikesNo>
                 <DislikesNo>0</DislikesNo>
                 <Edited>false</Edited>
                 <Removed>false</Removed>
+                <UsersWhoVoted />
               </Comment>
             </ChildrenComments>
             <Text>is gud</Text>
@@ -44,6 +47,7 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
           <Comment>
             <Id>2128822585</Id>
@@ -57,8 +61,80 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>11</Id>
+            <TopicId>123</TopicId>
+            <AuthorUsername>asdasd</AuthorUsername>
+            <CreationDate>2017-09-09T16:19:55.676Z</CreationDate>
+            <ParentCommentId>123</ParentCommentId>
+            <ChildrenComments />
+            <Text>aaaa</Text>
+            <LikesNo>111</LikesNo>
+            <DislikesNo>111</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>10</Id>
+            <TopicId>123</TopicId>
+            <AuthorUsername>asd</AuthorUsername>
+            <CreationDate>2017-09-09T16:25:07.534Z</CreationDate>
+            <ParentCommentId>123</ParentCommentId>
+            <ChildrenComments />
+            <Text>asd</Text>
+            <LikesNo>1</LikesNo>
+            <DislikesNo>2</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>11</Id>
+            <TopicId>123</TopicId>
+            <AuthorUsername>aaasd</AuthorUsername>
+            <CreationDate>2017-09-09T16:28:26.202Z</CreationDate>
+            <ParentCommentId>123</ParentCommentId>
+            <ChildrenComments />
+            <Text>dggfdg</Text>
+            <LikesNo>3</LikesNo>
+            <DislikesNo>2</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>12</Id>
+            <TopicId>123</TopicId>
+            <AuthorUsername>jggj</AuthorUsername>
+            <CreationDate>2017-09-09T16:29:38.129Z</CreationDate>
+            <ParentCommentId>123</ParentCommentId>
+            <ChildrenComments />
+            <Text>fggfgfx</Text>
+            <LikesNo>1</LikesNo>
+            <DislikesNo>1</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>13</Id>
+            <TopicId>123</TopicId>
+            <AuthorUsername>jhhjjjh</AuthorUsername>
+            <CreationDate>2017-09-09T16:32:26.089Z</CreationDate>
+            <ParentCommentId>123</ParentCommentId>
+            <ChildrenComments />
+            <Text>hkjkkbjbkj</Text>
+            <LikesNo>1</LikesNo>
+            <DislikesNo>2</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
         </Comments>
+        <UsersWhoVoted />
       </Topic>
       <Topic>
         <Id>1403866827</Id>
@@ -83,8 +159,10 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
         </Comments>
+        <UsersWhoVoted />
       </Topic>
       <Topic>
         <Id>1367123018</Id>
@@ -97,6 +175,7 @@
         <LikesNum>0</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments />
+        <UsersWhoVoted />
       </Topic>
     </Topics>
   </Subforum>
@@ -107,6 +186,7 @@
     <IconURL>http://localhost:54042/Content/Icons/icon-1.ico</IconURL>
     <Rules>w/e</Rules>
     <LeadModeratorUsername>appu</LeadModeratorUsername>
+    <Moderators />
     <Topics>
       <Topic>
         <Id>697833323</Id>
@@ -119,6 +199,7 @@
         <LikesNum>0</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments />
+        <UsersWhoVoted />
       </Topic>
       <Topic>
         <Id>967957398</Id>
@@ -143,6 +224,7 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
           <Comment>
             <Id>1198279356</Id>
@@ -156,8 +238,10 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
         </Comments>
+        <UsersWhoVoted />
       </Topic>
     </Topics>
   </Subforum>
@@ -168,6 +252,7 @@
     <IconURL>http://localhost:54042/Content/Icons/icon-2.ico</IconURL>
     <Rules>w/e</Rules>
     <LeadModeratorUsername>moderator</LeadModeratorUsername>
+    <Moderators />
     <Topics>
       <Topic>
         <Id>561399167</Id>
@@ -180,6 +265,7 @@
         <LikesNum>0</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments />
+        <UsersWhoVoted />
       </Topic>
       <Topic>
         <Id>975666227</Id>
@@ -204,6 +290,7 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
           <Comment>
             <Id>1600591319</Id>
@@ -217,8 +304,10 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
         </Comments>
+        <UsersWhoVoted />
       </Topic>
     </Topics>
   </Subforum>
@@ -229,6 +318,7 @@
     <IconURL>http://localhost:54042/Content/Icons/icon-3.ico</IconURL>
     <Rules>w/e</Rules>
     <LeadModeratorUsername>appu</LeadModeratorUsername>
+    <Moderators />
     <Topics>
       <Topic>
         <Id>404327535</Id>
@@ -241,6 +331,7 @@
         <LikesNum>0</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments />
+        <UsersWhoVoted />
       </Topic>
       <Topic>
         <Id>1346403214</Id>
@@ -265,6 +356,7 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
           <Comment>
             <Id>1944502287</Id>
@@ -278,8 +370,10 @@
             <DislikesNo>0</DislikesNo>
             <Edited>false</Edited>
             <Removed>false</Removed>
+            <UsersWhoVoted />
           </Comment>
         </Comments>
+        <UsersWhoVoted />
       </Topic>
     </Topics>
   </Subforum>
