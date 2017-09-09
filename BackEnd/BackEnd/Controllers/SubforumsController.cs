@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BackEnd.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,10 +11,12 @@ namespace BackEnd.Controllers
 {
     public class SubforumsController : ApiController
     {
+
         // GET: api/Subforums
-        public IEnumerable<string> Get()
+        DataIO serializer = new DataIO();
+        public IQueryable<Subforum> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Models.Models.Subforums.AsQueryable();
         }
 
         // GET: api/Subforums/5
@@ -22,18 +26,27 @@ namespace BackEnd.Controllers
         }
 
         // POST: api/Subforums
-        public void Post([FromBody]string value)
+        public void Post(object subforum)
         {
+            Subforum sub = JsonConvert.DeserializeObject<Subforum>(subforum.ToString());
+            Models.Models.Subforums.Add(sub);
         }
 
         // PUT: api/Subforums/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, object subforum)
         {
+            Subforum sub = JsonConvert.DeserializeObject<Subforum>(subforum.ToString());
+            Models.Models.Subforums.Remove(Models.Models.Subforums.Where(x => x.Id == sub.Id).FirstOrDefault());
+            Models.Models.Subforums.Add(sub);
+            serializer.SerializeObject(Models.Models.Subforums, "Subforums");
         }
 
         // DELETE: api/Subforums/5
+        [HttpDelete]
         public void Delete(int id)
         {
+            Models.Models.Subforums.Remove(Models.Models.Subforums.Where(x => x.Id == id).FirstOrDefault());
+            serializer.SerializeObject(Models.Models.Subforums, "Subforums");
         }
     }
 }

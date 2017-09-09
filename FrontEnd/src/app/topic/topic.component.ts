@@ -32,22 +32,24 @@ export class TopicComponent implements OnInit{
         topic.CreationDate = new Date(Date.now());
         topic.TopicType = TopicType.Text;
         topic.UsersWhoVoted = new Array<AppUser>();
-
+        this.httpTopicService.put(1746868181,topic);
         form.reset();
-        this.httpTopicService.getData().subscribe(
-            (prod: any) => {this.topics = prod; console.log(this.topics)},//You can set the type to Product.
-             error => {alert("Unsuccessful fetch operation!"); console.log(error);});
+        window.location.reload();
         
       }
 
       edit(topic: Topic, form: NgForm) {
         
+        this.httpTopicService.put(1746868181,topic);
                  
          form.reset();
          window.location.reload();
        }
 
        delete(topic: Topic, form: NgForm) {
-        
+       this.httpTopicService.delete(topic.Id);
+                 
+         form.reset();
+         window.location.reload();
        }
 }

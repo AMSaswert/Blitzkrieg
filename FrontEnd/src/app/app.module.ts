@@ -11,12 +11,14 @@ import { AppUserComponent } from './appUser/appUser.component';
 import { CommentComponent } from './comment/comment.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { TopicComponent } from './topic/topic.component';
+import { SubforumComponent } from './subforum/subforum.component';
 
 import {MessageService} from './services/message.service';
 import {AppUserService} from './services/appUser.service';
 import {CommentService} from './services/comment.service';
 import {ComplaintService} from './services/complaint.service';
 import {TopicService} from './services/topic.service';
+import {SubforumService} from './services/subforum.service';
 
 
 
@@ -26,6 +28,7 @@ const Routes = [
   {path: "comment", component: CommentComponent},
   {path: "complaint", component: ComplaintComponent},
   {path: "topic", component: TopicComponent},
+  {path: "subforum", component: SubforumComponent},
 ]
 
 @NgModule({
@@ -36,6 +39,7 @@ const Routes = [
     CommentComponent,
     ComplaintComponent,
     TopicComponent,
+    SubforumComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,7 @@ const Routes = [
     RouterModule.forRoot(Routes)
   ],
   providers: [MessageService,AppUserService,CommentService,ComplaintService,
-  TopicService],
+  TopicService,SubforumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
