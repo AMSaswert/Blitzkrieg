@@ -27,14 +27,7 @@ export class MessageService{
         headers.append('Content-type', 'application/json');
         return this.http
         .put(`http://localhost:13124//api/Messages/${id}`,
-        JSON.stringify({
-            Id : data.Id,
-            SenderUsername : data.SenderUsername,
-            RecipientUsername : data.RecipientUsername,
-            Content : data.Content,
-            Seen : data.Seen
-
-        }),{headers:headers})
+        JSON.stringify(data),{headers:headers})
         .toPromise()
         .then(res => res.json() as Message);
     }

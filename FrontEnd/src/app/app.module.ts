@@ -6,11 +6,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { MessageComponent } from './message/message.component';
+import { MessagesComponent } from './message/messages.component';
+import { MessageComponent } from './message/message-send.component';
 import { AppUserComponent } from './appUser/appUser.component';
 import { CommentComponent } from './comment/comment.component';
-import { ComplaintComponent } from './complaint/complaint.component';
+import { ComplaintsComponent } from './complaint/complaints.component';
+import { TopicsComponent } from './topic/topics.component';
 import { TopicComponent } from './topic/topic.component';
+import { SubforumsComponent } from './subforum/subforums.component';
 import { SubforumComponent } from './subforum/subforum.component';
 
 import {MessageService} from './services/message.service';
@@ -23,22 +26,28 @@ import {SubforumService} from './services/subforum.service';
 
 
 const Routes = [
-  {path: "message", component: MessageComponent},
+  {path: "messages", component: MessagesComponent},
+  {path: "message-send", component:MessageComponent},
   {path: "appUser", component: AppUserComponent},
   {path: "comment", component: CommentComponent},
-  {path: "complaint", component: ComplaintComponent},
-  {path: "topic", component: TopicComponent},
-  {path: "subforum", component: SubforumComponent},
+  {path: "complaints", component: ComplaintsComponent},
+  {path: "topics", component: TopicsComponent},
+  {path: "topic/:id", component: TopicComponent},
+  {path: "subforums", component: SubforumsComponent},
+  {path: "subforum/:id", component: SubforumComponent},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
+    MessagesComponent,
     MessageComponent,
     AppUserComponent,
     CommentComponent,
-    ComplaintComponent,
+    ComplaintsComponent,
+    TopicsComponent,
     TopicComponent,
+    SubforumsComponent,
     SubforumComponent,
   ],
   imports: [

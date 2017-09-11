@@ -1,55 +1,35 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { NgZone } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import {TopicService} from '../services/topic.service';
-import { AppUser } from '../models/appUser.model';
-import { Comment } from '../models/comment.model';
-import { Topic,TopicType } from '../models/topic.model';
+import { Subforum } from '../models/subforum.model';
+import { Topic } from '../models/topic.model';
+import { ActivatedRoute, Params } from '@angular/router';
 @Component({
     selector: 'app-topic',
     templateUrl: './topic.component.html',
-    providers: [TopicService]
+    providers: [TopicService],
   })
 
 export class TopicComponent implements OnInit{
 
-    topics: Topic[];
-    
+    topic: Topic;
+    topicId : number;
+    sub:any;
+    constructor(private httpService: TopicService,private route: ActivatedRoute) {
 
-    constructor(private httpTopicService: TopicService ) {
     }
-
 
     ngOnInit() {
-                
-        this.httpTopicService.getData().subscribe(
-            (prod: any) => {this.topics = prod; console.log(this.topics)},//You can set the type to Product.
-             error => {alert("Unsuccessful fetch operation!"); console.log(error);});
-             
+        this.route.params.subscribe(params => {
+            this.topicId = +params['id'] ;  });
+            
+            this.httpService.getDatabyId(this.topicId).subscribe(
+                (prod: any) => {this.topic = prod; console.log(this.topic)},//You can set the type to Product.
+                 error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+            
     }
 
-    onSubmit(topic: Topic, form: NgForm) {
-        
-        topic.CreationDate = new Date(Date.now());
-        topic.TopicType = TopicType.Text;
-        topic.UsersWhoVoted = new Array<AppUser>();
-        this.httpTopicService.put(1746868181,topic);
-        form.reset();
-        window.location.reload();
-        
-      }
-
-      edit(topic: Topic, form: NgForm) {
-        
-        this.httpTopicService.put(1746868181,topic);
-                 
-         form.reset();
-         window.location.reload();
-       }
-
-       delete(topic: Topic, form: NgForm) {
-       this.httpTopicService.delete(topic.Id);
-                 
-         form.reset();
-         window.location.reload();
-       }
+   
 }

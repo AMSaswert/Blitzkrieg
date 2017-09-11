@@ -1,0 +1,27 @@
+<div>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+          <tr>
+
+                  <td>
+                  <label for="SenderUsername">SenderUsername</label>
+                  <input type="text" name="SenderUsername" ngModel>
+                   </td>
+                  <td>
+                  <td>RecipientUsername:</td>
+                  <td><select id='recipient'><option  *ngFor="let user of appusers" 
+                  [value]="user.Id">   {{user.UserName}}</option>
+                       </select>
+                  </td>
+                  <td>
+                  <label for="Content">Content</label>
+                  <input type="text" name="Content" ngModel>
+                   </td>
+                  <td>
+                      <input type="submit" >
+                  </td>
+          </tr>
+      
+          
+      
+      </form>
+      </div>

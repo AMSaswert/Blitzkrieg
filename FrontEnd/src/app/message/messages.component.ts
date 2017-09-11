@@ -3,12 +3,12 @@ import {NgForm} from '@angular/forms';
 import {MessageService} from '../services/message.service';
 import { Message } from '../models/message.model';
 @Component({
-    selector: 'app-message',
-    templateUrl: './message.component.html',
+    selector: 'app-messages',
+    templateUrl: './messages.component.html',
     providers: [MessageService]
   })
 
-export class MessageComponent implements OnInit{
+export class MessagesComponent implements OnInit{
 
     messages: Message[];
 
@@ -19,13 +19,13 @@ export class MessageComponent implements OnInit{
     ngOnInit() {
         
         
-       /* this.httpMessageService.getDatabyId(1861725323).subscribe(
+        this.httpMessageService.getDatabyId(1956481846).subscribe(
             (prod: any) => {this.messages = prod; console.log(this.messages)},//You can set the type to Product.
-             error => {alert("Unsuccessful fetch operation!"); console.log(error);});*/
+             error => {alert("Unsuccessful fetch operation!"); console.log(error);});
     }
 
     onSubmit(msg: Message, form: NgForm) {
-        this.httpMessageService.create(1861725323,msg);
+        this.httpMessageService.create(1956481846,msg);
         
         form.reset();
         window.location.reload();
@@ -35,7 +35,7 @@ export class MessageComponent implements OnInit{
       edit(msg: Message, form: NgForm) {
        
         msg.Seen = true;
-        this.httpMessageService.update(1861725323,msg);
+        this.httpMessageService.update(1956481846,msg);
                 
         form.reset();
         window.location.reload();

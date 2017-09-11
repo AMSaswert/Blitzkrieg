@@ -1,0 +1,103 @@
+
+<div>
+    
+<li *ngFor="let subforum of subforums">
+    <a [attr.href]="'http://localhost:4200/subforum/' + subforum.Id" >{{subforum.Name}}</a>
+    <span>{{subforum.Description}}</span>
+    <span>{{subforum.IconURL}}</span>
+    <span>{{subforum.Rules}}</span>
+    <span>{{subforum.LeadModeratorUsername}}</span>
+  </li>
+</div>
+
+  <div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+      <tr>
+            <td>
+              <label for="Id">Id</label>
+              <input type="text" name="Id" ngModel>
+              </td>
+              <td>
+              <label for="Name">Name</label>
+              <input type="text" name="Name" ngModel>
+               </td>
+              <td>
+              <label for="Description">Description</label>
+              <input type="text" name="Description" ngModel>
+              </td>
+              <td>
+              <label for="IconURL">IconURL</label>
+              <input type="text" name="IconURL" ngModel>
+               </td>
+               <td>
+                <label for="Rules">Rules</label>
+                <input type="text" name="Rules" ngModel>
+                </td>
+                <td>
+                <label for="LeadModeratorUsername">LeadModeratorUsername</label>
+                <input type="text" name="LeadModeratorUsername" ngModel>
+                 </td>
+              <td>
+                  <input type="submit" >
+              </td>
+      </tr>
+  
+      
+  
+  </form>
+  </div>
+
+
+  <div>
+    <form #d="ngForm" (ngSubmit)="edit(d.value, d)">
+      <tr>
+            <td>
+              <label for="Id">Id</label>
+              <input type="text" name="Id" ngModel>
+              </td>
+              <td>
+              <label for="Name">Name</label>
+              <input type="text" name="Name" ngModel>
+               </td>
+              <td>
+              <label for="Description">Description</label>
+              <input type="text" name="Description" ngModel>
+              </td>
+              <td>
+              <label for="IconURL">IconURL</label>
+              <input type="text" name="IconURL" ngModel>
+               </td>
+               <td>
+                <label for="Rules">Rules</label>
+                <input type="text" name="Rules" ngModel>
+                </td>
+                <td>
+                <label for="LeadModeratorUsername">LeadModeratorUsername</label>
+                <input type="text" name="LeadModeratorUsername" ngModel>
+                 </td>
+              <td>
+                  <input type="submit" >
+              </td>
+      </tr>
+  
+      
+  
+  </form>
+  </div>
+
+  <div>
+    <form #z="ngForm" (ngSubmit)="delete(z.value, z)">
+    <tr>
+          <td>
+            <label for="Id">Id</label>
+            <input type="text" name="Id" ngModel>
+            </td>
+            <td>
+                <input type="submit" >
+            </td>
+    </tr>
+
+    
+
+</form>
+</div>

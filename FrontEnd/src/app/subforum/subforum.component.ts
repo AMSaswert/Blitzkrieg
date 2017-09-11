@@ -1,52 +1,36 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { NgZone } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import {SubforumService} from '../services/subforum.service';
 import { Subforum } from '../models/subforum.model';
 import { Topic } from '../models/topic.model';
+import { ActivatedRoute, Params } from '@angular/router';
 @Component({
     selector: 'app-subforum',
     templateUrl: './subforum.component.html',
-    providers: [SubforumService]
+    providers: [SubforumService],
   })
 
 export class SubforumComponent implements OnInit{
 
-    subforums: Subforum[];
-    
+    subforum : Subforum;
+    topics : Topic[] = [];
+    subforumId : number;
+    sub:any;
+    constructor(private httpSubforumService: SubforumService,private route: ActivatedRoute) {
 
-    constructor(private httpSubforumService: SubforumService ) {
     }
-
 
     ngOnInit() {
-                
-        this.httpSubforumService.getData().subscribe(
-            (prod: any) => {this.subforums = prod; console.log(this.subforums)},//You can set the type to Product.
-             error => {alert("Unsuccessful fetch operation!"); console.log(error);});
-             
+        this.route.params.subscribe(params => {
+            this.subforumId = +params['id'] ;  });
+            
+            this.httpSubforumService.getDatabyId(this.subforumId).subscribe(
+                (prod: any) => {this.subforum = prod; console.log(this.subforum)},//You can set the type to Product.
+                 error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+            
     }
 
-    onSubmit(subforum: Subforum, form: NgForm) {
-        
-        subforum.Moderators = new Array<string>();
-        subforum.Topics = new Array<Topic>();
-        this.httpSubforumService.post(subforum);
-        form.reset();
-        window.location.reload();
-        
-      }
-
-      edit(subforum: Subforum, form: NgForm) {
-        
-         this.httpSubforumService.put(subforum.Id,subforum);        
-         form.reset();
-         window.location.reload();
-       }
-
-       delete(subforum: Subforum, form: NgForm) {
-        
-         this.httpSubforumService.delete(subforum.Id);
-         form.reset();
-         window.location.reload();
-       }
+   
 }

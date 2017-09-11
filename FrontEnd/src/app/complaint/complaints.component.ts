@@ -1,18 +1,19 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ComplaintService} from '../services/complaint.service';
+import {ComplaintsHelpService} from '../services/complaints-help.service';
 import { Complaint,EntityType } from '../models/complaint.model';
 @Component({
-    selector: 'app-complaint',
-    templateUrl: './complaint.component.html',
-    providers: [ComplaintService]
+    selector: 'app-complaints',
+    templateUrl: './complaints.component.html',
+    providers: [ComplaintService,ComplaintsHelpService]
   })
 
-export class ComplaintComponent implements OnInit{
+export class ComplaintsComponent implements OnInit{
 
     complaints: Complaint[];
-
-    constructor(private httpComplaintService: ComplaintService ) {
+    moderator : string;
+    constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService ) {
     }
 
 
@@ -21,6 +22,10 @@ export class ComplaintComponent implements OnInit{
         this.httpComplaintService.getData().subscribe(
             (prod: any) => {this.complaints = prod; console.log(this.complaints)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
+
+        this.httpComplaintsHelpService.getDatabyId(1622326492).subscribe(
+            (prod: any) => {this.moderator = prod; console.log(this.moderator)},//You can set the type to Product.
+             error => {alert("Unsuccessful fetch operation!"); console.log(error);});    
              
     }
 

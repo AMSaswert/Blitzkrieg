@@ -16,7 +16,7 @@ namespace BackEnd.Controllers
         public IQueryable<Topic> Get()
         {
             List<Topic> topics = new List<Topic>();
-            foreach(var x in Models.Models.Subforums)
+            foreach (var x in Models.Models.Subforums)
             {
                 topics.AddRange(x.Topics);
             }
@@ -24,15 +24,17 @@ namespace BackEnd.Controllers
         }
 
         // GET: api/Topics/5
-        public string Get(int id)
+        public Topic Get(int id)
         {
-            return "value";
+            Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
+
+            return sub.Topics.Where(x => x.Id == id).FirstOrDefault();
         }
 
         // POST: api/Topics
         //public void Post(object topic)
         //{
-           
+
 
         //}
 
