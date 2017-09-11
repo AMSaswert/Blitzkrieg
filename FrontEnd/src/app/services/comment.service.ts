@@ -44,12 +44,12 @@ export class CommentService{
         .then(res => res.json() as Comment);
     }
 
-    delete(topicId:number,commentId): Promise<any> {
+    delete(Id:number): Promise<any> {
         const headers: Headers = new Headers();
         
         headers.append('Content-type', 'application/json');
         return this.http
-        .delete(`http://localhost:13124//api/Comments/${topicId}/${commentId}`,{headers:headers})
+        .delete(`http://localhost:13124//api/Comments/${Id}`,{headers:headers})
         .toPromise();
     }
 

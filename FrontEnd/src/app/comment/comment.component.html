@@ -7,6 +7,7 @@
         <span>{{comment.Text}}</span>
         <span>{{comment.LikesNo}}</span>
         <span>{{comment.DislikesNo}}</span>
+        <span>{{comment.Removed}}</span>
       </li>
 
 
@@ -53,9 +54,13 @@
     </div>
 
 <div>
-    <form #d="ngForm" (ngSubmit)="delete(d.value, d)">
+    delete
+    <form #z="ngForm" (ngSubmit)="delete(z.value, z)">
         <tr>
-
+            <td>
+                <label for="Id">Id</label>
+                <input type="text" name="Id" ngModel>
+                </td>
             <td>
                 <input type="submit" >
             </td>

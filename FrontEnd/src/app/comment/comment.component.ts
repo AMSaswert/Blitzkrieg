@@ -32,7 +32,7 @@ export class CommentComponent implements OnInit{
         comment.ChildrenComments = new Array<Comment>();
         comment.UsersWhoVoted = new Array<AppUser>();
 
-        this.httpCommentService.put(1622326492,comment);
+        this.httpCommentService.put(231651,comment);
         form.reset();
         window.location.reload();
         
@@ -48,6 +48,8 @@ export class CommentComponent implements OnInit{
 
        delete(comment: Comment, form: NgForm) {
          
-         this.httpCommentService.delete(1722859085,703184974);
+         this.httpCommentService.delete(comment.Id);
+         form.reset();
+         window.location.reload();
        }
 }
