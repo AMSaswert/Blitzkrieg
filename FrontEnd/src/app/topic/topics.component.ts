@@ -29,10 +29,11 @@ export class TopicsComponent implements OnInit{
 
     onSubmit(topic: Topic, form: NgForm) {
         
+        
         topic.CreationDate = new Date(Date.now());
         topic.TopicType = TopicType.Text;
         topic.UsersWhoVoted = new Array<AppUser>();
-        this.httpTopicService.put(1746868181,topic);
+        this.httpTopicService.put(topic.SubforumId,topic);
         form.reset();
         window.location.reload();
         
@@ -40,7 +41,7 @@ export class TopicsComponent implements OnInit{
 
       edit(topic: Topic, form: NgForm) {
         
-        this.httpTopicService.put(1746868181,topic);
+        this.httpTopicService.put(topic.SubforumId,topic);
                  
          form.reset();
          window.location.reload();
@@ -52,4 +53,9 @@ export class TopicsComponent implements OnInit{
          form.reset();
          window.location.reload();
        }
+
+       
+    getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 }

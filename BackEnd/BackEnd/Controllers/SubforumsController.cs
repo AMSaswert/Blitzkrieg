@@ -20,9 +20,9 @@ namespace BackEnd.Controllers
         }
 
         // GET: api/Subforums/5
-        public string Get(int id)
+        public Subforum Get(int id)
         {
-            return "value";
+            return Models.Models.Subforums.Where(x => x.Id == id).FirstOrDefault();
         }
 
         // POST: api/Subforums

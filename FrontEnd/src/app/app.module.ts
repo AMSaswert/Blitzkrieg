@@ -6,7 +6,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './message/messages.component';
 import { MessageComponent } from './message/message-send.component';
 import { AppUserComponent } from './appUser/appUser.component';
 import { CommentComponent } from './comment/comment.component';
@@ -26,7 +25,6 @@ import {SubforumService} from './services/subforum.service';
 
 
 const Routes = [
-  {path: "messages", component: MessagesComponent},
   {path: "message-send", component:MessageComponent},
   {path: "appUser", component: AppUserComponent},
   {path: "comment", component: CommentComponent},
@@ -40,7 +38,6 @@ const Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    MessagesComponent,
     MessageComponent,
     AppUserComponent,
     CommentComponent,

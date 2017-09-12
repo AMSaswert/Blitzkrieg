@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import {SubforumService} from '../services/subforum.service';
 import { Subforum } from '../models/subforum.model';
 import { Topic } from '../models/topic.model';
+import { Complaint,EntityType } from '../models/complaint.model';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
@@ -18,6 +19,12 @@ import { Router } from '@angular/router';
 export class SubforumsComponent implements OnInit{
 
 @Input()  subforums: Subforum[];
+
+complaint : Complaint;
+authorUsername: string;
+entityId: number;
+
+
     constructor(private httpSubforumService: SubforumService,private router:Router) {
 
     }
@@ -78,4 +85,9 @@ export class SubforumsComponent implements OnInit{
         
         this.router.navigate(['/subforum-topics',id]);
        }*/
+
+       sendComplaint()
+       {
+        
+       }
 }

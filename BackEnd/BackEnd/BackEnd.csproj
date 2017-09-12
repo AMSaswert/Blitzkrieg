@@ -196,6 +196,7 @@
     <Compile Include="Controllers\AppUsersController.cs" />
     <Compile Include="Controllers\CommentsController.cs" />
     <Compile Include="Controllers\ComplaintsController.cs" />
+    <Compile Include="Controllers\ComplaintsHelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\SubforumsController.cs" />

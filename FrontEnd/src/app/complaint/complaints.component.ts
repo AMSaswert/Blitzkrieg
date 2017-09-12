@@ -23,9 +23,9 @@ export class ComplaintsComponent implements OnInit{
             (prod: any) => {this.complaints = prod; console.log(this.complaints)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
 
-        this.httpComplaintsHelpService.getDatabyId(1622326492).subscribe(
+      /*  this.httpComplaintsHelpService.getDatabyId(1622326492).subscribe(
             (prod: any) => {this.moderator = prod; console.log(this.moderator)},//You can set the type to Product.
-             error => {alert("Unsuccessful fetch operation!"); console.log(error);});    
+             error => {alert("Unsuccessful fetch operation!"); console.log(error);});   */  
              
     }
 

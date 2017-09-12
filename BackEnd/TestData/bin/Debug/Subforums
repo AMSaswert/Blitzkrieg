@@ -177,6 +177,18 @@
         <Comments />
         <UsersWhoVoted />
       </Topic>
+      <Topic>
+        <Id>123</Id>
+        <SubforumId>1746868181</SubforumId>
+        <Name />
+        <TopicType>Text</TopicType>
+        <AuthorUsername />
+        <Content />
+        <CreationDate>2017-09-12T13:24:48.315Z</CreationDate>
+        <LikesNum>123</LikesNum>
+        <DislikesNum>123</DislikesNum>
+        <UsersWhoVoted />
+      </Topic>
     </Topics>
   </Subforum>
   <Subforum>

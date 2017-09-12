@@ -14,19 +14,20 @@ namespace BackEnd.Controllers
 
         DataIO serializer = new DataIO();
         // GET: api/Messages
-        //public IQueryable<Message> Get(int id)
-        //{
-        //    AppUser au =  Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
-        //    return au.ReceivedMessages.AsQueryable();
-        //    //List<Message> temp = new List<Message>();
-        //    //foreach(var s  in Models.Models.Subforums)
-        //    //{
-        //    //    foreach(var t in s.Topics)
-        //    //    {
-        //    //        temp.Add(t.)
-        //    //    }
-        //    //}
-        //}
+        public IQueryable<Message> Get(int id)
+        {
+            AppUser au = Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
+            List<Message> list = au.ReceivedMessages;
+            return list.AsQueryable();
+            //List<Message> temp = new List<Message>();
+            //foreach(var s  in Models.Models.Subforums)
+            //{
+            //    foreach(var t in s.Topics)
+            //    {
+            //        temp.Add(t.)
+            //    }
+            //}
+        }
 
         // GET: api/Messages/5
         //public string Get(int id)
@@ -46,13 +47,24 @@ namespace BackEnd.Controllers
 
         //PUT: api/Messages/5
         [HttpPut]
-        public void Put(int id, Object message)
+        public IHttpActionResult Put(int id, Object message)
         {
             Message msg = JsonConvert.DeserializeObject<Message>(message.ToString());
             AppUser au = Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
-            au.ReceivedMessages.Remove(au.ReceivedMessages.Where(y => y.Id == msg.Id).FirstOrDefault());
-            au.ReceivedMessages.Add(msg);
-            serializer.SerializeObject(Models.Models.AppUsers,"AppUsers");
+            //au.ReceivedMessages.Remove(au.ReceivedMessages.Where(y => y.Id == msg.Id).FirstOrDefault());
+            //au.ReceivedMessages.Add(msg);
+            Message temp = au.ReceivedMessages.Where(y => y.Id == msg.Id).FirstOrDefault();
+            if (temp == null)
+            {
+                au.ReceivedMessages.Add(msg);
+            }
+            else
+            {
+                au.ReceivedMessages[au.ReceivedMessages.IndexOf(temp)] = msg;
+            }
+
+            serializer.SerializeObject(Models.Models.AppUsers, "AppUsers");
+            return Ok("Message recivied.");
             //Message msg = JsonConvert.DeserializeObject<Message>(message.ToString());
             //AppUser au = Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
             //foreach(var x in au.ReceivedMessages)
@@ -76,7 +88,7 @@ namespace BackEnd.Controllers
             //Message msg = JsonConvert.DeserializeObject<Message>(message.ToString());
             AppUser au = Models.Models.AppUsers.Where(e => e.ReceivedMessages.Where(y => y.Id == id).FirstOrDefault() == e.ReceivedMessages.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
             au.ReceivedMessages.Remove(au.ReceivedMessages.Where(y => y.Id == id).FirstOrDefault());
-            serializer.SerializeObject(Models.Models.AppUsers,"AppUsers");
+            serializer.SerializeObject(Models.Models.AppUsers, "AppUsers");
         }
     }
 }

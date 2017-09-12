@@ -2,6 +2,7 @@
 <div>
     
 <li *ngFor="let subforum of subforums">
+    <span>{{subforum.Id}}</span>
     <a [attr.href]="'http://localhost:4200/subforum/' + subforum.Id" >{{subforum.Name}}</a>
     <span>{{subforum.Description}}</span>
     <span>{{subforum.IconURL}}</span>
