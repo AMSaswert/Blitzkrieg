@@ -6,9 +6,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
-import { MessageComponent } from './message/message-send.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { MessageSendComponent } from './message/message-send.component';
+import { MessageReceivedComponent } from './message/message-received.component';
 import { AppUserComponent } from './appUser/appUser.component';
 import { CommentComponent } from './comment/comment.component';
+import { CommentListComponent } from './comment/comment-list.component';
 import { ComplaintsComponent } from './complaint/complaints.component';
 import { TopicsComponent } from './topic/topics.component';
 import { TopicComponent } from './topic/topic.component';
@@ -25,20 +29,26 @@ import {SubforumService} from './services/subforum.service';
 
 
 const Routes = [
-  {path: "message-send", component:MessageComponent},
+  {path: "register", component:RegisterComponent},
+  {path: "login", component:LoginComponent},
+  {path: "message-send", component:MessageSendComponent},
+  {path: "message-received", component:MessageReceivedComponent},
   {path: "appUser", component: AppUserComponent},
   {path: "comment", component: CommentComponent},
   {path: "complaints", component: ComplaintsComponent},
   {path: "topics", component: TopicsComponent},
   {path: "topic/:id", component: TopicComponent},
-  {path: "subforums", component: SubforumsComponent},
+  {path: "home", component: SubforumsComponent},
   {path: "subforum/:id", component: SubforumComponent},
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessageComponent,
+    LoginComponent,
+    RegisterComponent,
+    MessageSendComponent,
+    MessageReceivedComponent,
     AppUserComponent,
     CommentComponent,
     ComplaintsComponent,
@@ -46,6 +56,7 @@ const Routes = [
     TopicComponent,
     SubforumsComponent,
     SubforumComponent,
+    CommentListComponent,
   ],
   imports: [
     BrowserModule,

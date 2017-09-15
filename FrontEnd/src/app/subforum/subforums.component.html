@@ -11,6 +11,26 @@
   </li>
 </div>
 
+<div *ngIf = "isLoggedIn()">
+  <tr>
+    <td>Subforum to complaint:</td>
+    <td><select id='complaintsub'><option  *ngFor="let sub of subforums" 
+    [value]="sub.Id">   {{sub.Name}}</option>
+         </select>
+    </td>
+
+    <td>
+    <label for="complaintText">complaintText</label>
+    <input type="text" [(ngModel)] = "complaintText">
+    </td>
+
+    <td>
+    <button (click)="complaintSend()">Send complaint</button>
+    </td>
+  </tr>
+
+</div>
+
   <div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
       <tr>

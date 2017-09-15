@@ -1,0 +1,36 @@
+<div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+        <tr>
+            <td>
+            <label for="UserName">UserName</label>
+            <input type="text" name="UserName" ngModel required>
+            </td>
+            <td>
+            <label for="Email">Email</label>
+            <input type="text" name="Email" ngModel required>
+            </td>
+            <td>
+            <label for="Password">Password</label>
+            <input type="text" name="Password" ngModel required>
+            </td>
+            <td>
+            <label for="Name">Name</label>
+            <input type="text" name="Name" ngModel required>
+            </td>
+            <td>
+            <label for="Surname">Surname</label>
+            <input type="text" name="Surname" ngModel required>
+            </td>
+            <td>
+            <label for="ContactPhone">ContactPhone</label>
+            <input type="text" name="ContactPhone" ngModel required>
+            </td>
+            <td>
+                <input type="submit" >
+            </td>
+        </tr>
+    
+        
+    
+    </form>
+    </div>

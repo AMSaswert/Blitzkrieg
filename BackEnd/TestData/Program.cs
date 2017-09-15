@@ -145,7 +145,8 @@ namespace TestData
                 CreationDate = DateTime.Now,
                 LikesNum = 0,
                 DislikesNum = 0,
-                Comments = new List<Comment>()
+                Comments = new List<Comment>(),
+                UsersWhoVoted = new List<string>()
             });
         }
 
@@ -170,7 +171,8 @@ namespace TestData
                 TopicId = sub.Topics[index].Id,
                 CreationDate = DateTime.Now,
                 AuthorUsername = authorUsername,
-                ChildrenComments = new List<Comment>()
+                ChildrenComments = new List<Comment>(),
+                UsersWhoVoted = new List<string>()
             });
         }
 
@@ -183,7 +185,8 @@ namespace TestData
                 TopicId = sub.Topics[index].Id,
                 CreationDate = DateTime.Now,
                 AuthorUsername = authorUsername,
-                ParentCommentId = parentCommentId
+                ParentCommentId = parentCommentId,
+                UsersWhoVoted = new List<string>()
             });
         }
     }

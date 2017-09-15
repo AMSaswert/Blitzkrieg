@@ -5,23 +5,24 @@ import {AppUserService} from '../services/appUser.service';
 import { AppUser } from '../models/appUser.model';
 import { Comment } from '../models/comment.model';
 @Component({
-    selector: 'app-comment',
-    templateUrl: './comment.component.html',
+    selector: 'app-comment-list',
+    templateUrl: './comment-list.component.html',
+    providers: [CommentService]
   })
 
-export class CommentComponent implements OnInit{
+export class CommentListComponent implements OnInit{
 
- @Input() comments: Comment[] = [];
-    
+  @Input()childrenComments : Comment[] = [];
 
-    constructor(private httpAppUserService : AppUserService,private httpCommentService : CommentService ) {
+    constructor(private httpCommentService: CommentService,private httpAppUserService : AppUserService ) {
     }
 
 
     ngOnInit() {
-      
+                
              
     }
+
 
     isLoggedIn() : boolean
     {
@@ -51,10 +52,6 @@ export class CommentComponent implements OnInit{
       return false;
     }
 
-    getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
     deleteAuth(comment : Comment): boolean
     {
       if(comment.AuthorUsername == sessionStorage.getItem("username") || "Admin" == sessionStorage.getItem("role") || 
@@ -68,32 +65,4 @@ export class CommentComponent implements OnInit{
       this.httpCommentService.delete(commentId);
     }
 
-    /*
-    onSubmit(comment: Comment, form: NgForm) {
-
-        comment.CreationDate = new Date(Date.now());
-        comment.ChildrenComments = new Array<Comment>();
-        comment.UsersWhoVoted = new Array<string>();
-
-        this.httpCommentService.put(231651,comment);
-        form.reset();
-        window.location.reload();
-        
-      }
-
-      edit(user: AppUser, form: NgForm) {
-        
-    
-                 
-         form.reset();
-         window.location.reload();
-       }
-
-       delete(comment: Comment, form: NgForm) {
-         
-         this.httpCommentService.delete(comment.Id);
-         form.reset();
-         window.location.reload();
-       }
-       */
 }

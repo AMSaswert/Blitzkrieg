@@ -1,22 +1,17 @@
-<li>
-    <span>{{topic.Id}}</span>
-    <span>{{topic.SubforumId}}</span>
-    <span>{{topic.Name}}</span>
-    <span>{{topic.TopicType}}</span>
-    <span>{{topic.AuthorUsername}}</span>
-    <span>{{topic.Content}}</span>
-    <span>{{topic.CreationDate}}</span>
-    <span>{{topic.LikesNum}}</span>
-    <span>{{topic.DislikesNum}}</span>
-</li>
 
-<li *ngFor = "let comment of topic.Comments">
-        <span>{{comment.Id}}</span>
-        <span>{{comment.TopicId}}</span>
-        <span>{{comment.AuthorUsername}}</span>
-        <span>{{comment.CreationDate}}</span>
-        <span>{{comment.ParentCommentId}}</span>
-        <span>{{comment.Text}}</span>
-        <span>{{comment.LikesNo}}</span>
-        <span>{{comment.DislikesNo}}</span>
-</li>
+<app-comment [comments] = "comments"></app-comment>
+
+
+<div *ngIf = "isLoggedIn()">
+        <td>
+        <label for="content">Content:</label>
+        <input type="text" [(ngModel)] = "content">
+        </td>
+        
+        <td>
+        <button (click)="sendComment()">Add comment</button>
+        </td>
+</div>
+
+
+   

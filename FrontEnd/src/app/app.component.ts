@@ -1,7 +1,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {MessageService} from './services/message.service';
-
+import {AppUserService} from './services/appUser.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,11 +9,29 @@ import {MessageService} from './services/message.service';
 })
 export class AppComponent {
   
-      constructor() {}
+      constructor(private httpAppUserService: AppUserService,private router: Router) {}
   
   
       ngOnInit() {
   
+      }
+
+      isLoggedIn() : boolean
+      {
+        return this.httpAppUserService.isLoggedIn();
+      }
+
+      logOut() : void
+      {
+        this.httpAppUserService.logOut();
+        this.router.navigate(['/home']);
+      }
+
+      authRole() : boolean
+      {
+        if("Admin" == sessionStorage.getItem("role") )
+          return true;
+        return false;
       }
   
 }

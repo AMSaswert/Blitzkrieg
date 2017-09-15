@@ -13,6 +13,8 @@ export class ComplaintsComponent implements OnInit{
 
     complaints: Complaint[];
     moderator : string;
+    types :string[];
+    //entityType : typeof EntityType = EntityType;
     constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService ) {
     }
 
@@ -22,7 +24,9 @@ export class ComplaintsComponent implements OnInit{
         this.httpComplaintService.getData().subscribe(
             (prod: any) => {this.complaints = prod; console.log(this.complaints)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
-
+        var options = Object.keys(EntityType);
+        this.types = options.slice(options.length/2);
+        
       /*  this.httpComplaintsHelpService.getDatabyId(1622326492).subscribe(
             (prod: any) => {this.moderator = prod; console.log(this.moderator)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});   */  
@@ -30,7 +34,6 @@ export class ComplaintsComponent implements OnInit{
     }
 
     onSubmit(complaint: Complaint, form: NgForm) {
-
         complaint.CreationDate = new Date(Date.now());
         complaint.EntityType = EntityType.Comment;
         this.httpComplaintService.post(complaint);

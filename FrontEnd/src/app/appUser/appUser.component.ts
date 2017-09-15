@@ -20,7 +20,7 @@ export class AppUserComponent implements OnInit{
 
     ngOnInit() {
                 
-        this.httpAppUserService.getDatabyId().subscribe(
+        this.httpAppUserService.getData().subscribe(
             (prod: any) => {this.appUsers = prod; console.log(this.appUsers)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
              

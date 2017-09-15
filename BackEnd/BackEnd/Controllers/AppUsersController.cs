@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace BackEnd.Controllers
 {
@@ -22,18 +23,32 @@ namespace BackEnd.Controllers
         }
 
         // GET: api/AppUsers/5
-        public string Get(int id)
+        [ResponseType(typeof(AppUser))]
+        public IHttpActionResult Get(string username, string password)
         {
-            return "value";
+            AppUser user = Models.Models.AppUsers.Where(x => x.UserName == username && x.Password == password).FirstOrDefault() as AppUser;
+            if (user != null)
+                return Ok(user);
+            return null;
+
         }
 
         // POST: api/AppUsers
         [HttpPost]
-        public void Post(object user)
+        public IHttpActionResult Post(object user)
         {
             AppUser appuser = JsonConvert.DeserializeObject<AppUser>(user.ToString());
-            Models.Models.AppUsers.Add(appuser);
-            serializer.SerializeObject(Models.Models.AppUsers,"AppUsers");
+            AppUser temp = Models.Models.AppUsers.Where(x => x.UserName == appuser.UserName).FirstOrDefault();
+            if (temp != null)
+            {
+                return BadRequest("Username already exists.");
+            }
+            else
+            {
+                Models.Models.AppUsers.Add(appuser);
+                serializer.SerializeObject(Models.Models.AppUsers, "AppUsers");
+                return Ok("User successfully registered.");
+            }
         }
 
         // PUT: api/AppUsers/5

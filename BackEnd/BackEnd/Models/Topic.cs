@@ -36,6 +36,6 @@ namespace BackEnd.Models
 
         public List<Comment> Comments { get; set; }
 
-        public List<AppUser> UsersWhoVoted { get; set; }
+        public List<string> UsersWhoVoted { get; set; }
     }
 }

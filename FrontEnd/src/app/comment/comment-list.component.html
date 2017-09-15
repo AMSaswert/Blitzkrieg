@@ -1,0 +1,21 @@
+<div *ngIf="childrenComments != null || childrenComments.Length!=0">
+    <li *ngFor = "let comment of childrenComments">
+            <div *ngIf = "comment.Removed != true">
+            <span>{{comment.Id}}</span>
+            <span>{{comment.TopicId}}</span>
+            <span>{{comment.AuthorUsername}}</span>
+            <span>{{comment.CreationDate}}</span>
+            <span>{{comment.ParentCommentId}}</span>
+            <span>{{comment.Text}}</span>
+            <span>{{comment.LikesNo}}</span>
+            <span>{{comment.DislikesNo}}</span>
+            <span>{{comment.Removed}}</span>
+            <div *ngIf = "isLoggedIn()">
+            <button [disabled] = "voted(comment)"   (click)="like(comment)">Like</button>
+            <button [disabled] = "voted(comment)"   (click)="dislike(comment)">Dislike</button>
+            <button [disabled] = "!deleteAuth(comment)"   (click)="delete(comment.Id)">Delete comment</button>
+            </div>
+            </div>
+           <span> <app-comment-list [childrenComments] = "comment.ChildrenComments"></app-comment-list></span>
+    </li>
+</div>

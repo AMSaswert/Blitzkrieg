@@ -1,7 +1,20 @@
+<div class="topnav">
+
+<a [routerLink]="['/home']">Home</a>
+<div *ngIf="!isLoggedIn()">
+<a [routerLink]="['/login']">Login</a>
+<a [routerLink]="['/register']">register</a>
+</div>
+<div *ngIf="isLoggedIn()">      
 <a [routerLink]="['/message-send']">Send Message</a>
+<a [routerLink]="['/message-received']">Inbox</a>
 <a [routerLink]="['/appUser']">AppUsers</a>
 <a [routerLink]="['/comment']">Comments</a>
+<div *ngIf = "authRole()">
 <a [routerLink]="['/complaints']">Complaints</a>
+</div>
 <a [routerLink]="['/topics']">Topics</a>
-<a [routerLink]="['/subforums']">Subforums</a>
+<a><button type="button" (click)="logOut()">logOut</button></a>
+</div>
+</div>
 <router-outlet></router-outlet>

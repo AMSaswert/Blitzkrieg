@@ -1,5 +1,4 @@
 import{Comment} from './comment.model';
-import{AppUser} from './appUser.model';
 
 export enum TopicType{
     Text,
@@ -19,7 +18,7 @@ export class Topic{
     LikesNum : number;
     DislikesNum : number;
     Comments : Array<Comment>;
-    UsersWhoVoted : Array<AppUser>;
+    UsersWhoVoted : Array<string>;
 
 
 }

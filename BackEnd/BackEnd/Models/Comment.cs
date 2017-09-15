@@ -31,7 +31,7 @@ namespace BackEnd.Models
 
         public bool Removed { get; set; }
 
-        public List<AppUser> UsersWhoVoted { get; set; }
+        public List<string> UsersWhoVoted { get; set; }
 
         public Comment(List<Comment> list)
         {
@@ -40,30 +40,6 @@ namespace BackEnd.Models
 
         public Comment() { }
 
-
-        public List<Comment> init(List<Comment> sectionsList)
-        {
-            List<Comment> all = new List<Comment>();
-            foreach (var section in sectionsList)
-            {
-                section.Removed = true;
-                List<Comment> subs = initRec(section.ChildrenComments);
-                
-                all.AddRange(subs);
-            }
-            return all;
-        }
-
-        private List<Comment> initRec(List<Comment> sectionsList)
-        {
-            List<Comment> subs = new List<Comment>();
-            foreach (var sub in sectionsList)
-            {
-                sub.Removed = true;
-                subs.AddRange(initRec(sub.ChildrenComments));
-            }
-            return subs;
-        }
 
     }
 }

@@ -1,5 +1,5 @@
 
-<li *ngFor="let topic of subforum.Topics">
+<li *ngFor="let topic of topics">
     <span>{{topic.Id}}</span>
     <span>{{topic.SubforumId}}</span>
     <a [attr.href]="'http://localhost:4200/topic/' + topic.Id" >{{topic.Name}}</a>
@@ -9,4 +9,29 @@
     <span>{{topic.CreationDate}}</span>
     <span>{{topic.LikesNum}}</span>
     <span>{{topic.DislikesNum}}</span>
+    <div *ngIf = "isLoggedIn()">
+    <button [disabled] = "voted(topic)"   (click)="Like(topic)">Like</button>
+    <button [disabled] = "voted(topic)"   (click)="Dislike(topic)">Dislike</button>
+    </div>
   </li>
+
+
+  <div *ngIf = "isLoggedIn()">
+      <tr>
+        <td>Topic to complaint:</td>
+        <td><select id='complainTop'><option  *ngFor="let topic of topics" 
+        [value]="topic.Id">   {{topic.Name}}</option>
+             </select>
+            </td>
+
+        <td>
+        <label for="complaintTextTopic">complaintText</label>
+        <input type="text" [(ngModel)] = "complaintTextTopic">
+        </td>
+    
+        <td>
+        <button (click)="complaintSendTopic()">Send complaint</button>
+        </td>
+      </tr>
+    
+    </div>

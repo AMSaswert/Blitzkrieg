@@ -10,7 +10,7 @@ import { AppUser } from '../models/appUser.model';
     providers: [MessageService,AppUserService]
   })
 
-export class MessageComponent implements OnInit{
+export class MessageSendComponent implements OnInit{
 
     messages: Message[];
     appusers : AppUser[];
@@ -21,7 +21,7 @@ export class MessageComponent implements OnInit{
 
     ngOnInit() {
 
-      this.httpAppUserService.getDatabyId().subscribe(
+      this.httpAppUserService.getData().subscribe(
         (prod: any) => {this.appusers = prod; console.log(this.appusers)},//You can set the type to Product.
          error => {alert("Unsuccessful fetch operation!"); console.log(error);});
         

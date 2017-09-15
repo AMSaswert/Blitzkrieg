@@ -1,0 +1,24 @@
+<form  #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+        <div class="imgcontainer">
+          <!--<img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+        </div>
+      
+        <form  #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+          <!--<img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+        
+      
+        <div class="container" *ngIf="!isLoggedIn()">
+          <label><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="UserName" ngModel>
+      
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="Password" ngModel>
+      
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      
+      
+      
+      
+      

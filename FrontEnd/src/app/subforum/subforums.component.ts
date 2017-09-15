@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import { NgZone } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {SubforumService} from '../services/subforum.service';
+import {ComplaintService} from '../services/complaint.service';
+import {AppUserService} from '../services/appUser.service';
 import { Subforum } from '../models/subforum.model';
 import { Topic } from '../models/topic.model';
 import { Complaint,EntityType } from '../models/complaint.model';
@@ -11,21 +13,19 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-subforums',
     templateUrl: './subforums.component.html',
-    //template: `<app-subforum> [subforums]="subforums"</app-subforum>`,
     providers: [SubforumService],
-    //changeDetection: ChangeDetectionStrategy.OnPush
   })
 
 export class SubforumsComponent implements OnInit{
 
 @Input()  subforums: Subforum[];
 
-complaint : Complaint;
-authorUsername: string;
-entityId: number;
+complaint : Complaint = new Complaint(this.getRandomInt(1,9999999));
+complaintText: string = "";
 
 
-    constructor(private httpSubforumService: SubforumService,private router:Router) {
+    constructor(private httpSubforumService: SubforumService,private httpComplaintService: ComplaintService
+    ,private httpAppUserService : AppUserService ) {
 
     }
 
@@ -33,21 +33,6 @@ entityId: number;
         
             this.httpSubforumService.getData().subscribe(
                 (prod: any) => {this.subforums = prod;});
-           /* this.pushArray();
-            var promise = new Promise((resolve)=>{
-                resolve();
-                console.log("promise hit");
-            });
-            
-            promise.then(x=> {
-                this.pushArray();
-                this.subforums = this.subforums.slice();
-            });
-
-            this.httpSubforumService.getData().subscribe(
-                (prod: any) => {this.subforums = prod; console.log(this.subforums)},//You can set the type to Product.
-                 error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
-                 */
     }
 
     onSubmit(subforum: Subforum, form: NgForm) {
@@ -78,16 +63,25 @@ entityId: number;
          form.reset();
        //  window.location.reload();
        }
-       /*
-       redirect()
-       {
-        var id = Number.parseInt((<HTMLInputElement>document.getElementById("subforumId")).value);
-        
-        this.router.navigate(['/subforum-topics',id]);
-       }*/
 
-       sendComplaint()
+       complaintSend() : void
        {
-        
+           
+            this.complaint.EntityType = EntityType.Subforum;
+            this.complaint.AuthorUsername = sessionStorage.getItem("username");
+            this.complaint.CreationDate = new Date(Date.now());
+            this.complaint.EntityId = Number.parseInt((<HTMLInputElement>document.getElementById("complaintsub")).value);
+            this.complaint.Text = this.complaintText;
+            
+            this.httpComplaintService.post(this.complaint);
        }
+
+       isLoggedIn() : boolean
+       {
+         return this.httpAppUserService.isLoggedIn();
+       }
+
+       getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 }

@@ -32,7 +32,7 @@ export class TopicsComponent implements OnInit{
         
         topic.CreationDate = new Date(Date.now());
         topic.TopicType = TopicType.Text;
-        topic.UsersWhoVoted = new Array<AppUser>();
+        topic.UsersWhoVoted = new Array<string>();
         this.httpTopicService.put(topic.SubforumId,topic);
         form.reset();
         window.location.reload();

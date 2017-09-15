@@ -1,4 +1,5 @@
-<li *ngFor="let comment of comments">
+<li *ngFor = "let comment of comments">
+        <div *ngIf = "comment.Removed != true">
         <span>{{comment.Id}}</span>
         <span>{{comment.TopicId}}</span>
         <span>{{comment.AuthorUsername}}</span>
@@ -8,10 +9,17 @@
         <span>{{comment.LikesNo}}</span>
         <span>{{comment.DislikesNo}}</span>
         <span>{{comment.Removed}}</span>
-      </li>
+        <div *ngIf = "isLoggedIn()">
+        <button [disabled] = "voted(comment)"  (click)="like(comment)">Like</button>
+        <button [disabled] = "voted(comment)"  (click)="dislike(comment)">Dislike</button>
+        <button [disabled] = "!deleteAuth(comment)"   (click)="delete(comment.Id)">Delete comment</button>
+        </div>
+        </div>
+        <app-comment-list [childrenComments] = "comment.ChildrenComments"></app-comment-list>
+</li>
 
 
-
+<!--
 <div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
         <tr>
@@ -54,7 +62,7 @@
     </div>
 
 <div>
-    delete
+    
     <form #z="ngForm" (ngSubmit)="delete(z.value, z)">
         <tr>
             <td>
@@ -67,3 +75,4 @@
         </tr>   
     </form>
     </div>
+-->

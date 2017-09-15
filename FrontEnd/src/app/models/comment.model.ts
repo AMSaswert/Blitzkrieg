@@ -1,5 +1,3 @@
-import{AppUser} from './appUser.model';
-
 
 export class Comment{
 
@@ -14,6 +12,8 @@ export class Comment{
     DislikesNo : number;
     Edited : boolean;
     Removed : boolean;
-    UsersWhoVoted : Array<AppUser>;
+    UsersWhoVoted : Array<string>;
+
+    constructor(){}
 
 }

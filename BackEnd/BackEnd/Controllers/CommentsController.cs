@@ -18,7 +18,9 @@ namespace BackEnd.Controllers
         {
             Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
             Topic topic = sub.Topics.Where(x => x.Id == id).FirstOrDefault();
-            return topic.Comments.AsQueryable();
+            if (topic.Comments != null)
+                return topic.Comments.AsQueryable();
+            return null;
         }
 
         // GET: api/Comments/5
