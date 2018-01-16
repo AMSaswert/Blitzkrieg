@@ -18,11 +18,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 export class SubforumComponent implements OnInit{
 
-    complaintTopic : Complaint = new Complaint(this.getRandomInt(1,9999999));
     topics : Topic[] = [];
     subforumId : number;
     sub:any;
-    complaintTextTopic: string = "";
+    complaintType : string = "Topic";
+    entityType : EntityType = EntityType.Topic;
+
     constructor(private httpSubforumService: SubforumService,private httpComplaintService : ComplaintService
         ,private httpAppUserService : AppUserService ,private httpTopicService : TopicService ,private route: ActivatedRoute) {
 
@@ -36,19 +37,6 @@ export class SubforumComponent implements OnInit{
                 (prod: any) => {this.topics=prod.Topics; console.log(this.topics)},//You can set the type to Product.
                  error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
             
-    }
-
-
-    complaintSendTopic() : void
-    {
-       
-         this.complaintTopic.EntityType = EntityType.Topic;
-         this.complaintTopic.AuthorUsername = sessionStorage.getItem("username");
-         this.complaintTopic.CreationDate = new Date(Date.now());
-         this.complaintTopic.EntityId = Number.parseInt((<HTMLInputElement>document.getElementById("complainTop")).value);
-         this.complaintTopic.Text = this.complaintTextTopic;
-         
-         this.httpComplaintService.post(this.complaintTopic);
     }
 
     isLoggedIn() : boolean

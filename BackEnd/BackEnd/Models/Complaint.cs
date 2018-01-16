@@ -11,7 +11,6 @@ namespace BackEnd.Models
         Subforum,
         Topic,
         Comment,
-        Message
     }
 
     public class Complaint

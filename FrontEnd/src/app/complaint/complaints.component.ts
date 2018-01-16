@@ -3,6 +3,8 @@ import {NgForm} from '@angular/forms';
 import {ComplaintService} from '../services/complaint.service';
 import {ComplaintsHelpService} from '../services/complaints-help.service';
 import { Complaint,EntityType } from '../models/complaint.model';
+import { debug } from 'util';
+import { debounce } from 'rxjs/operator/debounce';
 @Component({
     selector: 'app-complaints',
     templateUrl: './complaints.component.html',
@@ -11,9 +13,11 @@ import { Complaint,EntityType } from '../models/complaint.model';
 
 export class ComplaintsComponent implements OnInit{
 
-    complaints: Complaint[];
-    moderator : string;
+    complaints: Complaint[] = [];
+    liableComplaints: Complaint[];
+    liableUsers : Array<String>;
     types :string[];
+    collection : boolean = false;
     //entityType : typeof EntityType = EntityType;
     constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService ) {
     }
@@ -21,38 +25,57 @@ export class ComplaintsComponent implements OnInit{
 
     ngOnInit() {
                 
-        this.httpComplaintService.getData().subscribe(
+        this.httpComplaintService.getDatabyId(sessionStorage.getItem("username")).subscribe(
             (prod: any) => {this.complaints = prod; console.log(this.complaints)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
-        var options = Object.keys(EntityType);
-        this.types = options.slice(options.length/2);
         
-      /*  this.httpComplaintsHelpService.getDatabyId(1622326492).subscribe(
-            (prod: any) => {this.moderator = prod; console.log(this.moderator)},//You can set the type to Product.
-             error => {alert("Unsuccessful fetch operation!"); console.log(error);});   */  
-             
+        
+        
+        /*
+        var liableUsers = Array<String>();
+        var tempComplaints = this.complaints;
+        for(var complaint of this.complaints)
+          {
+            
+            this.httpComplaintsHelpService.getDatabyId(complaint.EntityId).subscribe(
+              (prod: any) => {liableUsers = prod; console.log(liableUsers)},//You can set the type to Product.
+               error => {alert("Unsuccessful fetch operation!"); console.log(error);});
+            
+            for(var user of liableUsers)
+            {
+            
+                if(user == sessionStorage.getItem("username"))
+                {
+                  this.liableComplaints.push(complaint);
+                  break;
+                }
+            }
+          }
+          */
+        
     }
 
-    onSubmit(complaint: Complaint, form: NgForm) {
-        complaint.CreationDate = new Date(Date.now());
-        complaint.EntityType = EntityType.Comment;
-        this.httpComplaintService.post(complaint);
-        form.reset();
-        window.location.reload();
-        
-      }
+    getComplaints() : void
+    {
+      /*
+      for(var complaint of this.complaints)
+        {
+          
+          
+          for(var user of this.liableUsers)
+          {
+          
+              if(user == sessionStorage.getItem("username"))
+              {
+                this.liableComplaints.push(complaint);
+                break;
+              }
+          }
+        }
+        this.collection = true;
+        */
+    }
 
-      edit(complaint: Complaint, form: NgForm) {
-        
-        complaint.EntityType = EntityType.Comment;
-        this.httpComplaintService.put(complaint.Id,complaint);
-        form.reset();
-        window.location.reload();
-       }
 
-       delete(complaint: Complaint, form: NgForm) {
-        this.httpComplaintService.delete(complaint.Id);
-        form.reset();
-        window.location.reload();
-       }
+
 }

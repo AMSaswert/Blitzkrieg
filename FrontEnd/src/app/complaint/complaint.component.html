@@ -1,0 +1,12 @@
+<span>{{complaint.Id}}</span>
+<span>{{complaint.Text}}</span>
+<span>{{complaint.CreationDate}}</span>
+<span>{{types[complaint.EntityType]}}</span>
+<span>{{complaint.EntityId}}</span>
+<span>{{complaint.AuthorUsername}}</span>
+
+<div>
+    <button (click) = "deleteBool()">Delete</button>
+    <button (click) = "warningBool()">Warning</button>
+    <button (click) = "refuseBool()">Refuse</button>
+</div>

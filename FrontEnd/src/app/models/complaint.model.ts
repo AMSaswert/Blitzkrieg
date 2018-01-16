@@ -3,7 +3,6 @@ export enum EntityType
     Subforum = 0,
     Topic = 1,
     Comment = 2,
-    Message = 3,
 }
 
 
@@ -17,9 +16,8 @@ export class Complaint{
     EntityId : number;
     AuthorUsername : string;
 
-    constructor(id:number)
+    constructor()
     {
-        this.Id = id;
     }
 
 }

@@ -13,25 +13,5 @@
     <button [disabled] = "voted(topic)"   (click)="Like(topic)">Like</button>
     <button [disabled] = "voted(topic)"   (click)="Dislike(topic)">Dislike</button>
     </div>
+    <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "topic" [entityType] = "entityType"></complaint-send></span>
   </li>
-
-
-  <div *ngIf = "isLoggedIn()">
-      <tr>
-        <td>Topic to complaint:</td>
-        <td><select id='complainTop'><option  *ngFor="let topic of topics" 
-        [value]="topic.Id">   {{topic.Name}}</option>
-             </select>
-            </td>
-
-        <td>
-        <label for="complaintTextTopic">complaintText</label>
-        <input type="text" [(ngModel)] = "complaintTextTopic">
-        </td>
-    
-        <td>
-        <button (click)="complaintSendTopic()">Send complaint</button>
-        </td>
-      </tr>
-    
-    </div>

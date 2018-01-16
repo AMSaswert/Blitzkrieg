@@ -13,15 +13,69 @@ namespace BackEnd.Controllers
     {
         DataIO serializer = new DataIO();
         // GET: api/Complaints
-        public IQueryable<Complaint> Get()
+        public List<Complaint> Get()
         {
-            return Models.Models.Complaints.AsQueryable();
+            return Models.Models.Complaints;
         }
 
         // GET: api/Complaints/5
-        public Complaint Get(int id)
+        public List<Complaint> Get(string username)
         {
-            return Models.Models.Complaints.Where(x => x.Id == id).FirstOrDefault();
+            List<Complaint> complaints = new List<Complaint>();
+
+            List<string> liableUsers = new List<string>();
+
+            foreach (var complaint in Models.Models.Complaints)
+            {
+                foreach (var subforum in Models.Models.Subforums)
+                {
+                    if (subforum.Id == complaint.EntityId)
+                    {
+                        if(LieabilityCheck(username,subforum.LeadModeratorUsername))
+                        {
+                            complaints.Add(complaint);
+                            break;
+                        }
+                    }
+
+                    foreach (var topic in subforum.Topics)
+                    {
+                        if (topic.Id == complaint.EntityId)
+                        {
+                            if (LieabilityCheck(username, subforum.LeadModeratorUsername))
+                            {
+                                complaints.Add(complaint);
+                                break;
+                            }
+                        }
+
+                        foreach (var item in topic.Comments)
+                        {
+                            if (item.Id == complaint.EntityId)
+                            {
+                                if (LieabilityCheck(username, subforum.LeadModeratorUsername))
+                                {
+                                    complaints.Add(complaint);
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                bool condition = EditComment(item.ChildrenComments, complaint.EntityId);
+                                if (condition)
+                                {
+                                    if (LieabilityCheck(username, subforum.LeadModeratorUsername))
+                                    {
+                                        complaints.Add(complaint);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return complaints;
         }
 
         // POST: api/Complaints
@@ -48,6 +102,36 @@ namespace BackEnd.Controllers
         {
             Models.Models.Complaints.Remove(Models.Models.Complaints.Where(x => x.Id == id).FirstOrDefault());
             serializer.SerializeObject(Models.Models.Complaints,"Complaints");
+        }
+
+        private bool EditComment(List<Comment> comments, int id)
+        {
+            foreach (var item in comments)
+            {
+                if (item.Id == id)
+                {
+                    return true;
+                }
+                else
+                {
+                    EditComment(item.ChildrenComments, id);
+                    break;
+                }
+            }
+            return false;
+        }
+
+        private bool LieabilityCheck(string username,string leadModerator)
+        {
+            foreach (var user in Models.Models.AppUsers)
+            {
+                if ((user.Role == "Admin" && user.UserName == username) || leadModerator == username)
+                {
+                    return true;
+                    
+                }
+            }
+            return false;
         }
     }
 }

@@ -1,6 +1,9 @@
+
+
+
 <li *ngFor="let complaint of complaints">
     <span>{{complaint.Id}}</span>
-    <span>{{complaint.Text}}</span>
+    <a [attr.href]="'http://localhost:4200/complaint/' + complaint.Id" >{{complaint.Text}}</a>
     <span>{{complaint.CreationDate}}</span>
     <span>{{types[complaint.EntityType]}}</span>
     <span>{{complaint.EntityId}}</span>
@@ -8,6 +11,15 @@
   </li>
 
 
+
+
+
+
+
+
+<!--
+
+<button (click) = "getComplaints()">Get Complaints</button>
 <div>
 <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
     <tr>
@@ -79,5 +91,5 @@
         </tr>
     </form>
 </div>
-     
+--> 
  

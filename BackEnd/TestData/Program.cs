@@ -94,7 +94,6 @@ namespace TestData
             CreateComment(random, "isdasdasdsaads gud", "aca", Subforums[0], 0);
             CreateChildComment(random, "ojsaaaaaa", "aca", Subforums[0], 0,Subforums[0].Topics[0].Comments[0].Id);
             CreateComplaint(random, "zzzzzzzzzz", EntityType.Comment, random.Next(), "aca");
-            CreateComplaint(random, "aaaaaaaaaa", EntityType.Message, random.Next(), "aca");
             CreateComplaint(random, "bbbbbbbbbb", EntityType.Subforum, random.Next(), "aca");
             CreateComplaint(random, "kkkkkkkkkk", EntityType.Topic, random.Next(), "aca");
 

@@ -20,9 +20,8 @@ export class SubforumsComponent implements OnInit{
 
 @Input()  subforums: Subforum[];
 
-complaint : Complaint = new Complaint(this.getRandomInt(1,9999999));
-complaintText: string = "";
-
+    complaintType : string = "Subforum";
+    entityType : EntityType = EntityType.Subforum;
 
     constructor(private httpSubforumService: SubforumService,private httpComplaintService: ComplaintService
     ,private httpAppUserService : AppUserService ) {
@@ -37,8 +36,10 @@ complaintText: string = "";
 
     onSubmit(subforum: Subforum, form: NgForm) {
         
+        subforum.Id = this.getRandomInt(1,9999999);
         subforum.Moderators = new Array<string>();
         subforum.Topics = new Array<Topic>();
+        subforum.LeadModeratorUsername = localStorage.getItem("username");
         this.httpSubforumService.post(subforum);
         form.reset();
         
@@ -64,17 +65,7 @@ complaintText: string = "";
        //  window.location.reload();
        }
 
-       complaintSend() : void
-       {
-           
-            this.complaint.EntityType = EntityType.Subforum;
-            this.complaint.AuthorUsername = sessionStorage.getItem("username");
-            this.complaint.CreationDate = new Date(Date.now());
-            this.complaint.EntityId = Number.parseInt((<HTMLInputElement>document.getElementById("complaintsub")).value);
-            this.complaint.Text = this.complaintText;
-            
-            this.httpComplaintService.post(this.complaint);
-       }
+       
 
        isLoggedIn() : boolean
        {
@@ -84,4 +75,11 @@ complaintText: string = "";
        getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+
+    authRole() : boolean
+      {
+        if("Admin" == sessionStorage.getItem("role") || "Moderator" == sessionStorage.getItem("role"))
+          return true;
+        return false;
+      }
 }

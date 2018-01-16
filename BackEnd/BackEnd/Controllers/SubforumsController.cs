@@ -30,6 +30,7 @@ namespace BackEnd.Controllers
         {
             Subforum sub = JsonConvert.DeserializeObject<Subforum>(subforum.ToString());
             Models.Models.Subforums.Add(sub);
+            serializer.SerializeObject(Models.Models.Subforums, "Subforums");
         }
 
         // PUT: api/Subforums/5

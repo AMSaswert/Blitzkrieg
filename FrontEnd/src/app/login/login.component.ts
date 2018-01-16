@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit{
             {
                 
                 sessionStorage.setItem("user", JSON.stringify(this.user.Id));
-                sessionStorage.setItem("username",user.UserName);
-                sessionStorage.setItem("role",user.Role);
+                sessionStorage.setItem("username",this.user.UserName);
+                sessionStorage.setItem("role",this.user.Role);
                 this.router.navigate(['/home']);
                 
             }

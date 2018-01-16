@@ -3,6 +3,8 @@ import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx'
+import { ComplaintService } from "./complaint.service";
+import {Complaint} from '../models/complaint.model';
 @Injectable()
 export class ComplaintsHelpService{
     
@@ -10,7 +12,7 @@ export class ComplaintsHelpService{
 
     }
 
-    getDatabyId(id: number): Observable<any> {
+    getDatabyId(id: number): Observable<Array<String>> {
         const url = `http://localhost:13124//api/ComplaintsHelp/${id}`;
         return this.http.get(url).map(this.extractData);        
     }

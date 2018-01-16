@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ArrayOfAppUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AppUser>
-    <Id>579035866</Id>
+    <Id>657584210</Id>
     <UserName>admin</UserName>
     <Email>admin@yahoo.com</Email>
     <Password>admin</Password>
@@ -9,25 +9,25 @@
     <Name>admin</Name>
     <Surname>admin</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2017-09-14T20:01:06.1632655+02:00</RegistrationDate>
+    <RegistrationDate>2018-01-14T22:54:25.2770128+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>470580061</Id>
+        <Id>1612677148</Id>
         <Content>Bem ti lebac</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1151384831</Id>
+        <Id>543097328</Id>
         <Content>aaaaaaaaa</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1367162336</Id>
+    <Id>1812326901</Id>
     <UserName>aca</UserName>
     <Email>aca@yahoo.com</Email>
     <Password>aca</Password>
@@ -35,25 +35,25 @@
     <Name>Aleksandar</Name>
     <Surname>Misljenovic</Surname>
     <ContactPhone>021/1353545</ContactPhone>
-    <RegistrationDate>2017-09-14T20:01:06.1637657+02:00</RegistrationDate>
+    <RegistrationDate>2018-01-14T22:54:25.2770128+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>953340654</Id>
+        <Id>60544788</Id>
         <Content>opassada</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1031454142</Id>
+        <Id>467407578</Id>
         <Content>ajsasa</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1779423424</Id>
+    <Id>1047251636</Id>
     <UserName>moderator</UserName>
     <Email>moderator@yahoo.com</Email>
     <Password>moderator</Password>
@@ -61,36 +61,21 @@
     <Name>Moderator</Name>
     <Surname>Moderator</Surname>
     <ContactPhone>021/8778585</ContactPhone>
-    <RegistrationDate>2017-09-14T20:01:06.1637657+02:00</RegistrationDate>
+    <RegistrationDate>2018-01-14T22:54:25.2770128+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1412358631</Id>
+        <Id>580414169</Id>
         <Content>mhmhm</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1787890890</Id>
+        <Id>455736107</Id>
         <Content>frik</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
-  </AppUser>
-  <AppUser>
-    <Id>7735521</Id>
-    <UserName>car</UserName>
-    <Email>car</Email>
-    <Password>car</Password>
-    <Role>AppUser</Role>
-    <Name>car</Name>
-    <Surname>car</Surname>
-    <ContactPhone>car</ContactPhone>
-    <RegistrationDate>2017-09-14T21:24:51.098Z</RegistrationDate>
-    <BookmarkedSubforums />
-    <SavedTopics />
-    <SavedComments />
-    <ReceivedMessages />
   </AppUser>
 </ArrayOfAppUser>

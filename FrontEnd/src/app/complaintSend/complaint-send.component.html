@@ -1,0 +1,14 @@
+<div *ngIf = "isLoggedIn()">
+    <tr>
+      <td>Complaint to this {{complaintType}}:</td>
+      <td>
+      <label for="complaintText">complaintText</label>
+      <input type="text" [(ngModel)] = "complaintText">
+      </td>
+  
+      <td>
+      <button (click)="complaintSend()">Send complaint</button>
+      </td>
+    </tr>
+  
+  </div>

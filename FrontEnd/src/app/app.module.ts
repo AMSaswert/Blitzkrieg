@@ -14,6 +14,8 @@ import { AppUserComponent } from './appUser/appUser.component';
 import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment/comment-list.component';
 import { ComplaintsComponent } from './complaint/complaints.component';
+import { ComplaintComponent } from './complaint/complaint.component';
+import { ComplaintSend } from './complaintSend/complaint-send.component';
 import { TopicsComponent } from './topic/topics.component';
 import { TopicComponent } from './topic/topic.component';
 import { SubforumsComponent } from './subforum/subforums.component';
@@ -36,6 +38,7 @@ const Routes = [
   {path: "appUser", component: AppUserComponent},
   {path: "comment", component: CommentComponent},
   {path: "complaints", component: ComplaintsComponent},
+  {path: "complaint/:id", component: ComplaintComponent},
   {path: "topics", component: TopicsComponent},
   {path: "topic/:id", component: TopicComponent},
   {path: "home", component: SubforumsComponent},
@@ -52,11 +55,14 @@ const Routes = [
     AppUserComponent,
     CommentComponent,
     ComplaintsComponent,
+    ComplaintComponent,
+    ComplaintSend,
     TopicsComponent,
     TopicComponent,
     SubforumsComponent,
     SubforumComponent,
     CommentListComponent,
+
   ],
   imports: [
     BrowserModule,
