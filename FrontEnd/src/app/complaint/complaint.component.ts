@@ -29,12 +29,9 @@ export class ComplaintComponent implements OnInit{
             this.complaintId = +params['id'] ;  });
         
 
-        this.httpComplaintService.getDatabyId(this.complaintId).subscribe(
+        this.httpComplaintsHelpService.getDatabyId(this.complaintId).subscribe(
             (prod: any) => {this.complaint=prod; console.log(this.complaint)},//You can set the type to Product.
-            error => {alert("Unsuccessful fetch operation!"); console.log(error);});
-        
-        
-             
+            error => {alert("Unsuccessful fetch operation!"); console.log(error);});          
     }
 
 

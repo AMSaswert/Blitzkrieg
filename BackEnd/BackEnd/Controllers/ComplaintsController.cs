@@ -19,10 +19,10 @@ namespace BackEnd.Controllers
         }
 
         // GET: api/Complaints/5
-        public List<Complaint> Get(string username)
+        public List<Complaint> Get(string useRole)
         {
+            string[] userAndRole = useRole.Split('-');
             List<Complaint> complaints = new List<Complaint>();
-
             List<string> liableUsers = new List<string>();
 
             foreach (var complaint in Models.Models.Complaints)
@@ -31,7 +31,7 @@ namespace BackEnd.Controllers
                 {
                     if (subforum.Id == complaint.EntityId)
                     {
-                        if(LieabilityCheck(username,subforum.LeadModeratorUsername))
+                        if (LieabilityCheck(userAndRole[0], userAndRole[1], string.Empty))
                         {
                             complaints.Add(complaint);
                             break;
@@ -42,7 +42,7 @@ namespace BackEnd.Controllers
                     {
                         if (topic.Id == complaint.EntityId)
                         {
-                            if (LieabilityCheck(username, subforum.LeadModeratorUsername))
+                            if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
                             {
                                 complaints.Add(complaint);
                                 break;
@@ -53,7 +53,7 @@ namespace BackEnd.Controllers
                         {
                             if (item.Id == complaint.EntityId)
                             {
-                                if (LieabilityCheck(username, subforum.LeadModeratorUsername))
+                                if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
                                 {
                                     complaints.Add(complaint);
                                     break;
@@ -64,7 +64,7 @@ namespace BackEnd.Controllers
                                 bool condition = EditComment(item.ChildrenComments, complaint.EntityId);
                                 if (condition)
                                 {
-                                    if (LieabilityCheck(username, subforum.LeadModeratorUsername))
+                                    if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
                                     {
                                         complaints.Add(complaint);
                                         break;
@@ -121,15 +121,15 @@ namespace BackEnd.Controllers
             return false;
         }
 
-        private bool LieabilityCheck(string username,string leadModerator)
+        private bool LieabilityCheck(string username, string role, string leadModerator)
         {
-            foreach (var user in Models.Models.AppUsers)
+            if (role == "Admin")
             {
-                if ((user.Role == "Admin" && user.UserName == username) || leadModerator == username)
-                {
-                    return true;
-                    
-                }
+                return true;
+            }
+            else if (username == leadModerator)
+            {
+                return true;
             }
             return false;
         }

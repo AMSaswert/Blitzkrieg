@@ -13,78 +13,9 @@ namespace BackEnd.Controllers
 
 
         // GET: api/ComplaintsHelp/5
-        public List<string> Get(int id)
+        public Complaint Get(int id)
         {
-
-            List<string> liableUsers = new List<string>();
-            foreach (var subforum in Models.Models.Subforums)
-            {
-                if (subforum.Id == id)
-                {
-                    AddAdmins(liableUsers);
-                    return liableUsers;
-                }
-
-                foreach (var topic in subforum.Topics)
-                {
-                    if (topic.Id == id)
-                    {
-                        AddAdmins(liableUsers);
-                        liableUsers.Add(subforum.LeadModeratorUsername);
-                        return liableUsers;
-                    }
-
-                    foreach (var item in topic.Comments)
-                    {
-                        if(item.Id == id)
-                        {
-                            AddAdmins(liableUsers);
-                            liableUsers.Add(subforum.LeadModeratorUsername);
-                            return liableUsers;
-                        }
-                        else
-                        {
-                           bool condition =  EditComment(item.ChildrenComments, id);
-                           if(condition)
-                            {
-                                AddAdmins(liableUsers);
-                                liableUsers.Add(subforum.LeadModeratorUsername);
-                                return liableUsers;
-                            }
-                        }
-                    }
-                }
-            }
-            return liableUsers;
-        }
-
-
-        public bool EditComment(List<Comment> comments, int id)
-        {
-            foreach (var item in comments)
-            {
-                if (item.Id == id)
-                {
-                    return true;
-                }
-                else
-                {
-                    EditComment(item.ChildrenComments, id);
-                    break;
-                }
-            }
-            return false;
-        }
-
-        private void AddAdmins(List<string> users)
-        {
-            foreach (var user in Models.Models.AppUsers)
-            {
-                if (user.Role == "Admin")
-                {
-                    users.Add(user.UserName);
-                }
-            }
+            return Models.Models.Complaints.Where(x => x.Id == id).FirstOrDefault();
         }
 
         //// POST: api/ComplaintsHelp

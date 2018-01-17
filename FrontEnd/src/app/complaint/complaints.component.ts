@@ -17,65 +17,17 @@ export class ComplaintsComponent implements OnInit{
     liableComplaints: Complaint[];
     liableUsers : Array<String>;
     types :string[];
-    collection : boolean = false;
-    //entityType : typeof EntityType = EntityType;
+    usernameAndRole : string = sessionStorage.getItem("username") +"-"+ sessionStorage.getItem("role");
     constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService ) {
     }
 
 
     ngOnInit() {
                 
-        this.httpComplaintService.getDatabyId(sessionStorage.getItem("username")).subscribe(
+        this.httpComplaintService.getDatabyId(this.usernameAndRole).subscribe(
             (prod: any) => {this.complaints = prod; console.log(this.complaints)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
-        
-        
-        
-        /*
-        var liableUsers = Array<String>();
-        var tempComplaints = this.complaints;
-        for(var complaint of this.complaints)
-          {
-            
-            this.httpComplaintsHelpService.getDatabyId(complaint.EntityId).subscribe(
-              (prod: any) => {liableUsers = prod; console.log(liableUsers)},//You can set the type to Product.
-               error => {alert("Unsuccessful fetch operation!"); console.log(error);});
-            
-            for(var user of liableUsers)
-            {
-            
-                if(user == sessionStorage.getItem("username"))
-                {
-                  this.liableComplaints.push(complaint);
-                  break;
-                }
-            }
-          }
-          */
-        
     }
-
-    getComplaints() : void
-    {
-      /*
-      for(var complaint of this.complaints)
-        {
-          
-          
-          for(var user of this.liableUsers)
-          {
-          
-              if(user == sessionStorage.getItem("username"))
-              {
-                this.liableComplaints.push(complaint);
-                break;
-              }
-          }
-        }
-        this.collection = true;
-        */
-    }
-
 
 
 }

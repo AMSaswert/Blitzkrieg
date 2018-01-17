@@ -12,7 +12,7 @@ export class ComplaintsHelpService{
 
     }
 
-    getDatabyId(id: number): Observable<Array<String>> {
+    getDatabyId(id: number): Observable<Complaint> {
         const url = `http://localhost:13124//api/ComplaintsHelp/${id}`;
         return this.http.get(url).map(this.extractData);        
     }
