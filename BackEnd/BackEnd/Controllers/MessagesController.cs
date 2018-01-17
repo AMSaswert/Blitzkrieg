@@ -14,19 +14,11 @@ namespace BackEnd.Controllers
 
         DataIO serializer = new DataIO();
         // GET: api/Messages
-        public IQueryable<Message> Get(int id)
+        [HttpGet]
+        public IQueryable<Message> Get(string username)
         {
-            AppUser au = Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
-            List<Message> list = au.ReceivedMessages;
-            return list.AsQueryable();
-            //List<Message> temp = new List<Message>();
-            //foreach(var s  in Models.Models.Subforums)
-            //{
-            //    foreach(var t in s.Topics)
-            //    {
-            //        temp.Add(t.)
-            //    }
-            //}
+            AppUser au = Models.Models.AppUsers.Where(e => e.UserName == username).FirstOrDefault();
+            return au.ReceivedMessages.AsQueryable();
         }
 
         // GET: api/Messages/5
@@ -47,10 +39,10 @@ namespace BackEnd.Controllers
 
         //PUT: api/Messages/5
         [HttpPut]
-        public IHttpActionResult Put(int id, Object message)
+        public IHttpActionResult Put(string username, Object message)
         {
             Message msg = JsonConvert.DeserializeObject<Message>(message.ToString());
-            AppUser au = Models.Models.AppUsers.Where(e => e.Id == id).FirstOrDefault();
+            AppUser au = Models.Models.AppUsers.Where(e => e.UserName == username).FirstOrDefault();
             //au.ReceivedMessages.Remove(au.ReceivedMessages.Where(y => y.Id == msg.Id).FirstOrDefault());
             //au.ReceivedMessages.Add(msg);
             Message temp = au.ReceivedMessages.Where(y => y.Id == msg.Id).FirstOrDefault();

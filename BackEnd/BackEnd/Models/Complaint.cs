@@ -25,6 +25,8 @@ namespace BackEnd.Models
 
         public int EntityId { get; set; }
 
+        public string EntityAuthor { get; set; }
+
         public string AuthorUsername { get; set; }
     }
 }

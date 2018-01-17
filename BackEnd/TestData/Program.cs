@@ -36,6 +36,23 @@ namespace TestData
             AppUsers.Add(new AppUser()
             {
                 Id = random.Next(),
+                Name = "mica",
+                Surname = "micic",
+                UserName = "mica",
+                ContactPhone = "021/12345",
+                Email = "mica@yahoo.com",
+                Password = "mica",
+                Role = "AppUser",
+                RegistrationDate = DateTime.Now,
+                BookmarkedSubforums = new List<int>(),
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "Bem ti lebac" }, new Message { Id = random.Next(), Content = "aaaaaaaaa" } },
+                SavedComments = new List<int>(),
+                SavedTopics = new List<int>()
+
+            });
+            AppUsers.Add(new AppUser()
+            {
+                Id = random.Next(),
                 Name = "Aleksandar",
                 Surname = "Misljenovic",
                 UserName = "aca",
@@ -73,29 +90,29 @@ namespace TestData
             CreateSubforum(random, "Gaming", "opular topics", "w/e", "appu", "http://localhost:54042/Content/Icons/icon-3.ico");
             Subforum sub = Subforums[0];
             CreateTopic(random, "Topic 1 bla bla bla bla bla bla bla bla bla bla blaaaaaaa",
-                        "babinskizoltan", TopicType.Text, "test test", Subforums[0]);
-            CreateTopic(random, "Topic 2 bla bla", "babinskizoltan", TopicType.Text, "test test", Subforums[1]);
-            CreateTopic(random, "Topic 3 bla bla bla bla bla bla bla bla ", "babinskizoltan", TopicType.Text, "test test", Subforums[2]);
-            CreateTopic(random, "Topic 4 bla bla bla bla bla", "babinskizoltan", TopicType.Text, "test test", Subforums[3]);
-            CreateTopic(random, "Topic 5 ", "babinskizoltan", TopicType.Text, "test test", Subforums[0]);
-            CreateTopic(random, "Topic 8 bla bla bla bla bla bla bla bla bla bla bla", "babinskizoltan", TopicType.Text, "test test", Subforums[0]);
-            CreateTopic(random, "Topic 7 bla bla bla bla bla bla bla bla bla bla bla", "babinskizoltan", TopicType.Text, "test test", Subforums[1]);
-            CreateTopic(random, "Topic 8 bla ", "babinskizoltan", TopicType.Text, "test test", Subforums[2]);
-            CreateTopic(random, "Topic 6 bla bla bla bla ", "babinskizoltan", TopicType.Text, "test test", Subforums[3]);
+                        "mica", TopicType.Text, "test test", Subforums[0]);
+            CreateTopic(random, "Topic 2 bla bla", "mica", TopicType.Text, "test test", Subforums[1]);
+            CreateTopic(random, "Topic 3 bla bla bla bla bla bla bla bla ", "mica", TopicType.Text, "test test", Subforums[2]);
+            CreateTopic(random, "Topic 4 bla bla bla bla bla", "mica", TopicType.Text, "test test", Subforums[3]);
+            CreateTopic(random, "Topic 5 ", "mica", TopicType.Text, "test test", Subforums[0]);
+            CreateTopic(random, "Topic 8 bla bla bla bla bla bla bla bla bla bla bla", "mica", TopicType.Text, "test test", Subforums[0]);
+            CreateTopic(random, "Topic 7 bla bla bla bla bla bla bla bla bla bla bla", "mica", TopicType.Text, "test test", Subforums[1]);
+            CreateTopic(random, "Topic 8 bla ", "mica", TopicType.Text, "test test", Subforums[2]);
+            CreateTopic(random, "Topic 6 bla bla bla bla ", "mica", TopicType.Text, "test test", Subforums[3]);
 
-            CreateComment(random, "is gud", "aca", Subforums[0], 0);
-            CreateComment(random, "is gsdadasdasasddsa", "aca", Subforums[1], 1);
-            CreateComment(random, "is gadssdasadsdaasdud", "aca", Subforums[2], 1);
-            CreateComment(random, "is adsdasasddsaasdasdsdadassaddasdadagud", "aca", Subforums[3], 1);
+            CreateComment(random, "is gud", "mica", Subforums[0], 0);
+            CreateComment(random, "is gsdadasdasasddsa", "mica", Subforums[1], 1);
+            CreateComment(random, "is gadssdasadsdaasdud", "mica", Subforums[2], 1);
+            CreateComment(random, "is adsdasasddsaasdasdsdadassaddasdadagud", "mica", Subforums[3], 1);
             CreateComment(random, "asddsadsdsais gadsadsasddsaud", "aca", Subforums[0], 1);
             CreateComment(random, "is ssadasdasdadsasddsaasddsasdagud", "aca", Subforums[1], 1);
             CreateComment(random, "idasdasdsas gud", "aca", Subforums[2], 1);
             CreateComment(random, "is dasdsasdaadsgud", "aca", Subforums[3], 1);
             CreateComment(random, "isdasdasdsaads gud", "aca", Subforums[0], 0);
             CreateChildComment(random, "ojsaaaaaa", "aca", Subforums[0], 0,Subforums[0].Topics[0].Comments[0].Id);
-            CreateComplaint(random, "zzzzzzzzzz", EntityType.Comment, random.Next(), "aca");
-            CreateComplaint(random, "bbbbbbbbbb", EntityType.Subforum, random.Next(), "aca");
-            CreateComplaint(random, "kkkkkkkkkk", EntityType.Topic, random.Next(), "aca");
+            CreateComplaint(random, "zzzzzzzzzz", EntityType.Comment,Subforums[0].Topics[0].Comments[0].Id, Subforums[0].Topics[0].Comments[0].AuthorUsername, "aca");
+            CreateComplaint(random, "bbbbbbbbbb", EntityType.Subforum,Subforums[0].Id,Subforums[0].LeadModeratorUsername, "aca");
+            CreateComplaint(random, "kkkkkkkkkk", EntityType.Topic, Subforums[0].Topics[0].Id, Subforums[0].Topics[0].AuthorUsername, "aca");
 
             serializer.SerializeObject(AppUsers, "AppUsers");
             serializer.SerializeObject(Complaints, "Complaints");
@@ -104,7 +121,7 @@ namespace TestData
 
         }
 
-        static void CreateComplaint(Random random,string text,EntityType type,int entityId,string AuthorUsername)
+        static void CreateComplaint(Random random,string text,EntityType type,int entityId,string entityAuthor,string AuthorUsername)
         {
             Complaints.Add(new Complaint()
             {
@@ -112,6 +129,7 @@ namespace TestData
                 Text = text,
                 EntityType = type,
                 EntityId = entityId,
+                EntityAuthor = entityAuthor,
                 AuthorUsername = AuthorUsername,
                 CreationDate = DateTime.Now
             });

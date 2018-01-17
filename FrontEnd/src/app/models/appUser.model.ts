@@ -15,4 +15,8 @@ export class AppUser{
     SavedComments : Array<number>;
     ReceivedMessages : Array<Message>;
 
+    constructor()
+    {
+    }
+
 }

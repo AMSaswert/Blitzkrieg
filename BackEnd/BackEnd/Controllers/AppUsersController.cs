@@ -24,11 +24,12 @@ namespace BackEnd.Controllers
 
         // GET: api/AppUsers/5
         [ResponseType(typeof(AppUser))]
-        public IHttpActionResult Get(string username, string password)
+        public AppUser Get(string usernameAndPassword)
         {
-            AppUser user = Models.Models.AppUsers.Where(x => x.UserName == username && x.Password == password).FirstOrDefault() as AppUser;
+            string[] username_password = usernameAndPassword.Split('-');
+            AppUser user = Models.Models.AppUsers.Where(x => x.UserName == username_password[0] && x.Password == username_password[1]).FirstOrDefault() as AppUser;
             if (user != null)
-                return Ok(user);
+                return user;
             return null;
 
         }

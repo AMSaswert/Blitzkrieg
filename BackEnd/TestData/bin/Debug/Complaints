@@ -1,11 +1,21 @@
 <?xml version="1.0"?>
 <ArrayOfComplaint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Complaint>
-    <Id>8684928</Id>
-    <Text>asdasasdas</Text>
-    <CreationDate>2018-01-15T01:09:24.688Z</CreationDate>
+    <Id>1262895171</Id>
+    <Text>bbbbbbbbbb</Text>
+    <CreationDate>2018-01-17T20:18:49.0264947+01:00</CreationDate>
     <EntityType>Subforum</EntityType>
-    <EntityId>1803433139</EntityId>
+    <EntityId>940037837</EntityId>
+    <EntityAuthor>moderator</EntityAuthor>
+    <AuthorUsername>aca</AuthorUsername>
+  </Complaint>
+  <Complaint>
+    <Id>2075241118</Id>
+    <Text>kkkkkkkkkk</Text>
+    <CreationDate>2018-01-17T20:18:49.0264947+01:00</CreationDate>
+    <EntityType>Topic</EntityType>
+    <EntityId>1699394459</EntityId>
+    <EntityAuthor>mica</EntityAuthor>
     <AuthorUsername>aca</AuthorUsername>
   </Complaint>
 </ArrayOfComplaint>

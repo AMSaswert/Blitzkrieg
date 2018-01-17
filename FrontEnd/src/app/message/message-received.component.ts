@@ -21,8 +21,8 @@ export class MessageReceivedComponent implements OnInit{
         
         if(this.httpAppUserService.isLoggedIn())
             {
-                var us = sessionStorage.getItem("user");
-                this.httpMessageService.getDatabyId(Number.parseInt(us)).subscribe(
+                
+                this.httpMessageService.getDatabyId(sessionStorage.getItem("username")).subscribe(
                     (prod: any) => {this.messages = prod; console.log(this.messages)},//You can set the type to Product.
                      error => {alert("Unsuccessful fetch operation!"); console.log(error);});
             }

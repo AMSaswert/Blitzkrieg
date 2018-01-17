@@ -27,6 +27,8 @@ export class ComplaintsComponent implements OnInit{
         this.httpComplaintService.getDatabyId(this.usernameAndRole).subscribe(
             (prod: any) => {this.complaints = prod; console.log(this.complaints)},//You can set the type to Product.
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
+        var options = Object.keys(EntityType);
+        this.types = options.slice(options.length/2);
     }
 
 

@@ -11,8 +11,8 @@ export class MessageService{
 
     }
 
-    getDatabyId(Id:number): Observable<Message> {
-        const url = `http://localhost:13124//api/Messages/${Id}`;
+    getDatabyId(username:string): Observable<Message> {
+        const url = `http://localhost:13124//api/Messages?username=`+username;
         return this.http.get(url).map(this.extractData);        
     }
 
@@ -21,12 +21,12 @@ export class MessageService{
         return body || [];
     }
 
-    create(id:number,data: Message): Promise<any> {
+    create(username:string,data: Message): Promise<any> {
         const headers: Headers = new Headers();
         
         headers.append('Content-type', 'application/json');
         return this.http
-        .put(`http://localhost:13124//api/Messages/${id}`,
+        .put(`http://localhost:13124//api/Messages?username=`+username,
         JSON.stringify(data),{headers:headers})
         .toPromise()
         .then(res => res.json() as Message);

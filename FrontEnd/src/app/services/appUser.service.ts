@@ -24,15 +24,17 @@ export class AppUserService{
         return body || [];
     }
 
-    login(username: string, password: string): Observable<any> {
-        const url = `http://localhost:13124//api/AppUsers?username=` +username+`&password=`+password;
+    login(usernameAndPassword: string): Observable<any> {
+        const url = `http://localhost:13124//api/AppUsers?usernameAndPassword=` +usernameAndPassword;
         return this.http.get(url).map(this.extractData);        
     }
 
+    /*
     Loggedin(user:AppUser){
 
         this.user = user;
     }
+    */
 
     isLoggedIn() : boolean{
 
