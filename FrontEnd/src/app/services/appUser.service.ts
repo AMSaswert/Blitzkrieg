@@ -82,12 +82,7 @@ export class AppUserService{
     }
 
     routing(route:string): void{
-
-        if(sessionStorage.getItem("route") != route)
-        {
-            sessionStorage.setItem("route",route);
-            this.router.navigate([route]);
-        }     
+        this.router.navigate([route]);    
     }
 
 }
