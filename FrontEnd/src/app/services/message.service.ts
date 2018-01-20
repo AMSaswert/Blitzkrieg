@@ -32,12 +32,12 @@ export class MessageService{
         .then(res => res.json() as Message);
     }
 
-    update(id:number,data: Message): Promise<any> {
+    update(username:string,data: Message): Promise<any> {
         const headers: Headers = new Headers();
         
         headers.append('Content-type', 'application/json');
         return this.http
-        .put(`http://localhost:13124//api/Messages/${id}`,
+        .put(`http://localhost:13124//api/Messages?username=`+username,
         JSON.stringify(data),{headers:headers})
         .toPromise()
         .then(res => res.json() as Message);

@@ -5,30 +5,40 @@ import {ComplaintsHelpService} from '../services/complaints-help.service';
 import { Complaint,EntityType } from '../models/complaint.model';
 import { debug } from 'util';
 import { debounce } from 'rxjs/operator/debounce';
+import {AppUserService} from '../services/appUser.service';
 @Component({
     selector: 'app-complaints',
     templateUrl: './complaints.component.html',
-    providers: [ComplaintService,ComplaintsHelpService]
+    providers: [ComplaintService,ComplaintsHelpService,AppUserService]
   })
 
 export class ComplaintsComponent implements OnInit{
+
 
     complaints: Complaint[] = [];
     liableComplaints: Complaint[];
     liableUsers : Array<String>;
     types :string[];
     usernameAndRole : string = sessionStorage.getItem("username") +"-"+ sessionStorage.getItem("role");
-    constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService ) {
+    constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService,
+        private httpAppUserService: AppUserService ) {
     }
 
 
     ngOnInit() {
                 
         this.httpComplaintService.getDatabyId(this.usernameAndRole).subscribe(
-            (prod: any) => {this.complaints = prod; console.log(this.complaints)},//You can set the type to Product.
+            (prod: any) => {this.complaints = prod; console.log(this.complaints)},
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
+
+
         var options = Object.keys(EntityType);
         this.types = options.slice(options.length/2);
+    }
+
+    routing(complaintId: number) : void
+    {
+        this.httpAppUserService.routing("/complaint/"+complaintId.toString());
     }
 
 

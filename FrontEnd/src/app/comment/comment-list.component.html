@@ -1,5 +1,5 @@
-<div *ngIf="childrenComments != null || childrenComments.Length!=0">
-    <li *ngFor = "let comment of childrenComments">
+<div *ngIf="comments != null && comments.Length!=0">
+    <li *ngFor = "let comment of comments">
             <div *ngIf = "comment.Removed != true">
             <span>{{comment.Id}}</span>
             <span>{{comment.TopicId}}</span>
@@ -14,8 +14,23 @@
             <button [disabled] = "voted(comment)"   (click)="like(comment)">Like</button>
             <button [disabled] = "voted(comment)"   (click)="dislike(comment)">Dislike</button>
             <button [disabled] = "!deleteAuth(comment)"   (click)="delete(comment.Id)">Delete comment</button>
+            <div>
+                    <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f,comment.Id)">
+                        <tr>
+                            <td>
+                            <label for="Text">Text</label>
+                            <input type="text" name="Text" ngModel>
+                            </td>
+                            
+                            <td>
+                               <button>Reply</button>
+                            </td>
+                        </tr>
+                                 
+                    </form>
             </div>
             </div>
-           <span> <app-comment-list [childrenComments] = "comment.ChildrenComments"></app-comment-list></span>
+            </div>
+           <span> <app-comment-list [comments] = "comment.ChildrenComments" [topicId]="topicId"></app-comment-list></span>
     </li>
 </div>

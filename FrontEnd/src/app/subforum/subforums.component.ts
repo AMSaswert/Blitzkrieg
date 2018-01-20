@@ -29,57 +29,72 @@ export class SubforumsComponent implements OnInit{
     }
 
     ngOnInit() {
-        
+
             this.httpSubforumService.getData().subscribe(
                 (prod: any) => {this.subforums = prod;});
     }
 
     onSubmit(subforum: Subforum, form: NgForm) {
         
-        subforum.Id = this.getRandomInt(1,9999999);
+
+        for(var sub of this.subforums)
+        {
+          if(sub.Name == subforum.Name)
+          {
+            alert("Subforum with that name already exists!");
+            subforum.Name = "";
+            return;
+          }
+        }
+
+        subforum.Id = this.httpAppUserService.getRandomInt(1,9999999);
         subforum.Moderators = new Array<string>();
         subforum.Topics = new Array<Topic>();
-        subforum.LeadModeratorUsername = localStorage.getItem("username");
+        subforum.LeadModeratorUsername = sessionStorage.getItem("username");
         this.httpSubforumService.post(subforum);
         form.reset();
         
-        this.httpSubforumService.getData().subscribe(
-            (prod: any) => {this.subforums = prod;});
-        
-
-       // window.location.reload();
+        this.subforums.push(subforum);
         
       }
-
-      edit(subforum: Subforum, form: NgForm) {
-        
-         this.httpSubforumService.put(subforum.Id,subforum);        
-         form.reset();
-       //  window.location.reload();
-       }
-
-       delete(subforum: Subforum, form: NgForm) {
-        
-         this.httpSubforumService.delete(subforum.Id);
-         form.reset();
-       //  window.location.reload();
-       }
-
-       
+      
+      deleteSubforum(subforumId: number) : void
+      {
+        this.httpSubforumService.delete(subforumId);
+        this.subforums.splice(this.subforums.findIndex(x=> x.Id == subforumId),1);
+      }
 
        isLoggedIn() : boolean
        {
          return this.httpAppUserService.isLoggedIn();
        }
 
-       getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    authRole() : boolean
+      authRole() : boolean
       {
         if("Admin" == sessionStorage.getItem("role") || "Moderator" == sessionStorage.getItem("role"))
           return true;
         return false;
       }
+
+      isCreatorOrAdmin(username: string) : boolean
+      {
+        if(sessionStorage.getItem("role") == "Admin")
+        {
+          return true;
+        }
+        else if(username == sessionStorage.getItem("username"))
+        {
+          return true;
+        }
+
+        return false;
+      }
+
+      routing(subforum: Subforum) : void
+      {
+        this.httpAppUserService.routing("/subforum/"+ subforum.Id.toString());
+      }
+
+
+
 }

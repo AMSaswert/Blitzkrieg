@@ -16,40 +16,28 @@ export class AppUserComponent implements OnInit{
 
     constructor(private httpAppUserService: AppUserService ) {
     }
-
-
+    
     ngOnInit() {
                 
         this.httpAppUserService.getData().subscribe(
-            (prod: any) => {this.appUsers = prod; console.log(this.appUsers)},//You can set the type to Product.
+            (prod: any) => {this.appUsers = prod; console.log(this.appUsers)},
              error => {alert("Unsuccessful fetch operation!"); console.log(error);});
              
     }
 
-    onSubmit(user: AppUser, form: NgForm) {
-
-        user.BookmarkedSubforums = new Array<number>();
-        user.SavedTopics = new Array<number>();
-        user.SavedComments = new Array<number>();
-        user.ReceivedMessages = new Array<Message>();
-        user.RegistrationDate = new Date(Date.now());
-        this.httpAppUserService.post(user);
-        
-        form.reset();
-        window.location.reload();
-        
+    changeTypeOfUser(user : AppUser) : void
+    {
+      if(user.Role == "AppUser")
+      {
+          user.Role = "Moderator";
+          this.httpAppUserService.put(user.Id,user);
+          this.appUsers[this.appUsers.findIndex(x=> x.UserName == user.UserName)].Role = "Moderator";
       }
-
-      edit(user: AppUser, form: NgForm) {
-        
-         this.httpAppUserService.put(user.Id,user);
-                 
-         form.reset();
-         window.location.reload();
-       }
-
-       delete(user: AppUser, form: NgForm) {
-        
-         this.httpAppUserService.delete(user.Id);
-       }
+      else if(user.Role == "Moderator")
+      {
+          user.Role = "Admin";
+          this.httpAppUserService.put(user.Id,user);
+          this.appUsers[this.appUsers.findIndex(x=> x.UserName == user.UserName)].Role = "Admin";
+      }
+    }
 }

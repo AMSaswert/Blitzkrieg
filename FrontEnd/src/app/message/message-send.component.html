@@ -1,27 +1,20 @@
 <div>
-        <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
-          <tr>
 
-                  <td>
-                  <label for="SenderUsername">SenderUsername</label>
-                  <input type="text" name="SenderUsername" ngModel>
-                   </td>
-                  <td>
-                  <td>RecipientUsername:</td>
-                  <td><select id='recipient'><option  *ngFor="let user of appusers" 
-                  [value]="user.Id">   {{user.UserName}}</option>
-                       </select>
-                  </td>
-                  <td>
-                  <label for="Content">Content</label>
-                  <input type="text" name="Content" ngModel>
-                   </td>
-                  <td>
-                      <input type="submit" >
-                  </td>
-          </tr>
+    <tr>
+        <td>
+        <td>RecipientUsername:</td>
+        <td><select id='recipient'><option  *ngFor="let user of appusers" 
+            
+        [value]="user.UserName">{{user.UserName}}</option>
+            </select>
+        </td>
+        <td>
+        <label for="Content of meesage">Content of meesage:</label>
+        <input type="text" [(ngModel)] = "messageText">
+        </td>
+        <td>
+        <button (click)="sendMessage()">Send message</button>
+        </td>
+    </tr>
       
-          
-      
-      </form>
-      </div>
+</div>

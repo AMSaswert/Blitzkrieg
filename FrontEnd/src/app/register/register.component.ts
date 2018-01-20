@@ -10,23 +10,16 @@ import { Router } from '@angular/router';
     providers: [AppUserService]
   })
 
-export class RegisterComponent implements OnInit{
+export class RegisterComponent{
 
     appUsers: AppUser[];
     
-
     constructor(private httpAppUserService: AppUserService,private router: Router ) {
-    }
-
-
-    ngOnInit() {
-            
-             
     }
 
     onSubmit(user: AppUser, form: NgForm) {
 
-        user.Id = this.getRandomInt(1,9999999);
+        user.Id = this.httpAppUserService.getRandomInt(1,9999999);
         user.Role = "AppUser";
         user.BookmarkedSubforums = new Array<number>();
         user.SavedTopics = new Array<number>();
@@ -43,23 +36,5 @@ export class RegisterComponent implements OnInit{
                 alert("Username already exists.");
             });
         
-        /*
-        if(us == "User successfully registered.")
-        {
-            alert(us);
-            this.router.navigate(['/login']);
-        }
-        else
-        {
-            alert(us);  
-        }
-        */           
-        //form.reset();
-        //window.location.reload();
-        
-      }
-
-      getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+      }      
 }

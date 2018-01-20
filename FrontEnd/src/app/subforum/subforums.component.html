@@ -1,21 +1,23 @@
 
 <div>
     
-<li *ngFor="let subforum of subforums">
+<li *ngFor="let subforum of subforums; let i = index;" (click)="routing(subforum)">
     <span>{{subforum.Id}}</span>
-    <a [attr.href]="'http://localhost:4200/subforum/' + subforum.Id" >{{subforum.Name}}</a>
+    <span>{{subforum.Name}}</span>
     <span>{{subforum.Description}}</span>
     <span>{{subforum.IconURL}}</span>
     <span>{{subforum.Rules}}</span>
     <span>{{subforum.LeadModeratorUsername}}</span>
     <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "subforum" [entityType] = "entityType"></complaint-send></span>
+    <div *ngIf="isCreatorOrAdmin(subforum.LeadModeratorUsername)">
+        <button (click) = "deleteSubforum(subforum.Id)">Delete</button>
+    </div>
   </li>
 </div>
 
 
 
-  <div *ngIf = "isLoggedIn() && authRole()" >
-    <div>
+<div *ngIf = "isLoggedIn() && authRole()" >
     <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
       <tr>
               <td>
@@ -37,58 +39,6 @@
               <td>
                   <input type="submit" >
               </td>
-      </tr>
-  
-      
-  
-  </form>
-  </div>
-  </div>
-
-
-  <div>
-    <form #d="ngForm" (ngSubmit)="edit(d.value, d)">
-      <tr>
-              <td>
-              <label for="Name">Name</label>
-              <input type="text" name="Name" ngModel>
-               </td>
-              <td>
-              <label for="Description">Description</label>
-              <input type="text" name="Description" ngModel>
-              </td>
-              <td>
-              <label for="IconURL">IconURL</label>
-              <input type="text" name="IconURL" ngModel>
-               </td>
-               <td>
-                <label for="Rules">Rules</label>
-                <input type="text" name="Rules" ngModel>
-                </td>
-                <td>
-                <label for="LeadModeratorUsername">LeadModeratorUsername</label>
-                <input type="text" name="LeadModeratorUsername" ngModel>
-                 </td>
-              <td>
-                  <input type="submit" >
-              </td>
-      </tr>
-  
-      
-  
-  </form>
-  </div>
-
-  <div>
-    <form #z="ngForm" (ngSubmit)="delete(z.value, z)">
-    <tr>
-
-            <td>
-                <input type="submit" >
-            </td>
-    </tr>
-
-    
-
-</form>
+      </tr> 
+    </form>
 </div>

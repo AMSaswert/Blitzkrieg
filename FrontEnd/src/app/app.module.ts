@@ -11,12 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { MessageSendComponent } from './message/message-send.component';
 import { MessageReceivedComponent } from './message/message-received.component';
 import { AppUserComponent } from './appUser/appUser.component';
-import { CommentComponent } from './comment/comment.component';
 import { CommentListComponent } from './comment/comment-list.component';
 import { ComplaintsComponent } from './complaint/complaints.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { ComplaintSend } from './complaintSend/complaint-send.component';
-import { TopicsComponent } from './topic/topics.component';
 import { TopicComponent } from './topic/topic.component';
 import { SubforumsComponent } from './subforum/subforums.component';
 import { SubforumComponent } from './subforum/subforum.component';
@@ -36,10 +34,8 @@ const Routes = [
   {path: "message-send", component:MessageSendComponent},
   {path: "message-received", component:MessageReceivedComponent},
   {path: "appUser", component: AppUserComponent},
-  {path: "comment", component: CommentComponent},
   {path: "complaints", component: ComplaintsComponent},
   {path: "complaint/:id", component: ComplaintComponent},
-  {path: "topics", component: TopicsComponent},
   {path: "topic/:id", component: TopicComponent},
   {path: "home", component: SubforumsComponent},
   {path: "subforum/:id", component: SubforumComponent},
@@ -53,11 +49,9 @@ const Routes = [
     MessageSendComponent,
     MessageReceivedComponent,
     AppUserComponent,
-    CommentComponent,
     ComplaintsComponent,
     ComplaintComponent,
     ComplaintSend,
-    TopicsComponent,
     TopicComponent,
     SubforumsComponent,
     SubforumComponent,

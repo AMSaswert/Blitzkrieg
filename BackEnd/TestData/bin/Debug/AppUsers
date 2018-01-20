@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ArrayOfAppUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AppUser>
-    <Id>1440102502</Id>
+    <Id>227128233</Id>
     <UserName>admin</UserName>
     <Email>admin@yahoo.com</Email>
     <Password>admin</Password>
@@ -9,58 +9,51 @@
     <Name>admin</Name>
     <Surname>admin</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2018-01-17T20:18:49.0229964+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-20T01:28:46.3779583+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>268783356</Id>
+        <Id>725219517</Id>
         <Content>Bem ti lebac</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1087235833</Id>
+        <Id>1723992177</Id>
         <Content>aaaaaaaaa</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1321016058</Id>
+    <Id>411926378</Id>
     <UserName>mica</UserName>
     <Email>mica@yahoo.com</Email>
     <Password>mica</Password>
-    <Role>AppUser</Role>
+    <Role>Moderator</Role>
     <Name>mica</Name>
     <Surname>micic</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2018-01-17T20:18:49.0234957+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-20T01:28:46.3784577+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>485589934</Id>
+        <Id>2049034778</Id>
         <Content>Bem ti lebac</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1802163148</Id>
+        <Id>558689123</Id>
         <Content>aaaaaaaaa</Content>
-        <Seen>false</Seen>
-      </Message>
-      <Message>
-        <Id>5419102</Id>
-        <SenderUsername>admin</SenderUsername>
-        <RecipientUsername>mica</RecipientUsername>
-        <Content>nece radi</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1189211485</Id>
+    <Id>848394979</Id>
     <UserName>aca</UserName>
     <Email>aca@yahoo.com</Email>
     <Password>aca</Password>
@@ -68,39 +61,25 @@
     <Name>Aleksandar</Name>
     <Surname>Misljenovic</Surname>
     <ContactPhone>021/1353545</ContactPhone>
-    <RegistrationDate>2018-01-17T20:18:49.0234957+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-20T01:28:46.3784577+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>873675412</Id>
+        <Id>787580285</Id>
         <Content>opassada</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>732514820</Id>
+        <Id>409837234</Id>
         <Content>ajsasa</Content>
-        <Seen>false</Seen>
-      </Message>
-      <Message>
-        <Id>5441481</Id>
-        <SenderUsername>admin</SenderUsername>
-        <RecipientUsername>aca</RecipientUsername>
-        <Content>nece vise</Content>
-        <Seen>false</Seen>
-      </Message>
-      <Message>
-        <Id>2030307</Id>
-        <SenderUsername>admin</SenderUsername>
-        <RecipientUsername>aca</RecipientUsername>
-        <Content>jbg aco nemere</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1256480975</Id>
+    <Id>298145446</Id>
     <UserName>moderator</UserName>
     <Email>moderator@yahoo.com</Email>
     <Password>moderator</Password>
@@ -108,18 +87,18 @@
     <Name>Moderator</Name>
     <Surname>Moderator</Surname>
     <ContactPhone>021/8778585</ContactPhone>
-    <RegistrationDate>2018-01-17T20:18:49.0234957+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-20T01:28:46.3784577+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>223161741</Id>
+        <Id>793637000</Id>
         <Content>mhmhm</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>901737118</Id>
+        <Id>1210751498</Id>
         <Content>frik</Content>
         <Seen>false</Seen>
       </Message>

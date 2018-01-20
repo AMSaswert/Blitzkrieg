@@ -28,6 +28,7 @@ export class LoginComponent{
                 {
                     sessionStorage.setItem("username",this.user.UserName);
                     sessionStorage.setItem("role",this.user.Role);
+                    sessionStorage.setItem("route","/home");
                     this.router.navigate(['/home']);
                 }
                 else

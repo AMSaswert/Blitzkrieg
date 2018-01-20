@@ -12,15 +12,15 @@ import { Comment } from '../models/comment.model';
 
 export class CommentListComponent implements OnInit{
 
-  @Input()childrenComments : Comment[] = [];
+  @Input()comments : Comment[] = [];
+  @Input()topicId : number;
 
     constructor(private httpCommentService: CommentService,private httpAppUserService : AppUserService ) {
     }
 
 
     ngOnInit() {
-                
-             
+              
     }
 
 
@@ -63,6 +63,27 @@ export class CommentListComponent implements OnInit{
     delete(commentId: number) : void
     {
       this.httpCommentService.delete(commentId);
+      this.comments.splice(this.comments.findIndex(x=>x.Id==commentId),1);
     }
+
+    onSubmit(comment: Comment,form: NgForm,parentCommentId: number)
+    {
+      
+      comment.Id = this.httpAppUserService.getRandomInt(1,9999999);
+      comment.AuthorUsername = sessionStorage.getItem("username");
+      comment.ChildrenComments = new Array<Comment>();
+      comment.CreationDate = new Date(Date.now());
+      comment.DislikesNo = 0;
+      comment.Edited = false;
+      comment.LikesNo = 0;
+      comment.ParentCommentId = parentCommentId;
+      comment.Removed = false;
+      comment.TopicId = this.topicId;
+      comment.UsersWhoVoted = new Array<string>();
+      
+      this.httpCommentService.put(this.topicId,comment);
+      this.comments.splice(this.comments.findIndex(x=>x.Id==parentCommentId)+1,0,comment);
+      form.reset();
+    }   
 
 }

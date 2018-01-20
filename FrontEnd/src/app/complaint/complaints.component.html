@@ -1,6 +1,6 @@
-<li *ngFor="let complaint of complaints">
+<li *ngFor="let complaint of complaints;let i = index;" (click)="routing(complaint.Id)">
     <span>{{complaint.Id}}</span>
-    <a [attr.href]="'http://localhost:4200/complaint/' + complaint.Id" >{{complaint.Text}}</a>
+    <span>{{complaint.Text}}</span>
     <span>{{complaint.CreationDate}}</span>
     <span>{{types[complaint.EntityType]}}</span>
     <span>{{complaint.EntityId}}</span>

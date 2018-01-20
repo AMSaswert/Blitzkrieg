@@ -1,8 +1,8 @@
 
-<li *ngFor="let topic of topics">
+<li *ngFor="let topic of topics; let i = index;" (click)="routing(topic)">
     <span>{{topic.Id}}</span>
     <span>{{topic.SubforumId}}</span>
-    <a [attr.href]="'http://localhost:4200/topic/' + topic.Id" >{{topic.Name}}</a>
+    <span>{{topic.Name}}</span>
     <span>{{topic.TopicType}}</span>
     <span>{{topic.AuthorUsername}}</span>
     <span>{{topic.Content}}</span>
@@ -15,3 +15,15 @@
     </div>
     <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "topic" [entityType] = "entityType"></complaint-send></span>
   </li>
+
+
+  <div *ngIf = "isLoggedIn()">
+
+      <label>Name of topic:</label>
+        <input type="text" [(ngModel)] = "nameOfTopic">
+      <select id="topicType">
+          <option value="0">Text</option>
+          <option value="1">Picture</option>
+          <option value="2">Link</option>
+        </select>
+  </div>

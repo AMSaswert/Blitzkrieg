@@ -42,7 +42,7 @@ namespace TestData
                 ContactPhone = "021/12345",
                 Email = "mica@yahoo.com",
                 Password = "mica",
-                Role = "AppUser",
+                Role = "Moderator",
                 RegistrationDate = DateTime.Now,
                 BookmarkedSubforums = new List<int>(),
                 ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "Bem ti lebac" }, new Message { Id = random.Next(), Content = "aaaaaaaaa" } },
@@ -85,9 +85,9 @@ namespace TestData
             });
 
             CreateSubforum(random, "Funny", "hot topics", "do w/e", "moderator", "http://localhost:54042/Content/Icons/icon-0.ico");
-            CreateSubforum(random, "World", "controversial topics", "w/e", "appu", "http://localhost:54042/Content/Icons/icon-1.ico");
-            CreateSubforum(random, "Movies", "new topics", "w/e", "moderator", "http://localhost:54042/Content/Icons/icon-2.ico");
-            CreateSubforum(random, "Gaming", "opular topics", "w/e", "appu", "http://localhost:54042/Content/Icons/icon-3.ico");
+            CreateSubforum(random, "World", "controversial topics", "w/e", "mica", "http://localhost:54042/Content/Icons/icon-1.ico");
+            CreateSubforum(random, "Movies", "new topics", "w/e", "mica", "http://localhost:54042/Content/Icons/icon-2.ico");
+            CreateSubforum(random, "Gaming", "opular topics", "w/e", "moderator", "http://localhost:54042/Content/Icons/icon-3.ico");
             Subforum sub = Subforums[0];
             CreateTopic(random, "Topic 1 bla bla bla bla bla bla bla bla bla bla blaaaaaaa",
                         "mica", TopicType.Text, "test test", Subforums[0]);
@@ -203,7 +203,12 @@ namespace TestData
                 CreationDate = DateTime.Now,
                 AuthorUsername = authorUsername,
                 ParentCommentId = parentCommentId,
-                UsersWhoVoted = new List<string>()
+                UsersWhoVoted = new List<string>(),
+                ChildrenComments = new List<Comment>(),
+                DislikesNo = 0,
+                Edited = false,
+                LikesNo = 0,
+                Removed = false
             });
         }
     }

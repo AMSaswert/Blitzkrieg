@@ -1,5 +1,5 @@
 
-<app-comment [comments] = "comments"></app-comment>
+<span> <app-comment-list [comments] = "comments" [topicId]="topicId"></app-comment-list></span>
 
 
 <div *ngIf = "isLoggedIn()">

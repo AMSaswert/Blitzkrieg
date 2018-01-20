@@ -38,7 +38,7 @@ export class CommentService{
         
         headers.append('Content-type', 'application/json');
         return this.http
-        .put(`http://localhost:13124//api/Comments/${id}`,
+        .put(`http://localhost:13124//api/Comments?id=`+id,
         JSON.stringify(data),{headers:headers})
         .toPromise()
         .then(res => res.json() as Comment);

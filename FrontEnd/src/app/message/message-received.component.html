@@ -1,4 +1,4 @@
-<li *ngFor = "let message of messages">
+<li *ngFor = "let message of messages;let i = index;" (click)="seen(message)">
         <span>{{message.Id}}</span>
         <span>{{message.SenderUsername}}</span>
         <span>{{message.RecipientUsername}}</span>

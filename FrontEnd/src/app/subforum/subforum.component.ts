@@ -23,7 +23,7 @@ export class SubforumComponent implements OnInit{
     sub:any;
     complaintType : string = "Topic";
     entityType : EntityType = EntityType.Topic;
-
+    nameOfTopic:  string = "";
     constructor(private httpSubforumService: SubforumService,private httpComplaintService : ComplaintService
         ,private httpAppUserService : AppUserService ,private httpTopicService : TopicService ,private route: ActivatedRoute) {
 
@@ -34,7 +34,7 @@ export class SubforumComponent implements OnInit{
             this.subforumId = +params['id'] ;  });
             
             this.httpSubforumService.getDatabyId(this.subforumId).subscribe(
-                (prod: any) => {this.topics=prod.Topics; console.log(this.topics)},//You can set the type to Product.
+                (prod: any) => {this.topics=prod.Topics; console.log(this.topics)},
                  error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
             
     }
@@ -72,5 +72,9 @@ export class SubforumComponent implements OnInit{
     return false;
     }
 
+    routing(topic: Topic) : void
+    {
+        this.httpAppUserService.routing("/topic/"+topic.Id.toString());
+    }
    
 }

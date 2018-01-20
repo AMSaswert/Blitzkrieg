@@ -4,6 +4,7 @@ import {MessageService} from '../services/message.service';
 import {AppUserService} from '../services/appUser.service';
 import { Message } from '../models/message.model';
 import { AppUser } from '../models/appUser.model';
+import { debounce } from 'rxjs/operator/debounce';
 @Component({
     selector: 'app-message-received',
     templateUrl: './message-received.component.html',
@@ -23,9 +24,15 @@ export class MessageReceivedComponent implements OnInit{
             {
                 
                 this.httpMessageService.getDatabyId(sessionStorage.getItem("username")).subscribe(
-                    (prod: any) => {this.messages = prod; console.log(this.messages)},//You can set the type to Product.
+                    (prod: any) => {this.messages = prod; console.log(this.messages)},
                      error => {alert("Unsuccessful fetch operation!"); console.log(error);});
             }
         
+    }
+
+    seen(message: Message) : void
+    {      
+        message.Seen = true;
+        this.httpMessageService.update(sessionStorage.getItem("username"),message);
     }
 }

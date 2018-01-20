@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Web.Http;
 
 namespace BackEnd.Controllers
@@ -38,6 +39,7 @@ namespace BackEnd.Controllers
         public void Put(int id, object comment)
         {
             Comment comm = JsonConvert.DeserializeObject<Comment>(comment.ToString());
+            comm.ChildrenComments = new List<Comment>();
             Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == comm.TopicId).FirstOrDefault() == x.Topics.Where(y => y.Id == comm.TopicId).FirstOrDefault()).FirstOrDefault();
             Topic topic = sub.Topics.Where(x => x.Id == comm.TopicId).FirstOrDefault();
             Comment parentComment = new Comment();
@@ -61,17 +63,20 @@ namespace BackEnd.Controllers
                 {
                     if (item.Id == comm.ParentCommentId)
                     {
+                        Thread.Sleep(1000);
                         item.ChildrenComments.Remove(item.ChildrenComments.Where(x => x.Id == comm.Id).FirstOrDefault());
                         item.ChildrenComments.Add(comm);
                         break;
                     }
                     else
                     {
+                        
                         EditComment(item.ChildrenComments, comm);
                         break;
                     }
                 }
             }
+            Thread.Sleep(1000);
             serializer.SerializeObject(Models.Models.Subforums,"Subforums");
         }
 
@@ -105,6 +110,7 @@ namespace BackEnd.Controllers
 
         public Comment FindChildComment(Comment comment, int id)
         {
+           
             Comment childComment = comment.ChildrenComments.Where(x => x.Id == id).FirstOrDefault();
             if (childComment == null)
             {
@@ -114,6 +120,7 @@ namespace BackEnd.Controllers
             {
                 return childComment;
             }
+             
         }
 
         public void DeleteComments(List<Comment> comments)
@@ -134,6 +141,7 @@ namespace BackEnd.Controllers
             {
                 if (item.Id == comm.ParentCommentId)
                 {
+                    Thread.Sleep(1000);
                     item.ChildrenComments.Remove(item.ChildrenComments.Where(x => x.Id == comm.Id).FirstOrDefault());
                     item.ChildrenComments.Add(comm);
                     break;

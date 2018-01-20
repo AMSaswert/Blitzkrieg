@@ -1,3 +1,4 @@
+<!--
 <div>
 
 <a [routerLink]="['/home']">Home</a>
@@ -14,6 +15,26 @@
 <a [routerLink]="['/complaints']">Complaints</a>
 </div>
 <a [routerLink]="['/topics']">Topics</a>
+<a><button type="button" (click)="logOut()">logOut</button></a>
+</div>
+</div>
+-->
+<div>
+
+<button  (click)="routing('/home')">Home</button>
+<div *ngIf="!isLoggedIn()">
+<button  (click)="routing('/login')">Login</button>
+<button  (click)="routing('/register')">Register</button>
+</div>
+<div *ngIf="isLoggedIn()">      
+<button  (click)="routing('/message-send')">Send message</button>
+<button  (click)="routing('/message-received')">Inbox</button>
+<div *ngIf="isAdmin()">
+<button  (click)="routing('/appUser')">AppUsers</button>
+</div>
+<div *ngIf = "authRole()">
+<button  (click)="routing('/complaints')">Complaints</button>
+</div>
 <a><button type="button" (click)="logOut()">logOut</button></a>
 </div>
 </div>

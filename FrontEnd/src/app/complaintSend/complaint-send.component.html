@@ -1,11 +1,11 @@
-<div *ngIf = "isLoggedIn()">
+<div *ngIf = "isLoggedIn() && !authorOfEntityAndComplaint()">
     <tr>
       <td>Complaint to this {{complaintType}}:</td>
       <td>
-      <label for="complaintText">complaintText</label>
+      <label for="complaintText"> complaintText:</label>
       <input type="text" [(ngModel)] = "complaintText">
       </td>
-  
+
       <td>
       <button (click)="complaintSend()">Send complaint</button>
       </td>

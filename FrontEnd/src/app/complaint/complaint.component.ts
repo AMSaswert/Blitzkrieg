@@ -10,6 +10,7 @@ import {SubforumService} from '../services/subforum.service';
 import {CommentService} from '../services/comment.service';
 import { Message } from '../models/message.model';
 import { Subforum } from '../models/subforum.model';
+import { AppUserService } from '../services/appUser.service';
 
 @Component({
     selector: 'app-complaint',
@@ -35,7 +36,7 @@ export class ComplaintComponent implements OnInit{
     constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService,
         private httpMessageService: MessageService,private route: ActivatedRoute,
         private httpSubforumService: SubforumService,private httpTopicService: TopicService,
-        private httpCommentService: CommentService, private router : Router ) {
+        private httpCommentService: CommentService,private httpAppUserService : AppUserService, private router : Router ) {
     }
 
 
@@ -75,7 +76,7 @@ export class ComplaintComponent implements OnInit{
     delete() : void
     {      
         this.messageConstructorForAuthor()
-        this.messageConstructorForComplaier();
+        this.messageConstructorForComplainer();
         if(this.complaint.EntityType == EntityType.Subforum)
         {
             this.httpSubforumService.delete(this.complaint.EntityId);
@@ -96,7 +97,7 @@ export class ComplaintComponent implements OnInit{
     warn() : void
     { 
         this.messageConstructorForAuthor()
-        this.messageConstructorForComplaier();
+        this.messageConstructorForComplainer();
         this.httpComplaintService.delete(this.complaint.Id);
         this.router.navigate(['/complaints']);
 
@@ -104,28 +105,24 @@ export class ComplaintComponent implements OnInit{
     
     refuse() : void
     {
-        this.messageConstructorForComplaier();
+        this.messageConstructorForComplainer();
         this.httpComplaintService.delete(this.complaint.Id);
         this.router.navigate(['/complaints']);
 
     }
 
-    getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
     messageConstructorForAuthor()
     {
-        this.messageForAuthor.Id = this.getRandomInt(1,9999999);
+        this.messageForAuthor.Id = this.httpAppUserService.getRandomInt(1,9999999);
         this.messageForAuthor.Content = this.textForAuthor;
         this.messageForAuthor.SenderUsername = sessionStorage.getItem("username");
         this.messageForAuthor.RecipientUsername = this.complaint.EntityAuthor;
         this.httpMessageService.create(this.complaint.EntityAuthor,this.messageForAuthor);
     }
 
-    messageConstructorForComplaier()
+    messageConstructorForComplainer()
     {
-        this.messageForComplainer.Id = this.getRandomInt(1,9999999);      
+        this.messageForComplainer.Id = this.httpAppUserService.getRandomInt(1,9999999);      
         this.messageForComplainer.Content = this.textForComplainer;        
         this.messageForComplainer.SenderUsername = sessionStorage.getItem("username");
         this.messageForComplainer.RecipientUsername = this.complaint.AuthorUsername;

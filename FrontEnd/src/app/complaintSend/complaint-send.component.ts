@@ -8,6 +8,7 @@ import { Comment } from '../models/comment.model';
 import { Subforum } from '../models/subforum.model';
 import { Topic } from '../models/topic.model';
 import { Complaint,EntityType } from '../models/complaint.model';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 @Component({
     selector: 'complaint-send',
     templateUrl: './complaint-send.component.html',
@@ -28,7 +29,7 @@ export class ComplaintSend {
 
     complaintSend() : void
        {
-            this.complaint.Id = this.getRandomInt(1,9999999);
+            this.complaint.Id = this.httpAppUserService.getRandomInt(1,9999999);
             this.complaint.EntityType = this.entityType;
             this.complaint.AuthorUsername = sessionStorage.getItem("username").toString();
             this.complaint.CreationDate = new Date(Date.now());
@@ -36,15 +37,33 @@ export class ComplaintSend {
             this.complaint.Text = this.complaintText;
             
             this.httpComplaintService.post(this.complaint);
+            this.complaintText = "";
+            
        }
+    
+    authorOfEntityAndComplaint() : boolean
+    {
+        if(this.entityType == EntityType.Comment || this.entityType == EntityType.Topic)
+        {
+            if(this.complaningTo.AuthorUsername == sessionStorage.getItem("username"))
+            {
+                return true;
+            }
+        }
+        else
+        {
+            if(this.complaningTo.LeadModeratorUsername == sessionStorage.getItem("username"))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 
 
        isLoggedIn() : boolean
        {
          return this.httpAppUserService.isLoggedIn();
        }
-    
-       getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
 }
