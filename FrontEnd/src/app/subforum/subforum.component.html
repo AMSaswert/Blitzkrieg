@@ -5,7 +5,7 @@
     <span>{{topic.Name}}</span>
     <span>{{topic.TopicType}}</span>
     <span>{{topic.AuthorUsername}}</span>
-    <span>{{topic.Content}}</span>
+    <span><img src={{topic.Content}} /></span>
     <span>{{topic.CreationDate}}</span>
     <span>{{topic.LikesNum}}</span>
     <span>{{topic.DislikesNum}}</span>
@@ -21,9 +21,25 @@
 
       <label>Name of topic:</label>
         <input type="text" [(ngModel)] = "nameOfTopic">
-      <select id="topicType">
+        <select [(value)]="selected">
           <option value="0">Text</option>
           <option value="1">Picture</option>
           <option value="2">Link</option>
-        </select>
+         </select>
+      <label>Content of topic:</label>
+      <p>You selected: {{selected}}</p>
+      <div>
+        <image-upload url="http://localhost:13124/api/Upload"
+                [max]="1"
+                [extensions]="['jpeg','png']"
+                [preview]="true"
+                [maxFileSize]="5048576"
+                [extensions]="['jpg','png','gif']"
+                [fileTooLargeMessage]="'Image too large!'"
+                (uploadFinished)="imageUploaded($event)">
+        </image-upload>
+      </div>
+      <div *ngIf = "topicType == 0 || topicType == 2">
+        <input type="text" [(ngModel)] = "contentOfTopic">
+      </div>
   </div>

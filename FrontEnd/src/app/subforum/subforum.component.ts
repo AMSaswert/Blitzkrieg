@@ -17,13 +17,14 @@ import { ActivatedRoute, Params } from '@angular/router';
   })
 
 export class SubforumComponent implements OnInit{
-
     topics : Topic[] = [];
     subforumId : number;
     sub:any;
     complaintType : string = "Topic";
     entityType : EntityType = EntityType.Topic;
     nameOfTopic:  string = "";
+    topicContent: string;
+    topicType: string;
     constructor(private httpSubforumService: SubforumService,private httpComplaintService : ComplaintService
         ,private httpAppUserService : AppUserService ,private httpTopicService : TopicService ,private route: ActivatedRoute) {
 
@@ -75,6 +76,12 @@ export class SubforumComponent implements OnInit{
     routing(topic: Topic) : void
     {
         this.httpAppUserService.routing("/topic/"+topic.Id.toString());
+    }
+
+    imageUploaded(event: Event)
+    {
+        var response = event["serverResponse"].json();
+        this.topicContent = response["path"];
     }
    
 }
