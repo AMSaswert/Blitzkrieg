@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule,JsonpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { ImageUploadModule } from "angular2-image-upload";
+import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 
 
 import { AppComponent } from './app.component';
@@ -65,6 +66,7 @@ const Routes = [
     HttpModule,
     JsonpModule,
     ImageUploadModule.forRoot(),
+    Ng2FilterPipeModule,
     RouterModule.forRoot(Routes)
   ],
   providers: [MessageService,AppUserService,CommentService,ComplaintService,
