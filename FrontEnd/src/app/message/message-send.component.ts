@@ -38,7 +38,7 @@ export class MessageSendComponent implements OnInit{
         this.message.Seen = false;
         var username = (<HTMLInputElement>document.getElementById("recipient")).value;
         this.httpMessageService.create(username,this.message);
-        this.router.navigate(['/home']);
+        this.httpAppUserService.routing("/home");;
         
     }
 }

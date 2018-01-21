@@ -1,4 +1,4 @@
-<li *ngFor="let complaint of complaints;let i = index;" (click)="routing(complaint.Id)">
+<li *ngFor="let complaint of complaints">
     <span>{{complaint.Id}}</span>
     <span>{{complaint.Text}}</span>
     <span>{{complaint.CreationDate}}</span>
@@ -6,6 +6,7 @@
     <span>{{complaint.EntityId}}</span>
     <span>{{complaint.EntityAuthor}}</span>
     <span>{{complaint.AuthorUsername}}</span>
+    <button (click)="routing(complaint.Id)">Open</button>
   </li>
 
  

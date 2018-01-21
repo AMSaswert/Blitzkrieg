@@ -43,8 +43,14 @@ namespace BackEnd.Controllers
         {
             Topic top = JsonConvert.DeserializeObject<Topic>(topic.ToString());
             Subforum sub = Models.Models.Subforums.Where(x => x.Id == id).FirstOrDefault();
-            sub.Topics.Remove(sub.Topics.Where(x => x.Id == top.Id).FirstOrDefault());
-            sub.Topics.Add(top);
+            if (sub.Topics.Where(x => x.Id == top.Id).FirstOrDefault() != null)
+            {
+                sub.Topics[sub.Topics.FindIndex(x => x.Id == top.Id)] = top;
+            }
+            else
+            {
+                sub.Topics.Add(top);
+            }
             serializer.SerializeObject(Models.Models.Subforums, "Subforums");
         }
 

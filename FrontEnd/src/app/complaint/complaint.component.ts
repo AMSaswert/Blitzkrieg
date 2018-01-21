@@ -90,7 +90,7 @@ export class ComplaintComponent implements OnInit{
             this.httpCommentService.delete(this.complaint.EntityId);
         }
         this.httpComplaintService.delete(this.complaint.Id);
-        this.router.navigate(['/complaints']);
+        this.httpAppUserService.routing("/complaints");
 
     }
 
@@ -99,7 +99,7 @@ export class ComplaintComponent implements OnInit{
         this.messageConstructorForAuthor()
         this.messageConstructorForComplainer();
         this.httpComplaintService.delete(this.complaint.Id);
-        this.router.navigate(['/complaints']);
+        this.httpAppUserService.routing("/complaints");
 
     }
     
@@ -107,7 +107,7 @@ export class ComplaintComponent implements OnInit{
     {
         this.messageConstructorForComplainer();
         this.httpComplaintService.delete(this.complaint.Id);
-        this.router.navigate(['/complaints']);
+        this.httpAppUserService.routing("/complaints");
 
     }
 
