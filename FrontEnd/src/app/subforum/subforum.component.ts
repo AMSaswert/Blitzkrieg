@@ -29,10 +29,6 @@ export class SubforumComponent implements OnInit{
     topicName : string = "";
     topic : Topic = new Topic();
     editBool : boolean = false;
-    topicForEdit : Topic = new Topic();
-    nameForEdit : string = "";
-    contentForEdit : string = "";
-    topicTypeForEdit : string = "";
 
     constructor(private httpSubforumService: SubforumService,private httpComplaintService : ComplaintService
         ,private httpAppUserService : AppUserService ,private httpTopicService : TopicService ,private route: ActivatedRoute) {
@@ -91,11 +87,16 @@ export class SubforumComponent implements OnInit{
     {
         var response = event["serverResponse"].json();
         this.topicContent = response["path"];
-        this.contentForEdit = response["path"];
     }
 
     create()
     {
+        if(this.topicType == "")
+        {
+            alert("Chose type of topic!");
+            return;
+        }
+
         if(this.topicName == "" || this.topicContent == "")
         {
             alert("Topic name and content must be filled!");
@@ -110,16 +111,6 @@ export class SubforumComponent implements OnInit{
                 return;
             }
         }
-        this.topic.Name = this.topicName;
-        this.topic.Id = this.httpAppUserService.getRandomInt(1,9999999);
-        this.topic.AuthorUsername = sessionStorage.getItem("username");
-        this.topic.SubforumId = this.subforumId;
-        this.topic.Comments = new Array<Comment>();
-        this.topic.CreationDate = new Date(Date.now());
-        this.topic.DislikesNum = 0;
-        this.topic.LikesNum = 0;
-        this.topic.UsersWhoVoted = new Array<string>();
-        this.topic.Content = this.topicContent;
         if(this.topicType == "Text")
         {
             this.topic.TopicType = TopicType.Text;
@@ -134,11 +125,32 @@ export class SubforumComponent implements OnInit{
             this.topic.TopicType = TopicType.Picture;
         }
 
+        this.topic.Name = this.topicName;
+        this.topic.Content = this.topicContent;
+
+        if(this.editBool == false)
+        {
+       
+        this.topic.Id = this.httpAppUserService.getRandomInt(1,9999999);
+        this.topic.AuthorUsername = sessionStorage.getItem("username");
+        this.topic.SubforumId = this.subforumId;
+        this.topic.Comments = new Array<Comment>();
+        this.topic.CreationDate = new Date(Date.now());
+        this.topic.DislikesNum = 0;
+        this.topic.LikesNum = 0;
+        this.topic.UsersWhoVoted = new Array<string>();
+        
+
         this.httpTopicService.put(this.subforumId,this.topic);
         this.topics.push(this.topic);
         this.topicName = "";
         this.topicContent = "";
-
+        }
+        else
+        {
+             this.topics[this.topics.findIndex(x=>x.Id == this.topic.Id)] = this.topic;
+             this.httpTopicService.put(this.subforumId,this.topic);
+        }
     }
 
 
@@ -163,50 +175,19 @@ export class SubforumComponent implements OnInit{
     forEditTopic(topic : Topic)
     {
         if(this.editBool == false)
+        {
             this.editBool = true;
+            this.topicName = topic.Name;
+            this.topicContent = topic.Content;
+        }
         else
+        {
             this.editBool = false;
-        
-        this.topicForEdit = topic;
-        this.nameForEdit = topic.Name;
-        this.contentForEdit = topic.Content;
-    }
+            this.topicName = "";
+            this.topicContent = "";
+        }    
 
-    edit()
-    {
-        if(this.nameForEdit == "" || this.contentForEdit == "")
-        {
-            alert("Topic name and content must be filled!");
-            return;
-        }
-
-        for(var top of this.topics)
-        {
-            if(this.nameForEdit == top.Name)
-            {
-                alert("Topic with that name already exists!");
-                return;
-            }
-        }
-        
-        this.topicForEdit.Name = this.nameForEdit;
-        this.topicForEdit.Content = this.contentForEdit;
-        if(this.topicType == "Text")
-        {
-            this.topic.TopicType = TopicType.Text;
-            
-        }
-        else if(this.topicType == "Link")
-        {
-            this.topic.TopicType = TopicType.Link;
-        }
-        else if(this.topicType == "Picture")
-        {
-            this.topic.TopicType = TopicType.Picture;
-        }
-
-        this.topics[this.topics.findIndex(x=>x.Id == this.topicForEdit.Id)] = this.topicForEdit;
-        this.httpTopicService.put(this.subforumId,this.topicForEdit);
+        this.topic = topic;
     }
 
     deleteTopic(topic : Topic)

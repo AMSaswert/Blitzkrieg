@@ -12,7 +12,7 @@
       <Topic>
         <Id>252184073</Id>
         <SubforumId>0</SubforumId>
-        <Name>Topic 5 </Name>
+        <Name>Topic 56</Name>
         <TopicType>Text</TopicType>
         <AuthorUsername>mica</AuthorUsername>
         <Content>test test</Content>
@@ -45,6 +45,19 @@
         <AuthorUsername>mica</AuthorUsername>
         <Content>test test</Content>
         <CreationDate>2018-01-21T04:18:05.0905762+01:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+        <UsersWhoVoted />
+      </Topic>
+      <Topic>
+        <Id>5634188</Id>
+        <SubforumId>681901341</SubforumId>
+        <Name>topik x</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>admin</AuthorUsername>
+        <Content>hahahaha</Content>
+        <CreationDate>2018-01-21T22:44:42.763Z</CreationDate>
         <LikesNum>0</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments />
