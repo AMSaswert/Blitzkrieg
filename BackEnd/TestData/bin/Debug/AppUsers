@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ArrayOfAppUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AppUser>
-    <Id>2008077350</Id>
+    <Id>104412270</Id>
     <UserName>admin</UserName>
     <Email>admin@yahoo.com</Email>
     <Password>admin</Password>
@@ -9,25 +9,25 @@
     <Name>admin</Name>
     <Surname>admin</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2018-01-21T04:18:05.088578+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-22T16:41:08.0571633+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1803958379</Id>
+        <Id>1694776068</Id>
         <Content>Bem ti lebac</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1862696942</Id>
+        <Id>1217069675</Id>
         <Content>aaaaaaaaa</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1603199331</Id>
+    <Id>682213861</Id>
     <UserName>mica</UserName>
     <Email>mica@yahoo.com</Email>
     <Password>mica</Password>
@@ -35,25 +35,32 @@
     <Name>mica</Name>
     <Surname>micic</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2018-01-21T04:18:05.0890742+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-22T16:41:08.0576634+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1863432142</Id>
+        <Id>619061197</Id>
         <Content>Bem ti lebac</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1915460734</Id>
+        <Id>1818166754</Id>
         <Content>aaaaaaaaa</Content>
+        <Seen>false</Seen>
+      </Message>
+      <Message>
+        <Id>9268836</Id>
+        <SenderUsername>admin</SenderUsername>
+        <RecipientUsername>mica</RecipientUsername>
+        <Content>jbg</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1047785449</Id>
+    <Id>1649541274</Id>
     <UserName>aca</UserName>
     <Email>aca@yahoo.com</Email>
     <Password>aca</Password>
@@ -61,25 +68,32 @@
     <Name>Aleksandar</Name>
     <Surname>Misljenovic</Surname>
     <ContactPhone>021/1353545</ContactPhone>
-    <RegistrationDate>2018-01-21T04:18:05.0890742+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-22T16:41:08.0576634+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1837644222</Id>
+        <Id>403749894</Id>
         <Content>opassada</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>479317057</Id>
+        <Id>1776676856</Id>
         <Content>ajsasa</Content>
+        <Seen>false</Seen>
+      </Message>
+      <Message>
+        <Id>636999</Id>
+        <SenderUsername>admin</SenderUsername>
+        <RecipientUsername>aca</RecipientUsername>
+        <Content>mica</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1070929635</Id>
+    <Id>1165521407</Id>
     <UserName>moderator</UserName>
     <Email>moderator@yahoo.com</Email>
     <Password>moderator</Password>
@@ -87,18 +101,18 @@
     <Name>Moderator</Name>
     <Surname>Moderator</Surname>
     <ContactPhone>021/8778585</ContactPhone>
-    <RegistrationDate>2018-01-21T04:18:05.0890742+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-22T16:41:08.0576634+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>256909791</Id>
+        <Id>1659740040</Id>
         <Content>mhmhm</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1506666450</Id>
+        <Id>859940963</Id>
         <Content>frik</Content>
         <Seen>false</Seen>
       </Message>

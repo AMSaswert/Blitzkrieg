@@ -39,11 +39,8 @@ namespace BackEnd.Controllers
         public void Put(int id, object comment)
         {
             Comment comm = JsonConvert.DeserializeObject<Comment>(comment.ToString());
-            comm.ChildrenComments = new List<Comment>();
             Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == comm.TopicId).FirstOrDefault() == x.Topics.Where(y => y.Id == comm.TopicId).FirstOrDefault()).FirstOrDefault();
             Topic topic = sub.Topics.Where(x => x.Id == comm.TopicId).FirstOrDefault();
-            Comment parentComment = new Comment();
-            Comment childComment = new Comment();
             if (comm.ParentCommentId == null)
             {
                 if (topic.Comments.Where(x => x.Id == comm.Id).FirstOrDefault() == null)
@@ -52,9 +49,7 @@ namespace BackEnd.Controllers
                 }
                 else
                 {
-                    childComment = topic.Comments.Where(x => x.Id == comm.Id).FirstOrDefault();
-                    topic.Comments.Remove(childComment);
-                    topic.Comments.Add(comm);
+                    topic.Comments[topic.Comments.FindIndex(x => x.Id == comm.Id)] = comm;
                 }
             }
             else
@@ -62,21 +57,26 @@ namespace BackEnd.Controllers
                 foreach (var item in topic.Comments)
                 {
                     if (item.Id == comm.ParentCommentId)
-                    {
-                        Thread.Sleep(1000);
-                        item.ChildrenComments.Remove(item.ChildrenComments.Where(x => x.Id == comm.Id).FirstOrDefault());
-                        item.ChildrenComments.Add(comm);
+                    {                    
+                        if(item.ChildrenComments.Where(x => x.Id == comm.Id).FirstOrDefault() != null)
+                        {
+                            item.ChildrenComments[item.ChildrenComments.FindIndex(x => x.Id == comm.Id)] = comm;
+                        }
+                        else
+                        {
+                            item.ChildrenComments.Add(comm);
+                        }
                         break;
                     }
                     else
                     {
-                        
-                        EditComment(item.ChildrenComments, comm);
-                        break;
+                        if(EditComment(item.ChildrenComments,comm))
+                        {
+                            break;
+                        }
                     }
                 }
             }
-            Thread.Sleep(1000);
             serializer.SerializeObject(Models.Models.Subforums,"Subforums");
         }
 
@@ -95,32 +95,45 @@ namespace BackEnd.Controllers
             {
                 foreach (var item in topic.Comments)
                 {
-                    comment = FindChildComment(item, id);
+                    comment = FindChildComment(item.ChildrenComments, id);
                     if (comment != null)
                     {
                         break;
                     }
                 }
             }
-            comment.Removed = true;
-            DeleteComments(comment.ChildrenComments);
+            if (comment != null)
+            {
+                comment.Removed = true;
+                DeleteComments(comment.ChildrenComments);
+            }
             serializer.SerializeObject(Models.Models.Subforums,"Subforums");
 
         }
 
-        public Comment FindChildComment(Comment comment, int id)
+        public Comment FindChildComment(List<Comment> comments, int id)
         {
-           
-            Comment childComment = comment.ChildrenComments.Where(x => x.Id == id).FirstOrDefault();
-            if (childComment == null)
+            Comment comment = null;
+            foreach (var item in comments)
             {
-                return FindChildComment(childComment, id);
+                if (item.Id == id)
+                {
+
+                    return item;
+                }
+                else
+                {
+                    comment = FindChildComment(item.ChildrenComments, id);
+                    if(comment != null)
+                    {
+                        return comment;
+                    }
+
+                }
             }
-            else
-            {
-                return childComment;
-            }
-             
+
+            return null;
+
         }
 
         public void DeleteComments(List<Comment> comments)
@@ -135,23 +148,34 @@ namespace BackEnd.Controllers
             }
         }
 
-        public void EditComment(List<Comment> comments, Comment comm)
+        public bool EditComment(List<Comment> comments, Comment comm)
         {
             foreach (var item in comments)
             {
                 if (item.Id == comm.ParentCommentId)
                 {
-                    Thread.Sleep(1000);
-                    item.ChildrenComments.Remove(item.ChildrenComments.Where(x => x.Id == comm.Id).FirstOrDefault());
-                    item.ChildrenComments.Add(comm);
-                    break;
+                    
+                    if (item.ChildrenComments.Where(x => x.Id == comm.Id).FirstOrDefault() != null)
+                    {
+                        item.ChildrenComments[item.ChildrenComments.FindIndex(x => x.Id == comm.Id)] = comm;
+                    }
+                    else
+                    {
+                        item.ChildrenComments.Add(comm);
+                    }
+                    return true;
                 }
                 else
                 {
-                    EditComment(item.ChildrenComments, comm);
-                    break;
+                    if(EditComment(item.ChildrenComments,comm))
+                    {
+                        return true;
+                    }
+                    
                 }
             }
+
+            return false;          
         }
     }
 }

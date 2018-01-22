@@ -25,7 +25,16 @@ export class MessageSendComponent implements OnInit{
     ngOnInit() {
 
       this.httpAppUserService.getData().subscribe(
-        (prod: any) => {this.appusers = prod; console.log(this.appusers)},
+        (prod: any) => {this.appusers = prod; 
+            for(var user of this.appusers)
+            {
+              if(user.UserName == sessionStorage.getItem("username"))
+              {
+                this.appusers.splice(this.appusers.findIndex(x=>x.UserName == user.UserName),1);
+                break;
+              }
+            }         
+          console.log(this.appusers)},
          error => {alert("Unsuccessful fetch operation!"); console.log(error);});
         
     }

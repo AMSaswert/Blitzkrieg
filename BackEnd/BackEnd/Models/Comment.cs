@@ -39,7 +39,5 @@ namespace BackEnd.Models
         }
 
         public Comment() { }
-
-
     }
 }

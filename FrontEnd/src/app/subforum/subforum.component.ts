@@ -80,7 +80,7 @@ export class SubforumComponent implements OnInit{
 
     routing(topic: Topic) : void
     {
-        this.httpAppUserService.routing("/topic/"+topic.Id.toString());
+        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
     }
 
     imageUploaded(event: Event)
@@ -179,15 +179,17 @@ export class SubforumComponent implements OnInit{
             this.editBool = true;
             this.topicName = topic.Name;
             this.topicContent = topic.Content;
+            this.topic = topic;
         }
         else
         {
             this.editBool = false;
             this.topicName = "";
             this.topicContent = "";
+            this.topic = new Topic();
         }    
 
-        this.topic = topic;
+        
     }
 
     deleteTopic(topic : Topic)

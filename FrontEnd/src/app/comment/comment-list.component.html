@@ -1,5 +1,5 @@
 <div *ngIf="comments != null && comments.Length!=0">
-    <li *ngFor = "let comment of comments">
+    <li style="margin-left: 20px" *ngFor = "let comment of comments">
             <div *ngIf = "comment.Removed != true">
             <span>{{comment.Id}}</span>
             <span>{{comment.TopicId}}</span>
@@ -9,11 +9,16 @@
             <span>{{comment.Text}}</span>
             <span>{{comment.LikesNo}}</span>
             <span>{{comment.DislikesNo}}</span>
-            <span>{{comment.Removed}}</span>
+            <span>{{comment.Edited}}</span>
             <div *ngIf = "isLoggedIn()">
             <button [disabled] = "voted(comment)"   (click)="like(comment)">Like</button>
             <button [disabled] = "voted(comment)"   (click)="dislike(comment)">Dislike</button>
-            <button [disabled] = "!deleteAuth(comment)"   (click)="delete(comment.Id)">Delete comment</button>
+            <a *ngIf="editAuth(comment)">
+             <button (click)="forEditing(comment.Id)">Edit comment</button>
+            </a>
+            <a *ngIf="deleteAuth(comment)">
+             <button (click)="delete(comment.Id)">Delete comment</button>
+            </a>
             <div>
                     <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f,comment.Id)">
                         <tr>
@@ -23,14 +28,29 @@
                             </td>
                             
                             <td>
-                               <button>Reply</button>
+                               <button>Edit</button>
                             </td>
                         </tr>
                                  
                     </form>
             </div>
+            <div *ngIf ="comment.Id == editId">
+                <form #f="ngForm" (ngSubmit)="edit(f.value, f,comment)">
+                    <tr>
+                        <td>
+                        <label for="Text">Text</label>
+                        <input type="text" name="Text" ngModel>
+                        </td>
+                        
+                        <td>
+                           <button>Reply</button>
+                        </td>
+                    </tr>
+                             
+                </form>
+        </div>
             </div>
             </div>
-           <span> <app-comment-list [comments] = "comment.ChildrenComments" [topicId]="topicId"></app-comment-list></span>
+           <span> <app-comment-list [comments] = "comment.ChildrenComments" [topicId]="topicId" [subforumId]="subforumId"></app-comment-list></span>
     </li>
 </div>

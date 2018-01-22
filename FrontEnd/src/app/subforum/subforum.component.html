@@ -16,10 +16,12 @@
     <span>{{topic.DislikesNum}}</span>
     <button (click)="routing(topic)">Open</button>
     <div *ngIf = "isLoggedIn()">
-    <button [disabled] = "voted(topic)"   (click)="Like(topic)">Like</button>
-    <button [disabled] = "voted(topic)"   (click)="Dislike(topic)">Dislike</button>
-    <button [disabled] =  "!Authorized(topic)" (click) = "forEditTopic(topic)">Edit topic</button>
-    <button [disabled] =  "!Authorized(topic)" (click) = "deleteTopic(topic)">Delete topic</button>
+      <button [disabled] = "voted(topic)"   (click)="Like(topic)">Like</button>
+      <button [disabled] = "voted(topic)"   (click)="Dislike(topic)">Dislike</button>
+      <a *ngIf="Authorized(topic)">
+        <button (click) = "forEditTopic(topic)">Edit topic</button>
+        <button (click) = "deleteTopic(topic)">Delete topic</button>
+      </a>
     </div>
     <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "topic" [entityType] = "entityType"></complaint-send></span>
   </li>
