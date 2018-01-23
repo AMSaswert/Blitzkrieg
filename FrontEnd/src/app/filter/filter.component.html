@@ -1,0 +1,66 @@
+<input type="radio" value="Subforum" name="filterEntity" [(ngModel)]="filterEntity" >Subforums
+<input type="radio" value="Topic" name="filterEntity"  [(ngModel)]="filterEntity" >Topics
+<input type="radio" value="User" name="filterEntity"  [(ngModel)]="filterEntity">Users
+
+<div *ngIf="filterEntity == 'Subforum'">
+        <input type="text"  [(ngModel)] = "fName" placeholder="Search by Name">
+        <input type="text"  [(ngModel)] = "fDescOrCont" placeholder="Search by Description">
+        <input type="text"  [(ngModel)] = "fAuthor" placeholder="Search by Lead Moderator">
+    
+        <li *ngFor="let subforum of subforums">
+            <a *ngIf="isFilteredS(subforum)">
+                <span>{{subforum.Id}}</span>
+                <span>{{subforum.Name}}</span>
+                <span>{{subforum.Description}}</span>
+                <span>{{subforum.IconURL}}</span>
+                <span>{{subforum.Rules}}</span>
+                <span>{{subforum.LeadModeratorUsername}}</span>
+                <button (click)="routingS(subforum)">Open</button>
+            </a>
+        </li>
+        
+    </div>
+
+<div *ngIf="filterEntity == 'Topic'">
+    <input type="text"  [(ngModel)] = "fName" placeholder="Search by Name">
+    <input type="text"  [(ngModel)] = "fDescOrCont" placeholder="Search by Content">
+    <input type="text"  [(ngModel)] = "fAuthor" placeholder="Search by Author">
+    <input type="text"  [(ngModel)] = "fSubforum" placeholder="Search by Subforum">
+
+    
+    <li *ngFor="let topic of topics">
+            <a *ngIf="isFilteredT(topic)">
+                <span>{{topic.Id}}</span>
+                <span>{{topic.SubforumId}}</span>
+                <span>{{topic.Name}}</span>
+                <span>{{topic.TopicType}}</span>
+                <span>{{topic.AuthorUsername}}</span>
+                <a *ngIf="topic.TopicType != 0">
+                <span><img src={{topic.Content}} /></span>
+                </a>
+                <a *ngIf="topic.TopicType == 0">
+                <span>{{topic.Content}}</span>
+                </a>
+                <span>{{topic.CreationDate}}</span>
+                <span>{{topic.LikesNum}}</span>
+                <span>{{topic.DislikesNum}}</span>
+                <button (click)="routingT(topic)">Open</button>
+            </a>
+        </li>
+    
+</div>
+
+<div *ngIf="filterEntity == 'User'">
+    <input type="text"  [(ngModel)] = "fName" placeholder="Search by Name">
+
+    <li *ngFor="let user of appUsers">
+        <a *ngIf="isFilteredU(user)">
+            <span>{{user.UserName}}</span>
+            <span>{{user.Email}}</span>
+            <span>{{user.Role}}</span>
+            <span>{{user.Name}}</span>
+            <span>{{user.Surname}}</span>
+            <span>{{user.ContactPhone}}</span>
+        </a>
+    </li>    
+</div>

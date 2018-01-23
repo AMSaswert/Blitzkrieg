@@ -22,6 +22,7 @@
 <div>
 
 <button  (click)="routing('/home')">Home</button>
+<button  (click)="routing('/filter')">Search forum</button>
 <div *ngIf="!isLoggedIn()">
 <button  (click)="routing('/login')">Login</button>
 <button  (click)="routing('/register')">Register</button>

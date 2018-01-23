@@ -19,6 +19,7 @@ import { ComplaintSend } from './complaintSend/complaint-send.component';
 import { TopicComponent } from './topic/topic.component';
 import { SubforumsComponent } from './subforum/subforums.component';
 import { SubforumComponent } from './subforum/subforum.component';
+import { FilterComponent } from './filter/filter.component';
 
 import {MessageService} from './services/message.service';
 import {AppUserService} from './services/appUser.service';
@@ -39,6 +40,7 @@ const Routes = [
   {path: "topic/:id/:subId", component: TopicComponent},
   {path: "home", component: SubforumsComponent},
   {path: "subforum/:id", component: SubforumComponent},
+  {path: "filter", component: FilterComponent},
 ]
 
 @NgModule({
@@ -55,6 +57,7 @@ const Routes = [
     SubforumsComponent,
     SubforumComponent,
     CommentListComponent,
+    FilterComponent,
 
   ],
   imports: [
