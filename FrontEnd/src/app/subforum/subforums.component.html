@@ -31,7 +31,14 @@
               </td>
               <td>
               <label for="IconURL">IconURL</label>
-              <input type="text" name="IconURL" ngModel>
+                <image-upload url="http://localhost:13124/api/Upload"
+                    [max]="1"
+                    [preview]="true"
+                    [maxFileSize]="25576"
+                    [extensions]="['ico']"
+                    [fileTooLargeMessage]="'Image too large!'"
+                    (uploadFinished)="imageUploaded($event)">
+                </image-upload>
                </td>
                <td>
                 <label for="Rules">Rules</label>

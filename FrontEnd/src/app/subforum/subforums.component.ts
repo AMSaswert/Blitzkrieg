@@ -22,6 +22,7 @@ export class SubforumsComponent implements OnInit{
 
     complaintType : string = "Subforum";
     entityType : EntityType = EntityType.Subforum;
+    subIcon : string = "";
 
     constructor(private httpSubforumService: SubforumService,private httpComplaintService: ComplaintService
     ,private httpAppUserService : AppUserService ) {
@@ -51,6 +52,7 @@ export class SubforumsComponent implements OnInit{
         subforum.Moderators = new Array<string>();
         subforum.Topics = new Array<Topic>();
         subforum.LeadModeratorUsername = sessionStorage.getItem("username");
+        subforum.IconURL = this.subIcon;
         this.httpSubforumService.post(subforum);
         form.reset();
         
@@ -95,6 +97,9 @@ export class SubforumsComponent implements OnInit{
         this.httpAppUserService.routing("/subforum/"+ subforum.Id.toString());
       }
 
-
-
+      imageUploaded(event: Event)
+    {
+        var response = event["serverResponse"].json();
+        this.subIcon = response["path"];
+    }
 }

@@ -47,18 +47,16 @@ namespace BackEnd.Controllers
                     {
                         path = "~/Content/Images/img-";
                     }
-
-                    int counter = 0;
+                    
                     var filePath = HttpContext.Current.Server.MapPath(path + postedFile.FileName);
-                    var responsePath = "http://localhost:13124/Content/Images/img-" + postedFile.FileName;
                     postedFile.SaveAs(filePath);
                     if (extension == ".ico")
                     {
-                        dict.Add("path", "icon-" + counter + extension);
+                        dict.Add("path", "http://localhost:13124/Content/Icons/icon-" + postedFile.FileName);
                     }
                     else
                     {
-                        dict.Add("path", responsePath);
+                        dict.Add("path", "http://localhost:13124/Content/Images/img-" + postedFile.FileName);
                     }
                     return Request.CreateResponse(HttpStatusCode.Created, dict);
                 }
