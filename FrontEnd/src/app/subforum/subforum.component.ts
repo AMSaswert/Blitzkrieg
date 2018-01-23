@@ -7,9 +7,11 @@ import {ComplaintService} from '../services/complaint.service';
 import {AppUserService} from '../services/appUser.service';
 import {TopicService} from '../services/topic.service';
 import { Subforum } from '../models/subforum.model';
-import { Topic } from '../models/topic.model';
+import { Topic, TopicType } from '../models/topic.model';
 import { Complaint,EntityType } from '../models/complaint.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { NgFor } from '@angular/common/src/directives';
+import { Comment } from '../models/comment.model';
 @Component({
     selector: 'app-subforum',
     templateUrl: './subforum.component.html',
@@ -19,12 +21,15 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class SubforumComponent implements OnInit{
     topics : Topic[] = [];
     subforumId : number;
-    sub:any;
+    subforum : Subforum = new Subforum();
     complaintType : string = "Topic";
     entityType : EntityType = EntityType.Topic;
-    nameOfTopic:  string = "";
-    topicContent: string;
-    topicType: string;
+    topicType : string = "";
+    topicContent: string = "";
+    topicName : string = "";
+    topic : Topic = new Topic();
+    editBool : boolean = false;
+
     constructor(private httpSubforumService: SubforumService,private httpComplaintService : ComplaintService
         ,private httpAppUserService : AppUserService ,private httpTopicService : TopicService ,private route: ActivatedRoute) {
 
@@ -35,7 +40,7 @@ export class SubforumComponent implements OnInit{
             this.subforumId = +params['id'] ;  });
             
             this.httpSubforumService.getDatabyId(this.subforumId).subscribe(
-                (prod: any) => {this.topics=prod.Topics; console.log(this.topics)},
+                (prod: any) => {this.topics=prod.Topics;this.subforum = prod; console.log(this.topics)},
                  error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
             
     }
@@ -75,7 +80,7 @@ export class SubforumComponent implements OnInit{
 
     routing(topic: Topic) : void
     {
-        this.httpAppUserService.routing("/topic/"+topic.Id.toString());
+        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
     }
 
     imageUploaded(event: Event)
@@ -83,5 +88,113 @@ export class SubforumComponent implements OnInit{
         var response = event["serverResponse"].json();
         this.topicContent = response["path"];
     }
-   
+
+    create()
+    {
+        if(this.topicType == "")
+        {
+            alert("Chose type of topic!");
+            return;
+        }
+
+        if(this.topicName == "" || this.topicContent == "")
+        {
+            alert("Topic name and content must be filled!");
+            return;
+        }
+
+        for(var top of this.topics)
+        {
+            if(this.topicName == top.Name)
+            {
+                alert("Topic with that name already exists!");
+                return;
+            }
+        }
+        if(this.topicType == "Text")
+        {
+            this.topic.TopicType = TopicType.Text;
+            
+        }
+        else if(this.topicType == "Link")
+        {
+            this.topic.TopicType = TopicType.Link;
+        }
+        else if(this.topicType == "Picture")
+        {
+            this.topic.TopicType = TopicType.Picture;
+        }
+
+        this.topic.Name = this.topicName;
+        this.topic.Content = this.topicContent;
+
+        if(this.editBool == false)
+        {
+       
+        this.topic.Id = this.httpAppUserService.getRandomInt(1,9999999);
+        this.topic.AuthorUsername = sessionStorage.getItem("username");
+        this.topic.SubforumId = this.subforumId;
+        this.topic.Comments = new Array<Comment>();
+        this.topic.CreationDate = new Date(Date.now());
+        this.topic.DislikesNum = 0;
+        this.topic.LikesNum = 0;
+        this.topic.UsersWhoVoted = new Array<string>();
+        
+
+        this.httpTopicService.put(this.subforumId,this.topic);
+        this.topics.push(this.topic);
+        this.topicName = "";
+        this.topicContent = "";
+        }
+        else
+        {
+             this.topics[this.topics.findIndex(x=>x.Id == this.topic.Id)] = this.topic;
+             this.httpTopicService.put(this.subforumId,this.topic);
+        }
+    }
+
+
+    Authorized(topic: Topic) : boolean
+    {
+        if(topic.AuthorUsername == sessionStorage.getItem("username") || "Admin" == sessionStorage.getItem("role")
+        || this.subforum.LeadModeratorUsername == sessionStorage.getItem("username"))
+        {
+            return true;
+        }
+        for(var moderator of this.subforum.Moderators)
+        {
+            if(moderator == sessionStorage.getItem("username"))
+            {
+                return true;
+            }
+        }
+        
+      return false;
+    }
+
+    forEditTopic(topic : Topic)
+    {
+        if(this.editBool == false)
+        {
+            this.editBool = true;
+            this.topicName = topic.Name;
+            this.topicContent = topic.Content;
+            this.topic = topic;
+        }
+        else
+        {
+            this.editBool = false;
+            this.topicName = "";
+            this.topicContent = "";
+            this.topic = new Topic();
+        }    
+
+        
+    }
+
+    deleteTopic(topic : Topic)
+    {
+        this.topics.splice(this.topics.findIndex(x=>x.Id==topic.Id),1);
+        this.httpTopicService.delete(topic.Id);
+    }
 }

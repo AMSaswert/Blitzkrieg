@@ -1,16 +1,22 @@
 
-<span> <app-comment-list [comments] = "comments" [topicId]="topicId"></app-comment-list></span>
+<span> <app-comment-list [comments] = "comments" [topicId]="topicId" [subforumId]="subforumId"></app-comment-list></span>
 
 
 <div *ngIf = "isLoggedIn()">
-        <td>
-        <label for="content">Content:</label>
-        <input type="text" [(ngModel)] = "content">
-        </td>
-        
-        <td>
-        <button (click)="sendComment()">Add comment</button>
-        </td>
+
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f)">
+        <tr>
+            <td>
+            <label for="Text">Text</label>
+            <input type="text" name="Text" ngModel>
+            </td>
+            
+            <td>
+                <button>Send comment</button>
+            </td>
+        </tr>
+                    
+    </form>
 </div>
 
 

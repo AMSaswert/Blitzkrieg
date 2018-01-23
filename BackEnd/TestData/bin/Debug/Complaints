@@ -1,29 +1,20 @@
 <?xml version="1.0"?>
 <ArrayOfComplaint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Complaint>
-    <Id>1010540735</Id>
-    <Text>zzzzzzzzzz</Text>
-    <CreationDate>2018-01-20T01:28:46.3809589+01:00</CreationDate>
-    <EntityType>Comment</EntityType>
-    <EntityId>1408630349</EntityId>
-    <EntityAuthor>mica</EntityAuthor>
-    <AuthorUsername>aca</AuthorUsername>
-  </Complaint>
-  <Complaint>
-    <Id>941005300</Id>
+    <Id>1443007506</Id>
     <Text>bbbbbbbbbb</Text>
-    <CreationDate>2018-01-20T01:28:46.3814614+01:00</CreationDate>
+    <CreationDate>2018-01-22T16:41:08.0606628+01:00</CreationDate>
     <EntityType>Subforum</EntityType>
-    <EntityId>353630188</EntityId>
+    <EntityId>961587369</EntityId>
     <EntityAuthor>moderator</EntityAuthor>
     <AuthorUsername>aca</AuthorUsername>
   </Complaint>
   <Complaint>
-    <Id>2004414662</Id>
+    <Id>967126108</Id>
     <Text>kkkkkkkkkk</Text>
-    <CreationDate>2018-01-20T01:28:46.3814614+01:00</CreationDate>
+    <CreationDate>2018-01-22T16:41:08.0606628+01:00</CreationDate>
     <EntityType>Topic</EntityType>
-    <EntityId>1926705884</EntityId>
+    <EntityId>1889221232</EntityId>
     <EntityAuthor>mica</EntityAuthor>
     <AuthorUsername>aca</AuthorUsername>
   </Complaint>

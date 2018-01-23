@@ -1,11 +1,62 @@
-<li *ngFor="let complaint of complaints;let i = index;" (click)="routing(complaint.Id)">
+<li *ngFor="let complaint of complaints">
     <span>{{complaint.Id}}</span>
     <span>{{complaint.Text}}</span>
     <span>{{complaint.CreationDate}}</span>
-    <span>{{types[complaint.EntityType]}}</span>
+    <span>{{entityType[complaint.EntityType]}}</span>
     <span>{{complaint.EntityId}}</span>
     <span>{{complaint.EntityAuthor}}</span>
     <span>{{complaint.AuthorUsername}}</span>
+    <div>
+      <input type="radio" value="Delete"  (click) = "getComplaint(complaint)"  [(ngModel)]="complaintType" >Delete 
+      <input type="radio" value="Warning" (click) = "getComplaint(complaint)" [(ngModel)]="complaintType" >Warning
+      <input type="radio" value="Refuse"  (click) = "getComplaint(complaint)"  [(ngModel)]="complaintType">Refuse
+    </div>
+
+    <div *ngIf="complaintType == 'Delete' && complaintId == complaint.Id">
+      <tr>
+          <td>Message for author:</td>
+          <td>
+          <input type="text" [(ngModel)] = "textForAuthor">
+          </td>
+          
+          <td>Message for complainer:</td>
+          <td>
+          <input type="text" [(ngModel)] = "textForComplainer">
+          </td>
+          <td>
+              <button (click)="delete()">Submit</button>
+          </td>
+      </tr>
+  </div>
+  
+  <div *ngIf="complaintType == 'Warning' && complaintId == complaint.Id">
+      <tr>
+          <td>Message for author:</td>
+          <td>
+          <input type="text" [(ngModel)] = "textForAuthor">
+          </td>
+          
+          <td>Message for complainer:</td>
+          <td>
+          <input type="text" [(ngModel)] = "textForComplainer">
+          </td>
+          <td>
+              <button (click)="warn()">Submit</button>
+          </td>
+      </tr>
+  </div>
+  
+  <div *ngIf="complaintType == 'Refuse' && complaintId == complaint.Id">
+      <tr>
+          <td>Message for complainer:</td>
+          <td>
+          <input type="text" [(ngModel)] = "textForComplainer">
+          </td>
+          <td>
+              <button (click)="refuse()">Submit</button>
+          </td>
+      </tr>
+  </div>
   </li>
 
  

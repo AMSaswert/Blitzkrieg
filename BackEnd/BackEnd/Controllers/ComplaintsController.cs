@@ -23,54 +23,66 @@ namespace BackEnd.Controllers
         {
             string[] userAndRole = useRole.Split('-');
             List<Complaint> complaints = new List<Complaint>();
-            List<string> liableUsers = new List<string>();
+            bool outOfLoop = false;
 
             foreach (var complaint in Models.Models.Complaints)
             {
-                foreach (var subforum in Models.Models.Subforums)
+
+                if (complaint.EntityType == EntityType.Subforum)
                 {
-                    if (subforum.Id == complaint.EntityId)
+                    if (LieabilityCheck(userAndRole[0], userAndRole[1], string.Empty))
                     {
-                        if (LieabilityCheck(userAndRole[0], userAndRole[1], string.Empty))
-                        {
-                            complaints.Add(complaint);
-                            break;
-                        }
+                        complaints.Add(complaint);
                     }
-
-                    foreach (var topic in subforum.Topics)
+                }
+                else if (complaint.EntityType == EntityType.Topic)
+                {
+                    Subforum subforum = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == complaint.EntityId).FirstOrDefault() ==
+                    x.Topics.Where(y => y.Id == complaint.EntityId).FirstOrDefault()).FirstOrDefault();
+                    if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
                     {
-                        if (topic.Id == complaint.EntityId)
+                        complaints.Add(complaint);
+                    }
+                }
+                else
+                {
+                    foreach (var subforum in Models.Models.Subforums)
+                    {
+                        foreach (var topic in subforum.Topics)
                         {
-                            if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
+                            foreach (var item in topic.Comments)
                             {
-                                complaints.Add(complaint);
-                                break;
-                            }
-                        }
-
-                        foreach (var item in topic.Comments)
-                        {
-                            if (item.Id == complaint.EntityId)
-                            {
-                                if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
-                                {
-                                    complaints.Add(complaint);
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                bool condition = EditComment(item.ChildrenComments, complaint.EntityId);
-                                if (condition)
+                                if (item.Id == complaint.EntityId)
                                 {
                                     if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
                                     {
                                         complaints.Add(complaint);
+                                        outOfLoop = true;
                                         break;
                                     }
                                 }
+                                else
+                                {
+                                    if (FindComment(item.ChildrenComments, complaint.EntityId))
+                                    {
+                                        if (LieabilityCheck(userAndRole[0], userAndRole[1], subforum.LeadModeratorUsername))
+                                        {
+                                            complaints.Add(complaint);
+                                            outOfLoop = true;
+                                            break;
+                                        }
+                                    }
+                                }
                             }
+                            if (outOfLoop == true)
+                            {
+                                break;
+                            }
+                        }
+                        if (outOfLoop == true)
+                        {
+                            outOfLoop = false;
+                            break;
                         }
                     }
                 }
@@ -104,7 +116,7 @@ namespace BackEnd.Controllers
             serializer.SerializeObject(Models.Models.Complaints,"Complaints");
         }
 
-        private bool EditComment(List<Comment> comments, int id)
+        private bool FindComment(List<Comment> comments, int id)
         {
             foreach (var item in comments)
             {
@@ -114,8 +126,10 @@ namespace BackEnd.Controllers
                 }
                 else
                 {
-                    EditComment(item.ChildrenComments, id);
-                    break;
+                    if(FindComment(item.ChildrenComments, id))
+                    {
+                        return true;
+                    }
                 }
             }
             return false;

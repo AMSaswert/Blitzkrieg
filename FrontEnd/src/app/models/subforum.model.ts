@@ -12,4 +12,6 @@ export class Subforum{
     Moderators : Array<string>;
     Topics : Array<Topic>;
 
+    constructor() {}
+
 }

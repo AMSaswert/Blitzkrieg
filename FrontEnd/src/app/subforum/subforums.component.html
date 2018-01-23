@@ -1,13 +1,14 @@
 
 <div>
     
-<li *ngFor="let subforum of subforums; let i = index;" (click)="routing(subforum)">
+<li *ngFor="let subforum of subforums">
     <span>{{subforum.Id}}</span>
     <span>{{subforum.Name}}</span>
     <span>{{subforum.Description}}</span>
     <span>{{subforum.IconURL}}</span>
     <span>{{subforum.Rules}}</span>
     <span>{{subforum.LeadModeratorUsername}}</span>
+    <button (click)="routing(subforum)">Open</button>
     <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "subforum" [entityType] = "entityType"></complaint-send></span>
     <div *ngIf="isCreatorOrAdmin(subforum.LeadModeratorUsername)">
         <button (click) = "deleteSubforum(subforum.Id)">Delete</button>

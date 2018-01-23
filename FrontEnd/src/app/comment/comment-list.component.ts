@@ -2,8 +2,10 @@ import { Component, OnInit,Input } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {CommentService} from '../services/comment.service';
 import {AppUserService} from '../services/appUser.service';
+import {SubforumService} from '../services/subforum.service';
 import { AppUser } from '../models/appUser.model';
 import { Comment } from '../models/comment.model';
+import { Subforum } from '../models/subforum.model';
 @Component({
     selector: 'app-comment-list',
     templateUrl: './comment-list.component.html',
@@ -14,18 +16,24 @@ export class CommentListComponent implements OnInit{
 
   @Input()comments : Comment[] = [];
   @Input()topicId : number;
+  @Input()subforumId : number;
+  subforum : Subforum = new Subforum();
+  editId : number;
 
-    constructor(private httpCommentService: CommentService,private httpAppUserService : AppUserService ) {
+    constructor(private httpCommentService: CommentService,private httpAppUserService : AppUserService,
+      private httpSubforumService : SubforumService ) {
     }
 
 
-    ngOnInit() {
-              
+    ngOnInit() {      
+      this.httpSubforumService.getDatabyId(this.subforumId).subscribe(
+        (prod: any) => {this.subforum = prod;});
     }
 
 
     isLoggedIn() : boolean
     {
+      this.checkComment(this.comments);
       return this.httpAppUserService.isLoggedIn();
     }
 
@@ -55,8 +63,27 @@ export class CommentListComponent implements OnInit{
     deleteAuth(comment : Comment): boolean
     {
       if(comment.AuthorUsername == sessionStorage.getItem("username") || "Admin" == sessionStorage.getItem("role") || 
-        "Moderator" == sessionStorage.getItem("role"))
+        this.subforum.LeadModeratorUsername == sessionStorage.getItem("username"))
         return true;
+      return false;
+    }
+
+    editAuth(comment : Comment) : boolean
+    {
+      if(comment.AuthorUsername == sessionStorage.getItem("username") ||
+         this.subforum.LeadModeratorUsername == sessionStorage.getItem("username"))
+         {
+           return true;
+         }
+
+      for(var moderator of this.subforum.Moderators)
+      {
+        if(moderator == sessionStorage.getItem("username"))
+        {
+          return true;
+        }
+      }
+
       return false;
     }
 
@@ -64,6 +91,25 @@ export class CommentListComponent implements OnInit{
     {
       this.httpCommentService.delete(commentId);
       this.comments.splice(this.comments.findIndex(x=>x.Id==commentId),1);
+    }
+
+    forEditing(commentId: number) : void
+    {
+       this.editId = commentId;
+    }
+
+    edit(tempComment: Comment,form : NgForm,comment: Comment)
+    {
+      comment.Text = tempComment.Text;
+      if(comment.AuthorUsername == sessionStorage.getItem("username"))
+      {
+        comment.Edited = true;
+      }
+
+      this.httpCommentService.put(this.topicId,comment);
+      this.comments.splice(this.comments.findIndex(x=>x.Id==comment.Id),1,comment);
+      this.editId = -1;
+      form.reset();
     }
 
     onSubmit(comment: Comment,form: NgForm,parentCommentId: number)
@@ -84,6 +130,20 @@ export class CommentListComponent implements OnInit{
       this.httpCommentService.put(this.topicId,comment);
       this.comments.splice(this.comments.findIndex(x=>x.Id==parentCommentId)+1,0,comment);
       form.reset();
-    }   
+    }  
 
+    checkComment(comments : Array<Comment>)
+    {
+      for(var item of comments)
+      {
+          if (item.Removed == true)
+          {
+              comments.splice(comments.findIndex(x=>x.Id==item.Id),1);
+          }
+          else
+          {
+              this.checkComment(item.ChildrenComments);             
+          }
+      }       
+  }
 }

@@ -1,45 +1,66 @@
 
-<li *ngFor="let topic of topics; let i = index;" (click)="routing(topic)">
+<li *ngFor="let topic of topics">
     <span>{{topic.Id}}</span>
     <span>{{topic.SubforumId}}</span>
     <span>{{topic.Name}}</span>
     <span>{{topic.TopicType}}</span>
     <span>{{topic.AuthorUsername}}</span>
-    <span><img src={{topic.Content}} /></span>
+    <a *ngIf="topic.TopicType != 0">
+      <span><img src={{topic.Content}} /></span>
+    </a>
+    <a *ngIf="topic.TopicType == 0">
+      <span>{{topic.Content}}</span>
+    </a>
     <span>{{topic.CreationDate}}</span>
     <span>{{topic.LikesNum}}</span>
     <span>{{topic.DislikesNum}}</span>
+    <button (click)="routing(topic)">Open</button>
     <div *ngIf = "isLoggedIn()">
-    <button [disabled] = "voted(topic)"   (click)="Like(topic)">Like</button>
-    <button [disabled] = "voted(topic)"   (click)="Dislike(topic)">Dislike</button>
+      <button [disabled] = "voted(topic)"   (click)="Like(topic)">Like</button>
+      <button [disabled] = "voted(topic)"   (click)="Dislike(topic)">Dislike</button>
+      <a *ngIf="Authorized(topic)">
+        <button (click) = "forEditTopic(topic)">Edit topic</button>
+        <button (click) = "deleteTopic(topic)">Delete topic</button>
+      </a>
     </div>
     <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "topic" [entityType] = "entityType"></complaint-send></span>
   </li>
 
 
-  <div *ngIf = "isLoggedIn()">
 
-      <label>Name of topic:</label>
-        <input type="text" [(ngModel)] = "nameOfTopic">
-        <select [(value)]="selected">
-          <option value="0">Text</option>
-          <option value="1">Picture</option>
-          <option value="2">Link</option>
-         </select>
-      <label>Content of topic:</label>
-      <p>You selected: {{selected}}</p>
-      <div>
-        <image-upload url="http://localhost:13124/api/Upload"
-                [max]="1"
-                [extensions]="['jpeg','png']"
-                [preview]="true"
-                [maxFileSize]="5048576"
-                [extensions]="['jpg','png','gif']"
-                [fileTooLargeMessage]="'Image too large!'"
-                (uploadFinished)="imageUploaded($event)">
-        </image-upload>
-      </div>
-      <div *ngIf = "topicType == 0 || topicType == 2">
-        <input type="text" [(ngModel)] = "contentOfTopic">
-      </div>
-  </div>
+<div *ngIf = "isLoggedIn()">
+  <input type="radio" value="Text" name="topicType" [(ngModel)]="topicType" >Text
+  <input type="radio" value="Picture" name="topicType"  [(ngModel)]="topicType" >Picture
+  <input type="radio" value="Link" name="topicType"  [(ngModel)]="topicType">Link
+  <a *ngIf = "!editBool">[Create topic]</a>
+  <a *ngIf = "editBool">[Edit topic]</a>
+  
+    <tr>
+        <td>
+        <label for="Name">Name</label>
+        <input type="text"  [(ngModel)] = "topicName">
+          </td>
+
+        <div *ngIf="topicType != 'Picture'">
+          <td>
+          <label for="Content">Content</label>
+          <input type="text" [(ngModel)] = "topicContent">
+          </td>
+        </div>
+        <td>
+            <button (click)="create()">Create or edit topic</button>
+        </td>
+    </tr> 
+
+<div *ngIf="topicType == 'Picture'">
+  <image-upload url="http://localhost:13124/api/Upload"
+          [max]="1"
+          [extensions]="['jpeg','png']"
+          [preview]="true"
+          [maxFileSize]="5048576"
+          [extensions]="['jpg','png','gif']"
+          [fileTooLargeMessage]="'Image too large!'"
+          (uploadFinished)="imageUploaded($event)">
+  </image-upload>
+</div>
+</div>

@@ -15,7 +15,6 @@ import { MessageReceivedComponent } from './message/message-received.component';
 import { AppUserComponent } from './appUser/appUser.component';
 import { CommentListComponent } from './comment/comment-list.component';
 import { ComplaintsComponent } from './complaint/complaints.component';
-import { ComplaintComponent } from './complaint/complaint.component';
 import { ComplaintSend } from './complaintSend/complaint-send.component';
 import { TopicComponent } from './topic/topic.component';
 import { SubforumsComponent } from './subforum/subforums.component';
@@ -37,8 +36,7 @@ const Routes = [
   {path: "message-received", component:MessageReceivedComponent},
   {path: "appUser", component: AppUserComponent},
   {path: "complaints", component: ComplaintsComponent},
-  {path: "complaint/:id", component: ComplaintComponent},
-  {path: "topic/:id", component: TopicComponent},
+  {path: "topic/:id/:subId", component: TopicComponent},
   {path: "home", component: SubforumsComponent},
   {path: "subforum/:id", component: SubforumComponent},
 ]
@@ -52,7 +50,6 @@ const Routes = [
     MessageReceivedComponent,
     AppUserComponent,
     ComplaintsComponent,
-    ComplaintComponent,
     ComplaintSend,
     TopicComponent,
     SubforumsComponent,

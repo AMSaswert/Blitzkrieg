@@ -20,5 +20,5 @@ export class Topic{
     Comments : Array<Comment>;
     UsersWhoVoted : Array<string>;
 
-
+    constructor(){}
 }

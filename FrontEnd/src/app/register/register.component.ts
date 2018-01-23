@@ -30,7 +30,7 @@ export class RegisterComponent{
         this.httpAppUserService.post(user).subscribe(
             data => {
                 alert("Registration successful");
-                this.router.navigate(['/login']);
+                this.httpAppUserService.routing("/home");
             },
             error => {
                 alert("Username already exists.");
