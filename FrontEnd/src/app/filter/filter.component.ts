@@ -74,9 +74,7 @@ export class FilterComponent implements OnInit{
     {
         for(var subforum of this.subforums)
             {
-                this.httpSubforumService.getDatabyId(subforum.Id).subscribe(
-                    (prod: any) => {this.topics.push.apply(this.topics, prod.Topics); console.log(this.topics)},
-                     error => {alert("Unsuccessful fetch operation!"); console.log(error);});
+                this.topics.push.apply(this.topics, subforum.Topics);
             } 
     }
 
