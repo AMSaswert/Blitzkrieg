@@ -18,6 +18,24 @@
                     
     </form>
 </div>
+People who liked this also likeed:<br>
+<li *ngFor="let topic of rTopics">
+    <span>{{topic.Id}}</span>
+    <span>{{topic.SubforumId}}</span>
+    <span>{{topic.Name}}</span>
+    <span>{{topic.TopicType}}</span>
+    <span>{{topic.AuthorUsername}}</span>
+    <a *ngIf="topic.TopicType != 0">
+      <span><img src={{topic.Content}} /></span>
+    </a>
+    <a *ngIf="topic.TopicType == 0">
+      <span>{{topic.Content}}</span>
+    </a>
+    <span>{{topic.CreationDate}}</span>
+    <span>{{topic.LikesNum}}</span>
+    <span>{{topic.DislikesNum}}</span>
+    <button (click)="routing(topic)">Open</button>
+</li>
 
 
    

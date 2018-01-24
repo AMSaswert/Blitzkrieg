@@ -10,6 +10,7 @@ import { Topic } from '../models/topic.model';
 import { Comment } from '../models/comment.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ReferenceAst } from '@angular/compiler';
+import {SubforumService} from '../services/subforum.service';
 @Component({
     selector: 'app-topic',
     templateUrl: './topic.component.html',
@@ -23,20 +24,24 @@ export class TopicComponent implements OnInit{
     subforumId : number;
     comments : Comment[]=[];
     comment: Comment = new Comment();
+    rTopics : Topic[]=[];
+    topics : Topic[] = [];
+    @Input()  subforums: Subforum[];
 
-    constructor(private httpService: TopicService,private httpCommentService : CommentService
+    constructor(private httpSubforumService: SubforumService
+        ,private httpService: TopicService,private httpCommentService : CommentService
         ,private httpAppUserService : AppUserService,private route: ActivatedRoute) {
 
     }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            this.topicId = +params['id'] ; this.subforumId = +params['subId'];  });
+            this.topicId = +params['id'] ; this.subforumId = +params['subId'];});
             
             this.httpService.getDatabyId(this.topicId).subscribe(
-                (prod: any) => {this.topic = prod;this.comments = prod.Comments; console.log(this.topic)},
+                (prod: any) => {this.topic = prod;this.comments = prod.Comments; this.getAllSubforums();
+                 console.log(this.topic)},
                  error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
-            
     }
 
     isLoggedIn() : boolean
@@ -62,5 +67,50 @@ export class TopicComponent implements OnInit{
       this.httpCommentService.put(this.topicId,comment);
       this.comments.push(comment);
       form.reset();
+    }
+
+    getAllSubforums()
+    {
+        this.httpSubforumService.getData().subscribe(
+            (prod: any) => {this.subforums = prod;  this.getAllTopics();});
+    }
+
+    getAllTopics()
+    {
+        for(var subforum of this.subforums)
+            {
+                this.topics.push.apply(this.topics, subforum.Topics);
+            } 
+        this.getRecommendations();
+    }
+    getRecommendations()
+    {
+        for(var topic of this.topics)
+            {
+                if (topic.Id !== this.topicId) {
+                    for(var user of this.topic.UsersWhoVoted)
+                    {
+                        if (topic.UsersWhoVoted.indexOf(user) !== -1) {
+                            this.rTopics.push(topic);
+                            break;
+                        }
+                    }
+                }
+            }
+        //to be tested
+        /*this.rTopics.sort((a: Topic, b: Topic) => {
+            if (a.LikesNum < b.LikesNum) {
+              return -1;
+            } else if (a.LikesNum > b.LikesNum) {
+              return 1;
+            } else {
+              return 0;
+            }
+          });*/
+    }
+    routing(topic: Topic) : void
+    {
+        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
+        //fix this mandarine
     }
 }

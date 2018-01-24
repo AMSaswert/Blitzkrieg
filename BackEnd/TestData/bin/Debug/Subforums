@@ -17,7 +17,7 @@
         <AuthorUsername>mica</AuthorUsername>
         <Content>test test</Content>
         <CreationDate>2018-01-22T16:41:08.0586638+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
+        <LikesNum>1</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments>
           <Comment>
@@ -122,7 +122,9 @@
             <UsersWhoVoted />
           </Comment>
         </Comments>
-        <UsersWhoVoted />
+        <UsersWhoVoted>
+          <string xsi:nil="true" />
+        </UsersWhoVoted>
       </Topic>
       <Topic>
         <Id>1083517809</Id>
@@ -160,10 +162,12 @@
         <AuthorUsername>mica</AuthorUsername>
         <Content>test test</Content>
         <CreationDate>2018-01-22T16:41:08.0591631+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
+        <LikesNum>1</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments />
-        <UsersWhoVoted />
+        <UsersWhoVoted>
+          <string xsi:nil="true" />
+        </UsersWhoVoted>
       </Topic>
     </Topics>
   </Subforum>
