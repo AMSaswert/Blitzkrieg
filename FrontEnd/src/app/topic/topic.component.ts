@@ -27,6 +27,7 @@ export class TopicComponent implements OnInit{
     rTopics : Topic[]=[];
     topics : Topic[] = [];
     @Input()  subforums: Subforum[];
+    recommendedTitle: string = "";
 
     constructor(private httpSubforumService: SubforumService
         ,private httpService: TopicService,private httpCommentService : CommentService
@@ -85,6 +86,7 @@ export class TopicComponent implements OnInit{
     }
     getRecommendations()
     {
+        this.rTopics.splice(0);
         for(var topic of this.topics)
             {
                 if (topic.Id !== this.topicId) {
@@ -97,16 +99,23 @@ export class TopicComponent implements OnInit{
                     }
                 }
             }
-        //to be tested
-        /*this.rTopics.sort((a: Topic, b: Topic) => {
-            if (a.LikesNum < b.LikesNum) {
-              return -1;
-            } else if (a.LikesNum > b.LikesNum) {
-              return 1;
-            } else {
-              return 0;
-            }
-          });*/
+        if (this.rTopics.length === 0) {
+            this.recommendedTitle = "Most popular topics";
+            this.rTopics.push.apply(this.rTopics, this.topics);
+        }
+        else {
+            this.recommendedTitle = "People who liked this also liked";
+        }
+        this.rTopics.sort((a: Topic, b: Topic) => {
+                if (a.LikesNum > b.LikesNum) {
+                  return -1;
+                } else if (a.LikesNum < b.LikesNum) {
+                  return 1;
+                } else {
+                  return 0;
+                }
+              });
+              this.rTopics.splice(6);
     }
     routing(topic: Topic) : void
     {
