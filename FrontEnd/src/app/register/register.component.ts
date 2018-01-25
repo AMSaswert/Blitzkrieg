@@ -29,14 +29,23 @@ export class RegisterComponent{
         user.ReceivedMessages = new Array<Message>();
         user.RegistrationDate = new Date(Date.now());
         var us;
-        this.httpAppUserService.post(user).subscribe(
-            data => {
-                alert("Registration successful");
-                this.httpAppUserService.routing("/home");
-            },
-            error => {
-                alert("Username already exists.");
-            });
+        if (user.UserName !== "" && user.Password !== "" && user.Name !== "" && user.Surname !== "" &&
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.Email) && 
+        /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(user.ContactPhone)) {
+            this.httpAppUserService.post(user).subscribe(
+                data => {
+                    alert("Registration successful");
+                    this.httpAppUserService.routing("/home");
+                },
+                error => {
+                    alert("Username already exists.");
+                });
+            
+          } 
+        else{
+            alert("Invalid input!");
+        }   
+        }
         
-      }      
+          
 }
