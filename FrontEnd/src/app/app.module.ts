@@ -10,10 +10,12 @@ import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import {UserPage} from './userPage/user-page.component';
 import { MessageSendComponent } from './message/message-send.component';
 import { MessageReceivedComponent } from './message/message-received.component';
 import { AppUserComponent } from './appUser/appUser.component';
 import { CommentListComponent } from './comment/comment-list.component';
+import { CommentSaved } from './commentSaved/comment-saved.component';
 import { ComplaintsComponent } from './complaint/complaints.component';
 import { ComplaintSend } from './complaintSend/complaint-send.component';
 import { TopicComponent } from './topic/topic.component';
@@ -39,6 +41,7 @@ const Routes = [
   {path: "complaints", component: ComplaintsComponent},
   {path: "topic/:id/:subId", component: TopicComponent},
   {path: "home", component: SubforumsComponent},
+  {path: "user-page", component: UserPage},
   {path: "subforum/:id", component: SubforumComponent},
   {path: "filter", component: FilterComponent},
 ]
@@ -48,6 +51,7 @@ const Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    UserPage,
     MessageSendComponent,
     MessageReceivedComponent,
     AppUserComponent,
@@ -57,6 +61,7 @@ const Routes = [
     SubforumsComponent,
     SubforumComponent,
     CommentListComponent,
+    CommentSaved,
     FilterComponent,
 
   ],

@@ -30,9 +30,9 @@ namespace BackEnd.Models
         
         public List<int> BookmarkedSubforums { get; set; }
 
-        public List<int> SavedTopics { get; set; }
+        public List<Topic> SavedTopics { get; set; }
 
-        public List<int> SavedComments { get; set; }
+        public List<Comment> SavedComments { get; set; }
 
         public List<Message> ReceivedMessages { get; set; }
 

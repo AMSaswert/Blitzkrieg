@@ -19,6 +19,7 @@ export class CommentListComponent implements OnInit{
   @Input()subforumId : number;
   subforum : Subforum = new Subforum();
   editId : number;
+  user : AppUser = new AppUser();
 
     constructor(private httpCommentService: CommentService,private httpAppUserService : AppUserService,
       private httpSubforumService : SubforumService ) {
@@ -28,6 +29,14 @@ export class CommentListComponent implements OnInit{
     ngOnInit() {      
       this.httpSubforumService.getDatabyId(this.subforumId).subscribe(
         (prod: any) => {this.subforum = prod;});
+
+        if(this.isLoggedIn())
+        {
+
+        this.httpAppUserService.getDataById(sessionStorage.getItem("username")).subscribe(
+            (prod: any) => {this.user = prod; console.log(this.user)},
+             error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+        }
     }
 
 
@@ -145,5 +154,12 @@ export class CommentListComponent implements OnInit{
               this.checkComment(item.ChildrenComments);             
           }
       }       
-  }
+    }
+
+    saveComment(comment : Comment) : void
+    {
+      this.user.SavedComments.push(comment);
+      this.httpAppUserService.put(this.user.Id,this.user);
+    }
+
 }

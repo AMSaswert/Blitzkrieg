@@ -1,6 +1,5 @@
 <div *ngIf="comments != null && comments.Length!=0">
     <li style="margin-left: 20px" *ngFor = "let comment of comments">
-            <div *ngIf = "comment.Removed != true">
             <span>{{comment.Id}}</span>
             <span>{{comment.TopicId}}</span>
             <span>{{comment.AuthorUsername}}</span>
@@ -13,6 +12,7 @@
             <div *ngIf = "isLoggedIn()">
             <button [disabled] = "voted(comment)"   (click)="like(comment)">Like</button>
             <button [disabled] = "voted(comment)"   (click)="dislike(comment)">Dislike</button>
+            <button (click)="saveComment(comment)">Save comment</button>
             <a *ngIf="editAuth(comment)">
              <button (click)="forEditing(comment.Id)">Edit comment</button>
             </a>
@@ -28,7 +28,7 @@
                             </td>
                             
                             <td>
-                               <button>Edit</button>
+                               <button>Reply</button>
                             </td>
                         </tr>
                                  
@@ -43,13 +43,12 @@
                         </td>
                         
                         <td>
-                           <button>Reply</button>
+                           <button>Edit</button>
                         </td>
                     </tr>
                              
                 </form>
         </div>
-            </div>
             </div>
            <span> <app-comment-list [comments] = "comment.ChildrenComments" [topicId]="topicId" [subforumId]="subforumId"></app-comment-list></span>
     </li>

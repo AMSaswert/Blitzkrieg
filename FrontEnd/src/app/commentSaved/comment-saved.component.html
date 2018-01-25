@@ -1,0 +1,14 @@
+<div *ngIf="comments != null && comments.Length!=0">
+    <li style="margin-left: 20px" *ngFor = "let comment of comments">
+            <span>{{comment.Id}}</span>
+            <span>{{comment.TopicId}}</span>
+            <span>{{comment.AuthorUsername}}</span>
+            <span>{{comment.CreationDate}}</span>
+            <span>{{comment.ParentCommentId}}</span>
+            <span>{{comment.Text}}</span>
+            <span>{{comment.LikesNo}}</span>
+            <span>{{comment.DislikesNo}}</span>
+            <span>{{comment.Edited}}</span>
+           <span> <comment-saved [comments] = "comment.ChildrenComments"></comment-saved></span>
+    </li>
+</div>

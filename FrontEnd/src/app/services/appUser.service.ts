@@ -25,6 +25,17 @@ export class AppUserService{
         return body || [];
     }
 
+    getDataById(username : string): Observable<AppUser> {
+        const url = `http://localhost:13124//api/User?username=`+username;
+        return this.http.get(url).map(this.extractData);        
+    }
+
+    getDislikesAndLikes(username : string): Observable<AppUser> {
+        const url = `http://localhost:13124//api/DislikesAndLikes?username=`+username;
+        return this.http.get(url).map(this.extractData);        
+    }
+
+
     login(usernameAndPassword: string): Observable<any> {
         const url = `http://localhost:13124//api/AppUsers?usernameAndPassword=` +usernameAndPassword;
         return this.http.get(url).map(this.extractData);        
@@ -59,6 +70,9 @@ export class AppUserService{
         .delete(`http://localhost:13124//api/AppUsers/${id}`,{headers:headers})
         .toPromise();
     }
+
+
+
 
     getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;

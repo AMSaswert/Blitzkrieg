@@ -12,6 +12,8 @@ import { Complaint,EntityType } from '../models/complaint.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { NgFor } from '@angular/common/src/directives';
 import { Comment } from '../models/comment.model';
+import { AppUser } from '../models/appUser.model';
+import { AppComponent } from '../app.component';
 @Component({
     selector: 'app-subforum',
     templateUrl: './subforum.component.html',
@@ -29,7 +31,7 @@ export class SubforumComponent implements OnInit{
     topicName : string = "";
     topic : Topic = new Topic();
     editBool : boolean = false;
-
+    user : AppUser = new AppUser();
     constructor(private httpSubforumService: SubforumService,private httpComplaintService : ComplaintService
         ,private httpAppUserService : AppUserService ,private httpTopicService : TopicService ,private route: ActivatedRoute) {
 
@@ -42,6 +44,14 @@ export class SubforumComponent implements OnInit{
             this.httpSubforumService.getDatabyId(this.subforumId).subscribe(
                 (prod: any) => {this.topics=prod.Topics;this.subforum = prod; console.log(this.topics)},
                  error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+
+            if(this.isLoggedIn())
+            {
+
+            this.httpAppUserService.getDataById(sessionStorage.getItem("username")).subscribe(
+                (prod: any) => {this.user = prod; console.log(this.user)},
+                 error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+            }
             
     }
 
@@ -172,7 +182,7 @@ export class SubforumComponent implements OnInit{
       return false;
     }
 
-    forEditTopic(topic : Topic)
+    forEditTopic(topic : Topic) : void
     {
         if(this.editBool == false)
         {
@@ -192,9 +202,15 @@ export class SubforumComponent implements OnInit{
         
     }
 
-    deleteTopic(topic : Topic)
+    deleteTopic(topic : Topic) : void
     {
         this.topics.splice(this.topics.findIndex(x=>x.Id==topic.Id),1);
         this.httpTopicService.delete(topic.Id);
+    }
+
+    saveTopic(topic : Topic) : void
+    {
+        this.user.SavedTopics.push(topic);
+        this.httpAppUserService.put(this.user.Id,this.user);
     }
 }

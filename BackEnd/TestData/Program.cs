@@ -28,9 +28,9 @@ namespace TestData
                 Role = "Admin",
                 RegistrationDate = DateTime.Now,
                 BookmarkedSubforums = new List<int>(),
-                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "Bem ti lebac" }, new Message { Id = random.Next(), Content = "aaaaaaaaa" } },
-                SavedComments = new List<int>(),
-                SavedTopics = new List<int>()
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "Bem ti lebac" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "aaaaaaaaa" } },
+                SavedComments = new List<Comment>(),
+                SavedTopics = new List<Topic>()
                 
             });
             AppUsers.Add(new AppUser()
@@ -45,9 +45,9 @@ namespace TestData
                 Role = "Moderator",
                 RegistrationDate = DateTime.Now,
                 BookmarkedSubforums = new List<int>(),
-                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "Bem ti lebac" }, new Message { Id = random.Next(), Content = "aaaaaaaaa" } },
-                SavedComments = new List<int>(),
-                SavedTopics = new List<int>()
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(),SenderUsername = "aca", Content = "Bem ti lebac" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "aaaaaaaaa" } },
+                SavedComments = new List<Comment>(),
+                SavedTopics = new List<Topic>()
 
             });
             AppUsers.Add(new AppUser()
@@ -62,9 +62,9 @@ namespace TestData
                 ContactPhone = "021/1353545",
                 RegistrationDate = DateTime.Now,
                 BookmarkedSubforums = new List<int>(),
-                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "opassada" }, new Message { Id = random.Next(), Content = "ajsasa" } },
-                SavedComments = new List<int>(),
-                SavedTopics = new List<int>()
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "opassada" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "ajsasa" } },
+                SavedComments = new List<Comment>(),
+                SavedTopics = new List<Topic>()
             });
 
             AppUsers.Add(new AppUser()
@@ -79,9 +79,9 @@ namespace TestData
                 Role = "Moderator",
                 RegistrationDate = DateTime.Now,
                 BookmarkedSubforums = new List<int>(),
-                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), Content = "mhmhm" }, new Message { Id = random.Next(), Content = "frik" } },
-                SavedComments = new List<int>(),
-                SavedTopics = new List<int>()
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "mhmhm" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "frik" } },
+                SavedComments = new List<Comment>(),
+                SavedTopics = new List<Topic>()
             });
 
             CreateSubforum(random, "Funny", "hot topics", "do w/e", "moderator", "http://localhost:54042/Content/Icons/icon-0.ico");
@@ -154,7 +154,7 @@ namespace TestData
             sub.Topics.Add(new Topic()
             {
                 Id = random.Next(),
-
+                SubforumId = sub.Id,
                 Name = name,
                 AuthorUsername = authorUsername,
                 TopicType = topicType,

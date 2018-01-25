@@ -26,10 +26,9 @@ export class LoginComponent{
 
                 if(prod.length != 0)
                 {
-                    sessionStorage.setItem("username",this.user.UserName);
-                    sessionStorage.setItem("role",this.user.Role);
-                    sessionStorage.setItem("route","/home");
-                    this.httpAppUserService.routing("/home");
+                    sessionStorage.setItem("username",this.username);
+                    sessionStorage.setItem("role",this.password);
+                    this.httpAppUserService.routing("/user-page");
                 }
                 else
                 {

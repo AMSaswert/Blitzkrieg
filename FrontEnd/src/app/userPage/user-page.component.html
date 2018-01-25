@@ -1,0 +1,35 @@
+<div>
+    <a>Bookmarked subforums: </a>
+    <li *ngFor="let subforum of user.BookmarkedSubforums">
+        <span>{{subforum}}</span>
+    </li>  
+</div>
+
+<div>
+    <a>Saved topic: </a>
+    <li *ngFor="let topic of user.SavedTopics">
+            <span>{{topic.Id}}</span>
+            <span>{{topic.SubforumId}}</span>
+            <span>{{topic.Name}}</span>
+            <span>{{topic.TopicType}}</span>
+            <span>{{topic.AuthorUsername}}</span>
+            <a *ngIf="topic.TopicType != 0">
+              <span><img src={{topic.Content}} /></span>
+            </a>
+            <a *ngIf="topic.TopicType == 0">
+              <span>{{topic.Content}}</span>
+            </a>
+            <span>{{topic.CreationDate}}</span>
+            <span>{{topic.LikesNum}}</span>
+            <span>{{topic.DislikesNum}}</span>
+    </li>  
+</div>
+
+<div>
+    <a>Saved comments: </a>
+    <comment-saved [comments] = "user.SavedComments"></comment-saved>     
+</div>
+
+<div>
+    <p>You have total number of LIKES: {{dislikesAndLikes[1]}} and DISLIKES: {{dislikesAndLikes[0]}}</p>
+</div>

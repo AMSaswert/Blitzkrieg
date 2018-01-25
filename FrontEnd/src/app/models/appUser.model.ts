@@ -1,4 +1,6 @@
 import{Message} from './message.model';
+import{Topic} from './topic.model';
+import{Comment} from './comment.model';
 
 export class AppUser{
     Id: number;
@@ -11,8 +13,8 @@ export class AppUser{
     ContactPhone: string;
     RegistrationDate: Date;
     BookmarkedSubforums: Array<number>;
-    SavedTopics : Array<number>;
-    SavedComments : Array<number>;
+    SavedTopics : Array<Topic>;
+    SavedComments : Array<Comment>;
     ReceivedMessages : Array<Message>;
 
     constructor()

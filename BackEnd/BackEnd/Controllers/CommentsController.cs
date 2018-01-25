@@ -24,17 +24,6 @@ namespace BackEnd.Controllers
             return null;
         }
 
-        // GET: api/Comments/5
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
-        // POST: api/Comments
-        public void Post([FromBody]string value)
-        {
-        }
-
         // PUT: api/Comments/5
         public void Put(int id, object comment)
         {

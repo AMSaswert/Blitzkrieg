@@ -23,8 +23,7 @@ namespace BackEnd.Controllers
         }
 
         // GET: api/AppUsers/5
-        [ResponseType(typeof(AppUser))]
-        public AppUser Get(string usernameAndPassword)
+        public AppUser Login(string usernameAndPassword)
         {
             string[] username_password = usernameAndPassword.Split('-');
             AppUser user = Models.Models.AppUsers.Where(x => x.UserName == username_password[0] && x.Password == username_password[1]).FirstOrDefault() as AppUser;
@@ -57,8 +56,14 @@ namespace BackEnd.Controllers
         public void Put(int id, object user)
         {
             AppUser appuser = JsonConvert.DeserializeObject<AppUser>(user.ToString());
-            Models.Models.AppUsers.Remove(Models.Models.AppUsers.Where(x => x.Id == id).FirstOrDefault());
-            Models.Models.AppUsers.Add(appuser);
+            if(Models.Models.AppUsers.Where(x => x.Id == id).FirstOrDefault() != null)
+            {
+                Models.Models.AppUsers[Models.Models.AppUsers.FindIndex(x => x.Id == id)] = appuser;
+            }
+            else
+            {
+                Models.Models.AppUsers.Add(appuser);
+            }
             serializer.SerializeObject(Models.Models.AppUsers,"AppUsers");
         }
 

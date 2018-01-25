@@ -18,6 +18,7 @@
     <div *ngIf = "isLoggedIn()">
       <button [disabled] = "voted(topic)"   (click)="Like(topic)">Like</button>
       <button [disabled] = "voted(topic)"   (click)="Dislike(topic)">Dislike</button>
+      <button (click)="saveTopic(topic)">Save topic</button>
       <a *ngIf="Authorized(topic)">
         <button (click) = "forEditTopic(topic)">Edit topic</button>
         <button (click) = "deleteTopic(topic)">Delete topic</button>

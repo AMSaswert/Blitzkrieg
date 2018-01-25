@@ -1,24 +1,3 @@
-<!--
-<div>
-
-<a [routerLink]="['/home']">Home</a>
-<div *ngIf="!isLoggedIn()">
-<a [routerLink]="['/login']">Login</a>
-<a [routerLink]="['/register']">register</a>
-</div>
-<div *ngIf="isLoggedIn()">      
-<a [routerLink]="['/message-send']">Send Message</a>
-<a [routerLink]="['/message-received']">Inbox</a>
-<a [routerLink]="['/appUser']">AppUsers</a>
-<a [routerLink]="['/comment']">Comments</a>
-<div *ngIf = "authRole()">
-<a [routerLink]="['/complaints']">Complaints</a>
-</div>
-<a [routerLink]="['/topics']">Topics</a>
-<a><button type="button" (click)="logOut()">logOut</button></a>
-</div>
-</div>
--->
 <div>
 
 <button  (click)="routing('/home')">Home</button>
@@ -30,6 +9,7 @@
 <div *ngIf="isLoggedIn()">      
 <button  (click)="routing('/message-send')">Send message</button>
 <button  (click)="routing('/message-received')">Inbox</button>
+<button  (click)="routing('/user-page')">User page</button>
 <div *ngIf="isAdmin()">
 <button  (click)="routing('/appUser')">AppUsers</button>
 </div>

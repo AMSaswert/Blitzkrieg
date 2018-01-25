@@ -10,8 +10,9 @@
     <span>{{subforum.LeadModeratorUsername}}</span>
     <button (click)="routing(subforum)">Open</button>
     <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "subforum" [entityType] = "entityType"></complaint-send></span>
-    <div *ngIf="isCreatorOrAdmin(subforum.LeadModeratorUsername)">
-        <button (click) = "deleteSubforum(subforum.Id)">Delete</button>
+    <div>
+        <a *ngIf="isCreatorOrAdmin(subforum.LeadModeratorUsername)"> <button (click) = "deleteSubforum(subforum.Id)">Delete</button></a> 
+        <button [disabled] = "bookmarked(subforum.Id)" (click) = "bookmarkSubforum(subforum.Id)">Bookmark subforum</button>
     </div>
   </li>
 </div>

@@ -10,6 +10,7 @@ import { Topic } from '../models/topic.model';
 import { Complaint,EntityType } from '../models/complaint.model';
 import { ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppUser } from '../models/appUser.model';
 @Component({
     selector: 'app-subforums',
     templateUrl: './subforums.component.html',
@@ -23,6 +24,7 @@ export class SubforumsComponent implements OnInit{
     complaintType : string = "Subforum";
     entityType : EntityType = EntityType.Subforum;
     subIcon : string = "";
+    user : AppUser = new AppUser();
 
     constructor(private httpSubforumService: SubforumService,private httpComplaintService: ComplaintService
     ,private httpAppUserService : AppUserService ) {
@@ -33,6 +35,14 @@ export class SubforumsComponent implements OnInit{
 
             this.httpSubforumService.getData().subscribe(
                 (prod: any) => {this.subforums = prod;});
+
+            if(this.isLoggedIn())
+            {
+
+            this.httpAppUserService.getDataById(sessionStorage.getItem("username")).subscribe(
+                (prod: any) => {this.user = prod; console.log(this.user)},
+                  error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+            }
     }
 
     onSubmit(subforum: Subforum, form: NgForm) {
@@ -101,5 +111,24 @@ export class SubforumsComponent implements OnInit{
     {
         var response = event["serverResponse"].json();
         this.subIcon = response["path"];
+    }
+
+    bookmarked(subforumId : number) : boolean
+    {
+      for(var bookmarked of this.user.BookmarkedSubforums)
+      {
+        if(subforumId == bookmarked)
+        {
+          return true;
+        }
+      }
+      
+      return false;
+    }
+
+    bookmarkSubforum(subforumId : number) : void
+    {
+      this.user.BookmarkedSubforums.push(subforumId);
+      this.httpAppUserService.put(this.user.Id,this.user);
     }
 }
