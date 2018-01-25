@@ -29,14 +29,17 @@ export class ComplaintSend {
 
     complaintSend() : void
        {
-            this.complaint.Id = this.httpAppUserService.getRandomInt(1,9999999);
-            this.complaint.EntityType = this.entityType;
-            this.complaint.AuthorUsername = sessionStorage.getItem("username").toString();
-            this.complaint.CreationDate = new Date(Date.now());
-            this.complaint.EntityId = this.complaningTo.Id;
-            this.complaint.Text = this.complaintText;
-            
-            this.httpComplaintService.post(this.complaint);
+            if (this.complaintText !== "") {
+                this.complaint.Id = this.httpAppUserService.getRandomInt(1,9999999);
+                this.complaint.EntityType = this.entityType;
+                this.complaint.AuthorUsername = sessionStorage.getItem("username").toString();
+                this.complaint.CreationDate = new Date(Date.now());
+                this.complaint.EntityId = this.complaningTo.Id;
+                this.complaint.Text = this.complaintText;
+                this.httpComplaintService.post(this.complaint);
+            } else {
+                alert("Invalid input!");
+            }
             this.complaintText = "";
             
        }

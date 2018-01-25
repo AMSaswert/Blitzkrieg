@@ -59,35 +59,46 @@ export class ComplaintsComponent implements OnInit{
 
 
     delete() : void
-    {      
-        this.messageConstructorForAuthor()
-        this.messageConstructorForComplainer();
-        if(this.complaint.EntityType == EntityType.Subforum)
-        {
-            this.httpSubforumService.delete(this.complaint.EntityId);
+    {   if (this.textForAuthor !== "" || this.textForComplainer !== "") {
+            this.messageConstructorForAuthor()
+            this.messageConstructorForComplainer();
+            if(this.complaint.EntityType == EntityType.Subforum)
+            {
+                this.httpSubforumService.delete(this.complaint.EntityId);
+            }
+            else if(this.complaint.EntityType == EntityType.Topic)
+            {
+                this.httpTopicService.delete(this.complaint.EntityId);
+            }
+            else
+            {
+                this.httpCommentService.delete(this.complaint.EntityId);
+            }
+            this.deleteComplaint();
+        } else {
+            alert("Field cannot be empty!");
         }
-        else if(this.complaint.EntityType == EntityType.Topic)
-        {
-            this.httpTopicService.delete(this.complaint.EntityId);
-        }
-        else
-        {
-            this.httpCommentService.delete(this.complaint.EntityId);
-        }
-        this.deleteComplaint();
     }
 
     warn() : void
     { 
-        this.messageConstructorForAuthor()
-        this.messageConstructorForComplainer();
-        this.deleteComplaint();
+        if (this.textForAuthor !== "" || this.textForComplainer !== "") {
+            this.messageConstructorForAuthor()
+            this.messageConstructorForComplainer();
+            this.deleteComplaint();
+        } else {
+            alert("Field cannot be empty!");
+        }
     }
     
     refuse() : void
     {
-        this.messageConstructorForComplainer();
-        this.deleteComplaint();
+        if (this.textForComplainer !== "") {
+            this.messageConstructorForComplainer();
+            this.deleteComplaint();
+        } else {
+            alert("Field cannot be empty!");
+        }
     }
 
     messageConstructorForAuthor()

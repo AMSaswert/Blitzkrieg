@@ -41,6 +41,7 @@ export class MessageSendComponent implements OnInit{
 
     sendMessage() : void
     {
+      if (this.messageText !== "") {
         this.message.Id = this.httpAppUserService.getRandomInt(1,9999999);
         this.message.Content = this.messageText;
         this.message.SenderUsername = sessionStorage.getItem("username");
@@ -48,6 +49,8 @@ export class MessageSendComponent implements OnInit{
         var username = (<HTMLInputElement>document.getElementById("recipient")).value;
         this.httpMessageService.create(username,this.message);
         this.httpAppUserService.routing("/home");;
-        
+      } else {
+        alert("Field cannot be empty!")
+      }
     }
 }
