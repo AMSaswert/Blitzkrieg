@@ -1,4 +1,4 @@
-<li *ngFor="let complaint of complaints">
+<li *ngFor="let complaint of complaints;let i = index">
     <span>{{complaint.Id}}</span>
     <span>{{complaint.Text}}</span>
     <span>{{complaint.CreationDate}}</span>
@@ -7,9 +7,9 @@
     <span>{{complaint.EntityAuthor}}</span>
     <span>{{complaint.AuthorUsername}}</span>
     <div>
-      <input type="radio" value="Delete"  (click) = "getComplaint(complaint)"  [(ngModel)]="complaintType" >Delete 
-      <input type="radio" value="Warning" (click) = "getComplaint(complaint)" [(ngModel)]="complaintType" >Warning
-      <input type="radio" value="Refuse"  (click) = "getComplaint(complaint)"  [(ngModel)]="complaintType">Refuse
+      <input type="radio" name = {{complaint.Id}}  (click) = "getComplaint(complaint,'Delete')" >Delete 
+      <input type="radio" name = {{complaint.Id}}  (click) = "getComplaint(complaint,'Warning')">Warning
+      <input type="radio" name = {{complaint.Id}}  (click) = "getComplaint(complaint,'Refuse')">Refuse
     </div>
 
     <div *ngIf="complaintType == 'Delete' && complaintId == complaint.Id">

@@ -25,7 +25,9 @@ export class SubforumsComponent implements OnInit{
     entityType : EntityType = EntityType.Subforum;
     subIcon : string = "";
     user : AppUser = new AppUser();
-
+    users : AppUser[] = [];
+    addModerator : number  = -1;
+    potentionalModerators : string[] = [];
     constructor(private httpSubforumService: SubforumService,private httpComplaintService: ComplaintService
     ,private httpAppUserService : AppUserService ) {
 
@@ -130,5 +132,31 @@ export class SubforumsComponent implements OnInit{
     {
       this.user.BookmarkedSubforums.push(subforumId);
       this.httpAppUserService.put(this.user.Id,this.user);
+    }
+
+    moderators(subforum : Subforum)
+    {
+      this.addModerator = subforum.Id;
+      this.potentionalModerators = [];
+      this.httpAppUserService.getData().subscribe(
+        (prod: any) => {
+
+          for(var user of prod)
+          {
+            if(user.UserName != subforum.LeadModeratorUsername &&
+              subforum.Moderators.findIndex(x=> x == user.UserName) == -1 && user.Role != "AppUser")
+              {
+                this.potentionalModerators.push(user.UserName);
+              }
+          }
+         });
+    }
+
+    newModerator(subforum : Subforum) : void
+    {
+      subforum.Moderators.push((<HTMLInputElement>document.getElementById("recipient")).value);
+
+      this.httpSubforumService.put(subforum.Id,subforum);
+      this.addModerator = -1;
     }
 }

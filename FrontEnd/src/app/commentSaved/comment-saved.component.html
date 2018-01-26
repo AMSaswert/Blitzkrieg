@@ -1,4 +1,4 @@
-<div *ngIf="comments != null && comments.Length!=0">
+<div *ngIf="comments != null && comments.Length!=0 && forCheck()">
     <li style="margin-left: 20px" *ngFor = "let comment of comments">
             <span>{{comment.Id}}</span>
             <span>{{comment.TopicId}}</span>

@@ -16,8 +16,8 @@ export class ComplaintService{
         return this.http.get(url).map(this.extractData);        
     }
 
-    getDatabyId(id: string): Observable<Complaint> {
-        const url = `http://localhost:13124//api/Complaints/${id}`;
+    getDatabyId(useRole: string): Observable<Complaint> {
+        const url = `http://localhost:13124//api/Complaints?useRole=`+useRole;
         return this.http.get(url).map(this.extractData);        
     }
 

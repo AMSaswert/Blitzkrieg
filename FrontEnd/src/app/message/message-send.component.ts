@@ -41,7 +41,7 @@ export class MessageSendComponent implements OnInit{
 
     sendMessage() : void
     {
-      if (this.messageText !== "") {
+      if (this.messageText != "") {
         this.message.Id = this.httpAppUserService.getRandomInt(1,9999999);
         this.message.Content = this.messageText;
         this.message.SenderUsername = sessionStorage.getItem("username");

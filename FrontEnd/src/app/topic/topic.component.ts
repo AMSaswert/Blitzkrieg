@@ -117,9 +117,9 @@ export class TopicComponent implements OnInit{
               });
               this.rTopics.splice(6);
     }
+    
     routing(topic: Topic) : void
     {
         this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
-        //fix this mandarine
     }
 }

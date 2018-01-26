@@ -12,7 +12,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class LoginComponent{
 
-    user : AppUser = new AppUser();
     username : string = "";
     password : string = "";
 
@@ -22,12 +21,12 @@ export class LoginComponent{
     login() : void
     {
         this.httpAppUserService.login(this.username+"-"+this.password).subscribe(
-            (prod: any) => {this.user = prod; console.log(this.user);
+            (prod: any) => { console.log(prod);
 
                 if(prod.length != 0)
                 {
-                    sessionStorage.setItem("username",this.username);
-                    sessionStorage.setItem("role",this.password);
+                    sessionStorage.setItem("username",prod.UserName);
+                    sessionStorage.setItem("role",prod.Role);
                     this.httpAppUserService.routing("/user-page");
                 }
                 else

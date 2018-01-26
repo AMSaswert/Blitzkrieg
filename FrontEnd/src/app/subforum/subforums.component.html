@@ -11,8 +11,26 @@
     <button (click)="routing(subforum)">Open</button>
     <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "subforum" [entityType] = "entityType"></complaint-send></span>
     <div>
-        <a *ngIf="isCreatorOrAdmin(subforum.LeadModeratorUsername)"> <button (click) = "deleteSubforum(subforum.Id)">Delete</button></a> 
-        <button [disabled] = "bookmarked(subforum.Id)" (click) = "bookmarkSubforum(subforum.Id)">Bookmark subforum</button>
+        <a *ngIf="isCreatorOrAdmin(subforum.LeadModeratorUsername)"> 
+            <button (click) = "deleteSubforum(subforum.Id)">Delete</button>
+            <button (click) = "moderators(subforum)">New moderators</button></a>
+            <button [disabled] = "bookmarked(subforum.Id)" (click) = "bookmarkSubforum(subforum.Id)">Bookmark subforum</button>
+        <div *ngIf =" subforum.Id == addModerator ">
+
+                <tr>
+                    <td>
+                    <td>New moderator:</td>
+                    <td><select id='recipient'><option  *ngFor="let moderator of potentionalModerators" 
+                        
+                    [value]="moderator">{{moderator}}</option>
+                        </select>
+                    </td>
+                    <td>
+                    <button (click)="newModerator(subforum)">Add moderator</button>
+                    </td>
+                </tr>
+                    
+            </div>
     </div>
   </li>
 </div>

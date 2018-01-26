@@ -30,7 +30,7 @@ export class AppComponent {
 
       authRole() : boolean
       {
-        if("Admin" == sessionStorage.getItem("role") )
+        if("Admin" == sessionStorage.getItem("role")  || sessionStorage.getItem("role") == "Moderator" )
           return true;
         return false;
       }

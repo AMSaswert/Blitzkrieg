@@ -37,8 +37,14 @@ namespace BackEnd.Controllers
         public void Put(int id, object subforum)
         {
             Subforum sub = JsonConvert.DeserializeObject<Subforum>(subforum.ToString());
-            Models.Models.Subforums.Remove(Models.Models.Subforums.Where(x => x.Id == sub.Id).FirstOrDefault());
-            Models.Models.Subforums.Add(sub);
+            if(Models.Models.Subforums.Where(x => x.Id == sub.Id).FirstOrDefault() != null)
+            {
+                Models.Models.Subforums[Models.Models.Subforums.FindIndex(x => x.Id == id)] = sub;
+            }
+            else
+            {
+                Models.Models.Subforums.Add(sub);
+            }
             serializer.SerializeObject(Models.Models.Subforums, "Subforums");
         }
 

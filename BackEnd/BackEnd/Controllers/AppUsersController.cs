@@ -23,7 +23,7 @@ namespace BackEnd.Controllers
         }
 
         // GET: api/AppUsers/5
-        public AppUser Login(string usernameAndPassword)
+        public AppUser Get(string usernameAndPassword)
         {
             string[] username_password = usernameAndPassword.Split('-');
             AppUser user = Models.Models.AppUsers.Where(x => x.UserName == username_password[0] && x.Password == username_password[1]).FirstOrDefault() as AppUser;

@@ -32,6 +32,7 @@ export class ComplaintsComponent implements OnInit{
     messageForAuthor : Message = new Message();
     messageForComplainer : Message = new Message();
     complaint : Complaint = new Complaint();
+    counter : number = 0;
     
     constructor(private httpComplaintService: ComplaintService,private httpComplaintsHelpService: ComplaintsHelpService,
         private httpMessageService: MessageService,  private httpSubforumService: SubforumService,
@@ -51,10 +52,11 @@ export class ComplaintsComponent implements OnInit{
         this.entityType = options.slice(options.length/2);
     }
 
-    getComplaint(complaint : Complaint) : void
+    getComplaint(complaint : Complaint,complaintType: string) : void
     {
         this.complaintId = complaint.Id;
         this.complaint = complaint;
+        this.complaintType = complaintType;
     }
 
 
