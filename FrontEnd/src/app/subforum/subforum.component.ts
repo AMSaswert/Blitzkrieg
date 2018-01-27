@@ -38,6 +38,13 @@ export class SubforumComponent implements OnInit{
     }
 
     ngOnInit() {
+        if (sessionStorage.getItem("topicRoute") !== null) {
+            if (sessionStorage.getItem("topicRoute").length > 1) {
+                let quickRoute = sessionStorage.getItem("topicRoute");
+                sessionStorage.setItem("topicRoute","");
+                this.httpAppUserService.routing(quickRoute);
+            }
+        }
         this.route.params.subscribe(params => {
             this.subforumId = +params['id'] ;  });
             

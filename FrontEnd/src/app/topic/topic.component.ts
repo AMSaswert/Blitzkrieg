@@ -11,6 +11,7 @@ import { Comment } from '../models/comment.model';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ReferenceAst } from '@angular/compiler';
 import {SubforumService} from '../services/subforum.service';
+import {Location} from '@angular/common'
 @Component({
     selector: 'app-topic',
     templateUrl: './topic.component.html',
@@ -31,7 +32,8 @@ export class TopicComponent implements OnInit{
 
     constructor(private httpSubforumService: SubforumService
         ,private httpService: TopicService,private httpCommentService : CommentService
-        ,private httpAppUserService : AppUserService,private route: ActivatedRoute) {
+        ,private httpAppUserService : AppUserService,private route: ActivatedRoute,
+        private _location: Location) {
 
     }
 
@@ -120,6 +122,7 @@ export class TopicComponent implements OnInit{
     
     routing(topic: Topic) : void
     {
-        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
+        sessionStorage.setItem("topicRoute","/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
+        this._location.back();
     }
 }
