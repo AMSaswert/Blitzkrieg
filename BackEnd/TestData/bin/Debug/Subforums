@@ -1,239 +1,69 @@
 <?xml version="1.0"?>
 <ArrayOfSubforum xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Subforum>
-    <Id>985386039</Id>
-    <Name>World</Name>
-    <Description>controversial topics</Description>
-    <IconURL>http://localhost:54042/Content/Icons/icon-1.ico</IconURL>
-    <Rules>w/e</Rules>
-    <LeadModeratorUsername>mica</LeadModeratorUsername>
-    <Moderators />
-    <Topics>
-      <Topic>
-        <Id>1850923894</Id>
-        <SubforumId>985386039</SubforumId>
-        <Name>Topic 2 bla bla</Name>
-        <TopicType>Text</TopicType>
-        <AuthorUsername>mica</AuthorUsername>
-        <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
-        <DislikesNum>0</DislikesNum>
-        <Comments />
-        <UsersWhoVoted />
-      </Topic>
-      <Topic>
-        <Id>2126824564</Id>
-        <SubforumId>985386039</SubforumId>
-        <Name>Topic 7 bla bla bla bla bla bla bla bla bla bla bla</Name>
-        <TopicType>Text</TopicType>
-        <AuthorUsername>mica</AuthorUsername>
-        <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
-        <DislikesNum>0</DislikesNum>
-        <Comments>
-          <Comment>
-            <Id>1053018839</Id>
-            <TopicId>2126824564</TopicId>
-            <AuthorUsername>mica</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
-            <ParentCommentId xsi:nil="true" />
-            <ChildrenComments />
-            <Text>is gsdadasdasasddsa</Text>
-            <LikesNo>0</LikesNo>
-            <DislikesNo>0</DislikesNo>
-            <Edited>false</Edited>
-            <Removed>false</Removed>
-            <UsersWhoVoted />
-          </Comment>
-          <Comment>
-            <Id>1752243143</Id>
-            <TopicId>2126824564</TopicId>
-            <AuthorUsername>aca</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
-            <ParentCommentId xsi:nil="true" />
-            <ChildrenComments />
-            <Text>is ssadasdasdadsasddsaasddsasdagud</Text>
-            <LikesNo>0</LikesNo>
-            <DislikesNo>0</DislikesNo>
-            <Edited>false</Edited>
-            <Removed>false</Removed>
-            <UsersWhoVoted />
-          </Comment>
-        </Comments>
-        <UsersWhoVoted />
-      </Topic>
-    </Topics>
-  </Subforum>
-  <Subforum>
-    <Id>1212031388</Id>
-    <Name>Movies</Name>
-    <Description>new topics</Description>
-    <IconURL>http://localhost:54042/Content/Icons/icon-2.ico</IconURL>
-    <Rules>w/e</Rules>
-    <LeadModeratorUsername>mica</LeadModeratorUsername>
-    <Moderators />
-    <Topics>
-      <Topic>
-        <Id>1365602493</Id>
-        <SubforumId>1212031388</SubforumId>
-        <Name>Topic 3 bla bla bla bla bla bla bla bla </Name>
-        <TopicType>Text</TopicType>
-        <AuthorUsername>mica</AuthorUsername>
-        <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
-        <DislikesNum>0</DislikesNum>
-        <Comments />
-        <UsersWhoVoted />
-      </Topic>
-      <Topic>
-        <Id>393196840</Id>
-        <SubforumId>1212031388</SubforumId>
-        <Name>Topic 8 bla </Name>
-        <TopicType>Text</TopicType>
-        <AuthorUsername>mica</AuthorUsername>
-        <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
-        <DislikesNum>0</DislikesNum>
-        <Comments>
-          <Comment>
-            <Id>1658506759</Id>
-            <TopicId>393196840</TopicId>
-            <AuthorUsername>mica</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
-            <ParentCommentId xsi:nil="true" />
-            <ChildrenComments />
-            <Text>is gadssdasadsdaasdud</Text>
-            <LikesNo>0</LikesNo>
-            <DislikesNo>0</DislikesNo>
-            <Edited>false</Edited>
-            <Removed>false</Removed>
-            <UsersWhoVoted />
-          </Comment>
-          <Comment>
-            <Id>259413675</Id>
-            <TopicId>393196840</TopicId>
-            <AuthorUsername>aca</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
-            <ParentCommentId xsi:nil="true" />
-            <ChildrenComments />
-            <Text>idasdasdsas gud</Text>
-            <LikesNo>0</LikesNo>
-            <DislikesNo>0</DislikesNo>
-            <Edited>false</Edited>
-            <Removed>false</Removed>
-            <UsersWhoVoted />
-          </Comment>
-        </Comments>
-        <UsersWhoVoted />
-      </Topic>
-    </Topics>
-  </Subforum>
-  <Subforum>
-    <Id>294606239</Id>
-    <Name>Gaming</Name>
-    <Description>opular topics</Description>
-    <IconURL>http://localhost:54042/Content/Icons/icon-3.ico</IconURL>
-    <Rules>w/e</Rules>
-    <LeadModeratorUsername>moderator</LeadModeratorUsername>
-    <Moderators />
-    <Topics>
-      <Topic>
-        <Id>823376096</Id>
-        <SubforumId>294606239</SubforumId>
-        <Name>Topic 4 bla bla bla bla bla</Name>
-        <TopicType>Text</TopicType>
-        <AuthorUsername>mica</AuthorUsername>
-        <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
-        <DislikesNum>0</DislikesNum>
-        <Comments />
-        <UsersWhoVoted />
-      </Topic>
-      <Topic>
-        <Id>726952282</Id>
-        <SubforumId>294606239</SubforumId>
-        <Name>Topic 6 bla bla bla bla </Name>
-        <TopicType>Text</TopicType>
-        <AuthorUsername>mica</AuthorUsername>
-        <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
-        <DislikesNum>0</DislikesNum>
-        <Comments>
-          <Comment>
-            <Id>587969910</Id>
-            <TopicId>726952282</TopicId>
-            <AuthorUsername>mica</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
-            <ParentCommentId xsi:nil="true" />
-            <ChildrenComments />
-            <Text>is adsdasasddsaasdasdsdadassaddasdadagud</Text>
-            <LikesNo>0</LikesNo>
-            <DislikesNo>0</DislikesNo>
-            <Edited>false</Edited>
-            <Removed>false</Removed>
-            <UsersWhoVoted />
-          </Comment>
-          <Comment>
-            <Id>299702086</Id>
-            <TopicId>726952282</TopicId>
-            <AuthorUsername>aca</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
-            <ParentCommentId xsi:nil="true" />
-            <ChildrenComments />
-            <Text>is dasdsasdaadsgud</Text>
-            <LikesNo>0</LikesNo>
-            <DislikesNo>0</DislikesNo>
-            <Edited>false</Edited>
-            <Removed>false</Removed>
-            <UsersWhoVoted />
-          </Comment>
-        </Comments>
-        <UsersWhoVoted />
-      </Topic>
-    </Topics>
-  </Subforum>
-  <Subforum>
-    <Id>1034042833</Id>
+    <Id>390589043</Id>
     <Name>Funny</Name>
     <Description>hot topics</Description>
     <IconURL>http://localhost:54042/Content/Icons/icon-0.ico</IconURL>
     <Rules>do w/e</Rules>
     <LeadModeratorUsername>moderator</LeadModeratorUsername>
-    <Moderators>
-      <string>mica</string>
-    </Moderators>
+    <Moderators />
     <Topics>
       <Topic>
-        <Id>463700922</Id>
-        <SubforumId>1034042833</SubforumId>
+        <Id>2071228371</Id>
+        <SubforumId>390589043</SubforumId>
         <Name>Topic 1 bla bla bla bla bla bla bla bla bla bla blaaaaaaa</Name>
         <TopicType>Text</TopicType>
         <AuthorUsername>mica</AuthorUsername>
         <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8713017+01:00</CreationDate>
-        <LikesNum>0</LikesNum>
+        <CreationDate>2018-01-27T23:00:03.8910669+01:00</CreationDate>
+        <LikesNum>1</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments>
           <Comment>
-            <Id>1058447117</Id>
-            <TopicId>463700922</TopicId>
+            <Id>428200925</Id>
+            <TopicId>2071228371</TopicId>
             <AuthorUsername>mica</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
             <ParentCommentId xsi:nil="true" />
             <ChildrenComments>
               <Comment>
-                <Id>1511541065</Id>
-                <TopicId>463700922</TopicId>
+                <Id>1422284031</Id>
+                <TopicId>2071228371</TopicId>
                 <AuthorUsername>aca</AuthorUsername>
-                <CreationDate>2018-01-26T20:28:34.8733019+01:00</CreationDate>
-                <ParentCommentId>1058447117</ParentCommentId>
-                <ChildrenComments />
+                <CreationDate>2018-01-27T23:00:03.8925666+01:00</CreationDate>
+                <ParentCommentId>428200925</ParentCommentId>
+                <ChildrenComments>
+                  <Comment>
+                    <Id>1648539</Id>
+                    <TopicId>2071228371</TopicId>
+                    <AuthorUsername>admin</AuthorUsername>
+                    <CreationDate>2018-01-27T22:46:55.944Z</CreationDate>
+                    <ParentCommentId>1422284031</ParentCommentId>
+                    <ChildrenComments>
+                      <Comment>
+                        <Id>8107572</Id>
+                        <TopicId>2071228371</TopicId>
+                        <AuthorUsername>admin</AuthorUsername>
+                        <CreationDate>2018-01-27T22:47:00.7Z</CreationDate>
+                        <ParentCommentId>1648539</ParentCommentId>
+                        <ChildrenComments />
+                        <Text>aaaaa</Text>
+                        <LikesNo>0</LikesNo>
+                        <DislikesNo>0</DislikesNo>
+                        <Edited>false</Edited>
+                        <Removed>false</Removed>
+                        <UsersWhoVoted />
+                      </Comment>
+                    </ChildrenComments>
+                    <Text>aaaa</Text>
+                    <LikesNo>0</LikesNo>
+                    <DislikesNo>0</DislikesNo>
+                    <Edited>false</Edited>
+                    <Removed>false</Removed>
+                    <UsersWhoVoted />
+                  </Comment>
+                </ChildrenComments>
                 <Text>ojsaaaaaa</Text>
                 <LikesNo>0</LikesNo>
                 <DislikesNo>0</DislikesNo>
@@ -250,10 +80,10 @@
             <UsersWhoVoted />
           </Comment>
           <Comment>
-            <Id>1875201598</Id>
-            <TopicId>463700922</TopicId>
+            <Id>368593055</Id>
+            <TopicId>2071228371</TopicId>
             <AuthorUsername>aca</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
             <ParentCommentId xsi:nil="true" />
             <ChildrenComments />
             <Text>isdasdasdsaads gud</Text>
@@ -264,24 +94,26 @@
             <UsersWhoVoted />
           </Comment>
         </Comments>
-        <UsersWhoVoted />
+        <UsersWhoVoted>
+          <string xsi:nil="true" />
+        </UsersWhoVoted>
       </Topic>
       <Topic>
-        <Id>1492813003</Id>
-        <SubforumId>1034042833</SubforumId>
+        <Id>279831699</Id>
+        <SubforumId>390589043</SubforumId>
         <Name>Topic 5 </Name>
         <TopicType>Text</TopicType>
         <AuthorUsername>mica</AuthorUsername>
         <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
         <LikesNum>0</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments>
           <Comment>
-            <Id>1833702524</Id>
-            <TopicId>1492813003</TopicId>
+            <Id>559316821</Id>
+            <TopicId>279831699</TopicId>
             <AuthorUsername>aca</AuthorUsername>
-            <CreationDate>2018-01-26T20:28:34.8728025+01:00</CreationDate>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
             <ParentCommentId xsi:nil="true" />
             <ChildrenComments />
             <Text>asddsadsdsais gadsadsasddsaud</Text>
@@ -295,16 +127,216 @@
         <UsersWhoVoted />
       </Topic>
       <Topic>
-        <Id>343180200</Id>
-        <SubforumId>1034042833</SubforumId>
+        <Id>146642791</Id>
+        <SubforumId>390589043</SubforumId>
         <Name>Topic 8 bla bla bla bla bla bla bla bla bla bla bla</Name>
         <TopicType>Text</TopicType>
         <AuthorUsername>mica</AuthorUsername>
         <Content>test test</Content>
-        <CreationDate>2018-01-26T20:28:34.8718026+01:00</CreationDate>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
+        <LikesNum>1</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+        <UsersWhoVoted>
+          <string xsi:nil="true" />
+        </UsersWhoVoted>
+      </Topic>
+    </Topics>
+  </Subforum>
+  <Subforum>
+    <Id>1785344905</Id>
+    <Name>World</Name>
+    <Description>controversial topics</Description>
+    <IconURL>http://localhost:54042/Content/Icons/icon-1.ico</IconURL>
+    <Rules>w/e</Rules>
+    <LeadModeratorUsername>mica</LeadModeratorUsername>
+    <Moderators />
+    <Topics>
+      <Topic>
+        <Id>812247284</Id>
+        <SubforumId>1785344905</SubforumId>
+        <Name>Topic 2 bla bla</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>mica</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
         <LikesNum>0</LikesNum>
         <DislikesNum>0</DislikesNum>
         <Comments />
+        <UsersWhoVoted />
+      </Topic>
+      <Topic>
+        <Id>374394018</Id>
+        <SubforumId>1785344905</SubforumId>
+        <Name>Topic 7 bla bla bla bla bla bla bla bla bla bla bla</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>mica</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>1210869485</Id>
+            <TopicId>374394018</TopicId>
+            <AuthorUsername>mica</AuthorUsername>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is gsdadasdasasddsa</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>71914656</Id>
+            <TopicId>374394018</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is ssadasdasdadsasddsaasddsasdagud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+        </Comments>
+        <UsersWhoVoted />
+      </Topic>
+    </Topics>
+  </Subforum>
+  <Subforum>
+    <Id>2120551028</Id>
+    <Name>Movies</Name>
+    <Description>new topics</Description>
+    <IconURL>http://localhost:54042/Content/Icons/icon-2.ico</IconURL>
+    <Rules>w/e</Rules>
+    <LeadModeratorUsername>mica</LeadModeratorUsername>
+    <Moderators />
+    <Topics>
+      <Topic>
+        <Id>191456120</Id>
+        <SubforumId>2120551028</SubforumId>
+        <Name>Topic 3 bla bla bla bla bla bla bla bla </Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>mica</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+        <UsersWhoVoted />
+      </Topic>
+      <Topic>
+        <Id>1893579409</Id>
+        <SubforumId>2120551028</SubforumId>
+        <Name>Topic 8 bla </Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>mica</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>1684432966</Id>
+            <TopicId>1893579409</TopicId>
+            <AuthorUsername>mica</AuthorUsername>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is gadssdasadsdaasdud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>1817139806</Id>
+            <TopicId>1893579409</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>idasdasdsas gud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+        </Comments>
+        <UsersWhoVoted />
+      </Topic>
+    </Topics>
+  </Subforum>
+  <Subforum>
+    <Id>670024699</Id>
+    <Name>Gaming</Name>
+    <Description>opular topics</Description>
+    <IconURL>http://localhost:54042/Content/Icons/icon-3.ico</IconURL>
+    <Rules>w/e</Rules>
+    <LeadModeratorUsername>moderator</LeadModeratorUsername>
+    <Moderators />
+    <Topics>
+      <Topic>
+        <Id>1194803162</Id>
+        <SubforumId>670024699</SubforumId>
+        <Name>Topic 4 bla bla bla bla bla</Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>mica</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments />
+        <UsersWhoVoted />
+      </Topic>
+      <Topic>
+        <Id>1116007091</Id>
+        <SubforumId>670024699</SubforumId>
+        <Name>Topic 6 bla bla bla bla </Name>
+        <TopicType>Text</TopicType>
+        <AuthorUsername>mica</AuthorUsername>
+        <Content>test test</Content>
+        <CreationDate>2018-01-27T23:00:03.8915667+01:00</CreationDate>
+        <LikesNum>0</LikesNum>
+        <DislikesNum>0</DislikesNum>
+        <Comments>
+          <Comment>
+            <Id>427962610</Id>
+            <TopicId>1116007091</TopicId>
+            <AuthorUsername>mica</AuthorUsername>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is adsdasasddsaasdasdsdadassaddasdadagud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+          <Comment>
+            <Id>422718332</Id>
+            <TopicId>1116007091</TopicId>
+            <AuthorUsername>aca</AuthorUsername>
+            <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
+            <ParentCommentId xsi:nil="true" />
+            <ChildrenComments />
+            <Text>is dasdsasdaadsgud</Text>
+            <LikesNo>0</LikesNo>
+            <DislikesNo>0</DislikesNo>
+            <Edited>false</Edited>
+            <Removed>false</Removed>
+            <UsersWhoVoted />
+          </Comment>
+        </Comments>
         <UsersWhoVoted />
       </Topic>
     </Topics>

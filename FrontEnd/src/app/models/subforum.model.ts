@@ -12,6 +12,9 @@ export class Subforum{
     Moderators : Array<string>;
     Topics : Array<Topic>;
 
-    constructor() {}
+    constructor() 
+    {
+        this.Moderators = [];
+    }
 
 }

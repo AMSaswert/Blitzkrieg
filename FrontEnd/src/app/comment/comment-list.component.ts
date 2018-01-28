@@ -85,13 +85,13 @@ export class CommentListComponent implements OnInit{
            return true;
          }
 
-      for(var moderator of this.subforum.Moderators)
-      {
-        if(moderator == sessionStorage.getItem("username"))
+        for(var moderator of this.subforum.Moderators)
         {
-          return true;
+          if(moderator == sessionStorage.getItem("username"))
+          {
+            return true;
+          }       
         }
-      }
 
       return false;
     }

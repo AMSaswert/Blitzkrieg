@@ -14,6 +14,10 @@ export class Comment{
     Removed : boolean;
     UsersWhoVoted : Array<string>;
 
-    constructor(){}
+    constructor()
+    {
+        this.ChildrenComments = [];
+        this.UsersWhoVoted = [];
+    }
 
 }

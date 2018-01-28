@@ -19,6 +19,9 @@ export class AppUser{
 
     constructor()
     {
+        this.BookmarkedSubforums = [];
+        this.SavedTopics = [];
+        this.SavedComments = [];
     }
 
 }
