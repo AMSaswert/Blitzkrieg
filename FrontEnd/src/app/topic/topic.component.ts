@@ -12,6 +12,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ReferenceAst } from '@angular/compiler';
 import {SubforumService} from '../services/subforum.service';
 import {Location} from '@angular/common'
+import { AppUser } from '../models/appUser.model';
 @Component({
     selector: 'app-topic',
     templateUrl: './topic.component.html',
@@ -20,7 +21,7 @@ import {Location} from '@angular/common'
 
 export class TopicComponent implements OnInit{
     
-    topic: Topic;
+    topic: Topic = new Topic();
     topicId : number;
     subforumId : number;
     comments : Comment[]=[];
@@ -29,6 +30,7 @@ export class TopicComponent implements OnInit{
     topics : Topic[] = [];
     @Input()  subforums: Subforum[];
     recommendedTitle: string = "";
+    user : AppUser = new AppUser();
 
     constructor(private httpSubforumService: SubforumService
         ,private httpService: TopicService,private httpCommentService : CommentService
@@ -41,10 +43,18 @@ export class TopicComponent implements OnInit{
         this.route.params.subscribe(params => {
             this.topicId = +params['id'] ; this.subforumId = +params['subId'];});
             
-            this.httpService.getDatabyId(this.topicId).subscribe(
-                (prod: any) => {this.topic = prod;this.comments = prod.Comments; this.getAllSubforums();
-                 console.log(this.topic)},
-                 error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+        this.httpService.getDatabyId(this.topicId).subscribe(
+            (prod: any) => {this.topic = prod;this.comments = prod.Comments; this.getAllSubforums();
+                console.log(this.topic)},
+                error => {alert("Unsuccessful fetch operation!"); console.log(error);});
+            
+        if(this.isLoggedIn())
+        {
+
+        this.httpAppUserService.getDataById(sessionStorage.getItem("username")).subscribe(
+            (prod: any) => {this.user = prod; console.log(this.user)},
+             error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
+        }
     }
 
     isLoggedIn() : boolean

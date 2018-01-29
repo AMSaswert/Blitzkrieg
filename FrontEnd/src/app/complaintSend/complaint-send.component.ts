@@ -23,6 +23,7 @@ export class ComplaintSend {
     @Input() complaintType : String;
     @Input() complaningTo: any; 
     @Input() entityType : EntityType;
+    @Input() entityAuthor : string;
     complaint : Complaint = new Complaint();
     complaintText: string = "";
 
@@ -32,10 +33,18 @@ export class ComplaintSend {
             if (this.complaintText !== "") {
                 this.complaint.Id = this.httpAppUserService.getRandomInt(1,9999999);
                 this.complaint.EntityType = this.entityType;
-                this.complaint.AuthorUsername = sessionStorage.getItem("username").toString();
+                this.complaint.AuthorUsername = sessionStorage.getItem("username");
                 this.complaint.CreationDate = new Date(Date.now());
                 this.complaint.EntityId = this.complaningTo.Id;
                 this.complaint.Text = this.complaintText;
+                if(this.complaintType == "Subforum")
+                {
+                    this.complaint.EntityAuthor = this.complaningTo.LeadModeratorUsername;
+                }
+                else
+                {
+                    this.complaint.EntityAuthor = this.complaningTo.AuthorUsername;
+                }
                 this.httpComplaintService.post(this.complaint);
             } else {
                 alert("Invalid input!");

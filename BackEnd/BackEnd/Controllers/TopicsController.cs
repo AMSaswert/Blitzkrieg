@@ -55,11 +55,17 @@ namespace BackEnd.Controllers
         }
 
         // DELETE: api/Topics/5
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
-            Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
+            Subforum sub = null;
+            sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
+            if(sub.Topics.Where(x => x.Id == id).FirstOrDefault() == null)
+            {
+                return BadRequest("Topic is already deleted.");
+            }
             sub.Topics.Remove(sub.Topics.Where(x => x.Id == id).FirstOrDefault());
             serializer.SerializeObject(Models.Models.Subforums, "Subforums");
+            return Ok("Topic is deleted.");
         }
     }
 }

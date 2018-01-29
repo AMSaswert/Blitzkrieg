@@ -5,6 +5,7 @@ import {AppUserService} from '../services/appUser.service';
 import {SubforumService} from '../services/subforum.service';
 import { AppUser } from '../models/appUser.model';
 import { Comment } from '../models/comment.model';
+import { Complaint,EntityType } from '../models/complaint.model';
 import { Subforum } from '../models/subforum.model';
 @Component({
     selector: 'app-comment-list',
@@ -17,9 +18,11 @@ export class CommentListComponent implements OnInit{
   @Input()comments : Comment[] = [];
   @Input()topicId : number;
   @Input()subforumId : number;
+  complaintType : string = "Comment";
+  entityType : EntityType = EntityType.Comment;
   subforum : Subforum = new Subforum();
   editId : number;
-  user : AppUser = new AppUser();
+  @Input() user : AppUser;
 
     constructor(private httpCommentService: CommentService,private httpAppUserService : AppUserService,
       private httpSubforumService : SubforumService ) {
@@ -29,14 +32,6 @@ export class CommentListComponent implements OnInit{
     ngOnInit() {      
       this.httpSubforumService.getDatabyId(this.subforumId).subscribe(
         (prod: any) => {this.subforum = prod;});
-
-        if(this.isLoggedIn())
-        {
-
-        this.httpAppUserService.getDataById(sessionStorage.getItem("username")).subscribe(
-            (prod: any) => {this.user = prod; console.log(this.user)},
-             error => {alert("Unsuccessful fetch operation!"); console.log(error);}); 
-        }
     }
 
 
@@ -98,7 +93,13 @@ export class CommentListComponent implements OnInit{
 
     delete(commentId: number) : void
     {
-      this.httpCommentService.delete(commentId);
+      this.httpCommentService.delete(commentId).subscribe(
+        data => {
+          alert("Comment is deleted.");
+      },
+      error => {
+          alert("Comment is already deleted.");
+      });
       this.comments.splice(this.comments.findIndex(x=>x.Id==commentId),1);
     }
 

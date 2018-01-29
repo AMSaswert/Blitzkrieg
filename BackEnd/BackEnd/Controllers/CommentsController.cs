@@ -71,7 +71,7 @@ namespace BackEnd.Controllers
 
         // DELETE: api/Comments/5
 
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
             Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => 
             y.Comments.Where(z => z.Id == id).FirstOrDefault() == y.Comments.Where(z => 
@@ -93,11 +93,18 @@ namespace BackEnd.Controllers
             }
             if (comment != null)
             {
-                comment.Removed = true;
-                DeleteComments(comment.ChildrenComments);
+                if (comment.Removed != true)
+                {
+                    comment.Removed = true;
+                    DeleteComments(comment.ChildrenComments);
+                }
+                else
+                {
+                    return BadRequest("Comment is already deleted.");
+                }
             }
             serializer.SerializeObject(Models.Models.Subforums,"Subforums");
-
+            return Ok("Comment is deleted.");
         }
 
         public Comment FindChildComment(List<Comment> comments, int id)

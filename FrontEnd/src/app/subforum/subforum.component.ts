@@ -211,8 +211,15 @@ export class SubforumComponent implements OnInit{
 
     deleteTopic(topic : Topic) : void
     {
+        this.httpTopicService.delete(topic.Id).subscribe(
+            data => {
+              alert("Topic is deleted.");
+          },
+          error => {
+              alert("Topic is already deleted.");
+          });
         this.topics.splice(this.topics.findIndex(x=>x.Id==topic.Id),1);
-        this.httpTopicService.delete(topic.Id);
+        
     }
 
     saveTopic(topic : Topic) : void

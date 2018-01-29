@@ -74,7 +74,15 @@ export class SubforumsComponent implements OnInit{
       
       deleteSubforum(subforumId: number) : void
       {
-        this.httpSubforumService.delete(subforumId);
+        this.httpSubforumService.delete(subforumId).subscribe(
+          data => {
+            alert("Subforum is deleted.");
+        },
+        error => {
+            alert("Subforum is already deleted.");
+            return;
+        });
+        
         this.subforums.splice(this.subforums.findIndex(x=> x.Id == subforumId),1);
       }
 

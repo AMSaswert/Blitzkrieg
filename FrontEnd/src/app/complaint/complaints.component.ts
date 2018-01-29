@@ -62,21 +62,43 @@ export class ComplaintsComponent implements OnInit{
 
     delete() : void
     {   if (this.textForAuthor !== "" || this.textForComplainer !== "") {
-            this.messageConstructorForAuthor()
-            this.messageConstructorForComplainer();
+           
             if(this.complaint.EntityType == EntityType.Subforum)
             {
-                this.httpSubforumService.delete(this.complaint.EntityId);
+                this.httpSubforumService.delete(this.complaint.EntityId).subscribe(
+                    data => {
+                      alert("Subforum is deleted.");
+                      this.messagesAndDeleteComplaint();
+                  },
+                  error => {
+                      alert("Subforum is already deleted.");
+                      
+                  });
             }
             else if(this.complaint.EntityType == EntityType.Topic)
             {
-                this.httpTopicService.delete(this.complaint.EntityId);
+                this.httpTopicService.delete(this.complaint.EntityId).subscribe(
+                    data => {
+                      alert("Topic is deleted.");
+                      this.messagesAndDeleteComplaint();
+                  },
+                  error => {
+                      alert("Topic is already deleted.");
+                      
+                  });
             }
             else
             {
-                this.httpCommentService.delete(this.complaint.EntityId);
+                this.httpCommentService.delete(this.complaint.EntityId).subscribe(
+                    data => {
+                      alert("Comment is deleted.");
+                      this.messagesAndDeleteComplaint();
+                  },
+                  error => {
+                      alert("Comment is already deleted.");
+                  });
             }
-            this.deleteComplaint();
+           
         } else {
             alert("Field cannot be empty!");
         }
@@ -128,6 +150,13 @@ export class ComplaintsComponent implements OnInit{
         this.textForAuthor = "";
         this.textForComplainer = "";
         this.complaintId = -1;
+    }
+
+    messagesAndDeleteComplaint()
+    {
+        this.messageConstructorForAuthor();
+        this.messageConstructorForComplainer();
+        this.deleteComplaint();
     }
 
 }

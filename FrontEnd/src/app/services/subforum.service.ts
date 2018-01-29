@@ -49,13 +49,14 @@ export class SubforumService{
         .then(res => res.json() as Subforum);
     }
 
-    delete(id:number): Promise<any> {
+    delete(id:number): Observable<any> {
         const headers: Headers = new Headers();
         
         headers.append('Content-type', 'application/json');
         return this.http
-        .delete(`http://localhost:13124//api/Subforums/${id}`,{headers:headers})
-        .toPromise();
+        .delete(`http://localhost:13124//api/Subforums/${id}`
+        ,{headers:headers})
+        .map((response: Response) => response.json());
     }
 
 }

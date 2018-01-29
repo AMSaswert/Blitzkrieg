@@ -50,10 +50,15 @@ namespace BackEnd.Controllers
 
         // DELETE: api/Subforums/5
         [HttpDelete]
-        public void Delete(int id)
+        public IHttpActionResult Delete(int id)
         {
+            if(Models.Models.Subforums.Where(x => x.Id == id).FirstOrDefault() == null)
+            {
+              return  BadRequest("Subforum is already deleted.");
+            }
             Models.Models.Subforums.Remove(Models.Models.Subforums.Where(x => x.Id == id).FirstOrDefault());
             serializer.SerializeObject(Models.Models.Subforums, "Subforums");
+            return Ok("Subforum is deleted.");
         }
     }
 }

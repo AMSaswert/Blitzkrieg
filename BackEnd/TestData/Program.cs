@@ -84,32 +84,66 @@ namespace TestData
                 SavedTopics = new List<Topic>()
             });
 
+            AppUsers.Add(new AppUser()
+            {
+                Id = random.Next(),
+                Name = "Aleksandar",
+                Surname = "Misljenovic",
+                UserName = "borba",
+                Email = "borba@yahoo.com",
+                Password = "borba",
+                Role = "AppUser",
+                ContactPhone = "021/1353545",
+                RegistrationDate = DateTime.Now,
+                BookmarkedSubforums = new List<int>(),
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "opassada" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "ajsasa" } },
+                SavedComments = new List<Comment>(),
+                SavedTopics = new List<Topic>()
+            });
+
+            AppUsers.Add(new AppUser()
+            {
+                Id = random.Next(),
+                Name = "Aleksandar",
+                Surname = "Misljenovic",
+                UserName = "kec",
+                Email = "kec@yahoo.com",
+                Password = "kec",
+                Role = "AppUser",
+                ContactPhone = "021/1353545",
+                RegistrationDate = DateTime.Now,
+                BookmarkedSubforums = new List<int>(),
+                ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "opassada" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "ajsasa" } },
+                SavedComments = new List<Comment>(),
+                SavedTopics = new List<Topic>()
+            });
+
             CreateSubforum(random, "Funny", "hot topics", "do w/e", "moderator", "http://localhost:54042/Content/Icons/icon-0.ico");
             CreateSubforum(random, "World", "controversial topics", "w/e", "mica", "http://localhost:54042/Content/Icons/icon-1.ico");
             CreateSubforum(random, "Movies", "new topics", "w/e", "mica", "http://localhost:54042/Content/Icons/icon-2.ico");
             CreateSubforum(random, "Gaming", "opular topics", "w/e", "moderator", "http://localhost:54042/Content/Icons/icon-3.ico");
             Subforum sub = Subforums[0];
-            CreateTopic(random, "Topic 1 bla bla bla bla bla bla bla bla bla bla blaaaaaaa",
+            CreateTopic(random, "Topic 1",
                         "mica", TopicType.Text, "test test", Subforums[0]);
-            CreateTopic(random, "Topic 2 bla bla", "mica", TopicType.Text, "test test", Subforums[1]);
-            CreateTopic(random, "Topic 3 bla bla bla bla bla bla bla bla ", "mica", TopicType.Text, "test test", Subforums[2]);
-            CreateTopic(random, "Topic 4 bla bla bla bla bla", "mica", TopicType.Text, "test test", Subforums[3]);
+            CreateTopic(random, "Topic 2", "mica", TopicType.Text, "test test", Subforums[1]);
+            CreateTopic(random, "Topic 3", "mica", TopicType.Text, "test test", Subforums[2]);
+            CreateTopic(random, "Topic 4", "mica", TopicType.Text, "test test", Subforums[3]);
             CreateTopic(random, "Topic 5 ", "mica", TopicType.Text, "test test", Subforums[0]);
-            CreateTopic(random, "Topic 8 bla bla bla bla bla bla bla bla bla bla bla", "mica", TopicType.Text, "test test", Subforums[0]);
-            CreateTopic(random, "Topic 7 bla bla bla bla bla bla bla bla bla bla bla", "mica", TopicType.Text, "test test", Subforums[1]);
-            CreateTopic(random, "Topic 8 bla ", "mica", TopicType.Text, "test test", Subforums[2]);
-            CreateTopic(random, "Topic 6 bla bla bla bla ", "mica", TopicType.Text, "test test", Subforums[3]);
+            CreateTopic(random, "Topic 8", "mica", TopicType.Text, "test test", Subforums[0]);
+            CreateTopic(random, "Topic 7", "mica", TopicType.Text, "test test", Subforums[1]);
+            CreateTopic(random, "Topic 8", "mica", TopicType.Text, "test test", Subforums[2]);
+            CreateTopic(random, "Topic 6", "mica", TopicType.Text, "test test", Subforums[3]);
 
-            CreateComment(random, "is gud", "mica", Subforums[0], 0);
-            CreateComment(random, "is gsdadasdasasddsa", "mica", Subforums[1], 1);
-            CreateComment(random, "is gadssdasadsdaasdud", "mica", Subforums[2], 1);
-            CreateComment(random, "is adsdasasddsaasdasdsdadassaddasdadagud", "mica", Subforums[3], 1);
-            CreateComment(random, "asddsadsdsais gadsadsasddsaud", "aca", Subforums[0], 1);
-            CreateComment(random, "is ssadasdasdadsasddsaasddsasdagud", "aca", Subforums[1], 1);
-            CreateComment(random, "idasdasdsas gud", "aca", Subforums[2], 1);
-            CreateComment(random, "is dasdsasdaadsgud", "aca", Subforums[3], 1);
-            CreateComment(random, "isdasdasdsaads gud", "aca", Subforums[0], 0);
-            CreateChildComment(random, "ojsaaaaaa", "aca", Subforums[0], 0,Subforums[0].Topics[0].Comments[0].Id);
+            CreateComment(random, "jedan", "mica", Subforums[0], 0);
+            CreateComment(random, "dva", "mica", Subforums[1], 1);
+            CreateComment(random, "tri", "mica", Subforums[2], 1);
+            CreateComment(random, "cetiri", "mica", Subforums[3], 1);
+            CreateComment(random, "pet", "aca", Subforums[0], 1);
+            CreateComment(random, "sest", "aca", Subforums[1], 1);
+            CreateComment(random, "sedam", "aca", Subforums[2], 1);
+            CreateComment(random, "osam", "aca", Subforums[3], 1);
+            CreateComment(random, "devet", "aca", Subforums[0], 0);
+            CreateChildComment(random, "deset", "aca", Subforums[0], 0,Subforums[0].Topics[0].Comments[0].Id);
             CreateComplaint(random, "zzzzzzzzzz", EntityType.Comment,Subforums[0].Topics[0].Comments[0].Id, Subforums[0].Topics[0].Comments[0].AuthorUsername, "aca");
             CreateComplaint(random, "bbbbbbbbbb", EntityType.Subforum,Subforums[0].Id,Subforums[0].LeadModeratorUsername, "aca");
             CreateComplaint(random, "kkkkkkkkkk", EntityType.Topic, Subforums[0].Topics[0].Id, Subforums[0].Topics[0].AuthorUsername, "aca");
@@ -160,27 +194,15 @@ namespace TestData
                 TopicType = topicType,
                 Content = content,
                 CreationDate = DateTime.Now,
-                LikesNum = 0,
+                LikesNum = 2,
                 DislikesNum = 0,
                 Comments = new List<Comment>(),
-                UsersWhoVoted = new List<string>()
+                UsersWhoVoted = new List<string>() { "borba","kec"}
             });
         }
 
         static void CreateComment(Random random, string text, string authorUsername, Subforum sub, int index)
         {
-            //var topic = Topics.Where(t => true).FirstOrDefault();
-            //var commCount = Comments.Count(comm => true);
-            //Comment c;
-            //if (commCount > 0)
-            //{
-            //    c = Comments.Where(comm2 => true).FirstOrDefault();
-            //}
-            //else
-            //{
-            //    c = null;
-            //}
-            //int? pcommId = c?.Id;
             sub.Topics[index].Comments.Add(new Comment()
             {
                 Id = random.Next(),
@@ -189,7 +211,11 @@ namespace TestData
                 CreationDate = DateTime.Now,
                 AuthorUsername = authorUsername,
                 ChildrenComments = new List<Comment>(),
-                UsersWhoVoted = new List<string>()
+                UsersWhoVoted = new List<string>(),
+                DislikesNo = 0,
+                LikesNo = 0,
+                Edited = false,
+                Removed = false
             });
         }
 

@@ -1,5 +1,11 @@
+<a *ngIf="topic.TopicType != 0">
+    <span><img src={{topic.Content}} /></span>
+  </a>
+  <a *ngIf="topic.TopicType == 0">
+    <span>{{topic.Content}}</span>
+  </a>
 
-<span> <app-comment-list [comments] = "comments" [topicId]="topicId" [subforumId]="subforumId"></app-comment-list></span>
+<span> <app-comment-list [comments] = "comments" [user] = "user" [topicId]="topicId" [subforumId]="subforumId"></app-comment-list></span>
 
 
 <div *ngIf = "isLoggedIn()">

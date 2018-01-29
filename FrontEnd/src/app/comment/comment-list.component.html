@@ -13,6 +13,7 @@
             <button [disabled] = "voted(comment)"   (click)="like(comment)">Like</button>
             <button [disabled] = "voted(comment)"   (click)="dislike(comment)">Dislike</button>
             <button (click)="saveComment(comment)">Save comment</button>
+            <span><complaint-send [complaintType] = "complaintType" [complaningTo] = "comment" [entityType] = "entityType"></complaint-send></span>
             <a *ngIf="editAuth(comment)">
              <button (click)="forEditing(comment.Id)">Edit comment</button>
             </a>
@@ -50,6 +51,6 @@
                 </form>
         </div>
             </div>
-           <span> <app-comment-list [comments] = "comment.ChildrenComments" [topicId]="topicId" [subforumId]="subforumId"></app-comment-list></span>
+           <span> <app-comment-list [comments] = "comment.ChildrenComments" [user] = "user" [topicId]="topicId" [subforumId]="subforumId"></app-comment-list></span>
     </li>
 </div>

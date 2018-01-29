@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <ArrayOfAppUser xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <AppUser>
-    <Id>1029827965</Id>
+    <Id>1842515211</Id>
     <UserName>admin</UserName>
     <Email>admin@yahoo.com</Email>
     <Password>admin</Password>
@@ -9,81 +9,19 @@
     <Name>admin</Name>
     <Surname>admin</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2018-01-27T23:00:03.8895668+01:00</RegistrationDate>
-    <BookmarkedSubforums>
-      <int>390589043</int>
-    </BookmarkedSubforums>
+    <RegistrationDate>2018-01-29T02:38:46.2546059+01:00</RegistrationDate>
+    <BookmarkedSubforums />
     <SavedTopics />
-    <SavedComments>
-      <Comment>
-        <Id>428200925</Id>
-        <TopicId>2071228371</TopicId>
-        <AuthorUsername>mica</AuthorUsername>
-        <CreationDate>2018-01-27T23:00:03.8920546+01:00</CreationDate>
-        <ParentCommentId xsi:nil="true" />
-        <ChildrenComments>
-          <Comment>
-            <Id>1422284031</Id>
-            <TopicId>2071228371</TopicId>
-            <AuthorUsername>aca</AuthorUsername>
-            <CreationDate>2018-01-27T23:00:03.8925666+01:00</CreationDate>
-            <ParentCommentId>428200925</ParentCommentId>
-            <ChildrenComments>
-              <Comment>
-                <Id>1648539</Id>
-                <TopicId>2071228371</TopicId>
-                <AuthorUsername>admin</AuthorUsername>
-                <CreationDate>2018-01-27T22:46:55.944Z</CreationDate>
-                <ParentCommentId>1422284031</ParentCommentId>
-                <ChildrenComments>
-                  <Comment>
-                    <Id>8107572</Id>
-                    <TopicId>2071228371</TopicId>
-                    <AuthorUsername>admin</AuthorUsername>
-                    <CreationDate>2018-01-27T22:47:00.7Z</CreationDate>
-                    <ParentCommentId>1648539</ParentCommentId>
-                    <ChildrenComments />
-                    <Text>aaaaa</Text>
-                    <LikesNo>0</LikesNo>
-                    <DislikesNo>0</DislikesNo>
-                    <Edited>false</Edited>
-                    <Removed>false</Removed>
-                    <UsersWhoVoted />
-                  </Comment>
-                </ChildrenComments>
-                <Text>aaaa</Text>
-                <LikesNo>0</LikesNo>
-                <DislikesNo>0</DislikesNo>
-                <Edited>false</Edited>
-                <Removed>false</Removed>
-                <UsersWhoVoted />
-              </Comment>
-            </ChildrenComments>
-            <Text>ojsaaaaaa</Text>
-            <LikesNo>0</LikesNo>
-            <DislikesNo>0</DislikesNo>
-            <Edited>false</Edited>
-            <Removed>false</Removed>
-            <UsersWhoVoted />
-          </Comment>
-        </ChildrenComments>
-        <Text>is gud</Text>
-        <LikesNo>0</LikesNo>
-        <DislikesNo>0</DislikesNo>
-        <Edited>false</Edited>
-        <Removed>false</Removed>
-        <UsersWhoVoted />
-      </Comment>
-    </SavedComments>
+    <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1493985210</Id>
+        <Id>472103329</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>Bem ti lebac</Content>
-        <Seen>true</Seen>
+        <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>531414644</Id>
+        <Id>312082114</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>aaaaaaaaa</Content>
         <Seen>false</Seen>
@@ -91,7 +29,7 @@
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>366509408</Id>
+    <Id>1281495716</Id>
     <UserName>mica</UserName>
     <Email>mica@yahoo.com</Email>
     <Password>mica</Password>
@@ -99,19 +37,19 @@
     <Name>mica</Name>
     <Surname>micic</Surname>
     <ContactPhone>021/12345</ContactPhone>
-    <RegistrationDate>2018-01-27T23:00:03.8900678+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-29T02:38:46.2546059+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1978638320</Id>
+        <Id>908770097</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>Bem ti lebac</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1808198893</Id>
+        <Id>1921902711</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>aaaaaaaaa</Content>
         <Seen>false</Seen>
@@ -119,27 +57,27 @@
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>1712500044</Id>
+    <Id>1101382725</Id>
     <UserName>aca</UserName>
     <Email>aca@yahoo.com</Email>
     <Password>aca</Password>
-    <Role>Moderator</Role>
+    <Role>AppUser</Role>
     <Name>Aleksandar</Name>
     <Surname>Misljenovic</Surname>
     <ContactPhone>021/1353545</ContactPhone>
-    <RegistrationDate>2018-01-27T23:00:03.8900678+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-29T02:38:46.2546059+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1859840209</Id>
+        <Id>1215587616</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>opassada</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>1447902635</Id>
+        <Id>669204673</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>ajsasa</Content>
         <Seen>false</Seen>
@@ -147,29 +85,85 @@
     </ReceivedMessages>
   </AppUser>
   <AppUser>
-    <Id>985332564</Id>
+    <Id>107663754</Id>
     <UserName>moderator</UserName>
     <Email>moderator@yahoo.com</Email>
     <Password>moderator</Password>
-    <Role>Admin</Role>
+    <Role>Moderator</Role>
     <Name>Moderator</Name>
     <Surname>Moderator</Surname>
     <ContactPhone>021/8778585</ContactPhone>
-    <RegistrationDate>2018-01-27T23:00:03.8900678+01:00</RegistrationDate>
+    <RegistrationDate>2018-01-29T02:38:46.2546059+01:00</RegistrationDate>
     <BookmarkedSubforums />
     <SavedTopics />
     <SavedComments />
     <ReceivedMessages>
       <Message>
-        <Id>1268079866</Id>
+        <Id>497388938</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>mhmhm</Content>
         <Seen>false</Seen>
       </Message>
       <Message>
-        <Id>487430547</Id>
+        <Id>817129177</Id>
         <SenderUsername>aca</SenderUsername>
         <Content>frik</Content>
+        <Seen>false</Seen>
+      </Message>
+    </ReceivedMessages>
+  </AppUser>
+  <AppUser>
+    <Id>1700288107</Id>
+    <UserName>borba</UserName>
+    <Email>borba@yahoo.com</Email>
+    <Password>borba</Password>
+    <Role>AppUser</Role>
+    <Name>Aleksandar</Name>
+    <Surname>Misljenovic</Surname>
+    <ContactPhone>021/1353545</ContactPhone>
+    <RegistrationDate>2018-01-29T02:38:46.2546059+01:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+    <ReceivedMessages>
+      <Message>
+        <Id>593035545</Id>
+        <SenderUsername>aca</SenderUsername>
+        <Content>opassada</Content>
+        <Seen>false</Seen>
+      </Message>
+      <Message>
+        <Id>1347612686</Id>
+        <SenderUsername>aca</SenderUsername>
+        <Content>ajsasa</Content>
+        <Seen>false</Seen>
+      </Message>
+    </ReceivedMessages>
+  </AppUser>
+  <AppUser>
+    <Id>427495824</Id>
+    <UserName>kec</UserName>
+    <Email>kec@yahoo.com</Email>
+    <Password>kec</Password>
+    <Role>AppUser</Role>
+    <Name>Aleksandar</Name>
+    <Surname>Misljenovic</Surname>
+    <ContactPhone>021/1353545</ContactPhone>
+    <RegistrationDate>2018-01-29T02:38:46.2546059+01:00</RegistrationDate>
+    <BookmarkedSubforums />
+    <SavedTopics />
+    <SavedComments />
+    <ReceivedMessages>
+      <Message>
+        <Id>739519053</Id>
+        <SenderUsername>aca</SenderUsername>
+        <Content>opassada</Content>
+        <Seen>false</Seen>
+      </Message>
+      <Message>
+        <Id>94169279</Id>
+        <SenderUsername>aca</SenderUsername>
+        <Content>ajsasa</Content>
         <Seen>false</Seen>
       </Message>
     </ReceivedMessages>
