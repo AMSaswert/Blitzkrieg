@@ -14,6 +14,7 @@ export class Complaint{
     CreationDate : Date;
     EntityType : EntityType;
     EntityId : number;
+    TopicId : number;
     EntityAuthor : string;
     AuthorUsername : string;
 

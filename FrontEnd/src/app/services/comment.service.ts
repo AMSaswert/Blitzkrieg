@@ -44,12 +44,12 @@ export class CommentService{
         .then(res => res.json() as Comment);
     }
 
-    delete(id:number): Observable<any> {
+    delete(commentAndTopicIds : string): Observable<any> {
         const headers: Headers = new Headers();
         
         headers.append('Content-type', 'application/json');
         return this.http
-        .delete(`http://localhost:13124//api/Comments/${id}`
+        .delete(`http://localhost:13124//api/Comments?commentAndTopicIds=`+commentAndTopicIds
         ,{headers:headers})
         .map((response: Response) => response.json());
     }

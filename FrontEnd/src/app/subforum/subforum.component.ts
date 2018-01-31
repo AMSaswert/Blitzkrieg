@@ -97,7 +97,7 @@ export class SubforumComponent implements OnInit{
 
     routing(topic: Topic) : void
     {
-        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
+        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+topic.SubforumId.toString());
     }
 
     imageUploaded(event: Event)

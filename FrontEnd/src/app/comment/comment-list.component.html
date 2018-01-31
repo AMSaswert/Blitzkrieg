@@ -18,7 +18,7 @@
              <button (click)="forEditing(comment.Id)">Edit comment</button>
             </a>
             <a *ngIf="deleteAuth(comment)">
-             <button (click)="delete(comment.Id)">Delete comment</button>
+             <button (click)="delete(comment)">Delete comment</button>
             </a>
             <div>
                     <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f,comment.Id)">

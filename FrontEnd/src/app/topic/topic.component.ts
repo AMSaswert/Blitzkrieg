@@ -132,7 +132,7 @@ export class TopicComponent implements OnInit{
     
     routing(topic: Topic) : void
     {
-        sessionStorage.setItem("topicRoute","/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
+        sessionStorage.setItem("topicRoute","/topic/"+topic.Id.toString()+"/"+topic.SubforumId.toString());
         this._location.back();
     }
 }

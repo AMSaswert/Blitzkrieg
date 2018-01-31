@@ -41,10 +41,16 @@ export class ComplaintSend {
                 {
                     this.complaint.EntityAuthor = this.complaningTo.LeadModeratorUsername;
                 }
-                else
+                else if(this.complaintType == "Topic")
                 {
                     this.complaint.EntityAuthor = this.complaningTo.AuthorUsername;
                 }
+                else
+                {
+                    this.complaint.EntityAuthor = this.complaningTo.AuthorUsername;
+                    this.complaint.TopicId = this.complaningTo.TopicId;
+                }
+                
                 this.httpComplaintService.post(this.complaint);
             } else {
                 alert("Invalid input!");

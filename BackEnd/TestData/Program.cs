@@ -144,9 +144,9 @@ namespace TestData
             CreateComment(random, "osam", "aca", Subforums[3], 1);
             CreateComment(random, "devet", "aca", Subforums[0], 0);
             CreateChildComment(random, "deset", "aca", Subforums[0], 0,Subforums[0].Topics[0].Comments[0].Id);
-            CreateComplaint(random, "zzzzzzzzzz", EntityType.Comment,Subforums[0].Topics[0].Comments[0].Id, Subforums[0].Topics[0].Comments[0].AuthorUsername, "aca");
-            CreateComplaint(random, "bbbbbbbbbb", EntityType.Subforum,Subforums[0].Id,Subforums[0].LeadModeratorUsername, "aca");
-            CreateComplaint(random, "kkkkkkkkkk", EntityType.Topic, Subforums[0].Topics[0].Id, Subforums[0].Topics[0].AuthorUsername, "aca");
+            CreateComplaint(random, "zzzzzzzzzz", EntityType.Comment,Subforums[0].Topics[0].Comments[0].Id, Subforums[0].Topics[0].Comments[0].TopicId, Subforums[0].Topics[0].Comments[0].AuthorUsername, "aca");
+            CreateComplaint(random, "bbbbbbbbbb", EntityType.Subforum,Subforums[0].Id,-1,Subforums[0].LeadModeratorUsername, "aca");
+            CreateComplaint(random, "kkkkkkkkkk", EntityType.Topic, Subforums[0].Topics[0].Id,-1, Subforums[0].Topics[0].AuthorUsername, "aca");
 
             serializer.SerializeObject(AppUsers, "AppUsers");
             serializer.SerializeObject(Complaints, "Complaints");
@@ -155,7 +155,7 @@ namespace TestData
 
         }
 
-        static void CreateComplaint(Random random,string text,EntityType type,int entityId,string entityAuthor,string AuthorUsername)
+        static void CreateComplaint(Random random,string text,EntityType type,int entityId,int topicId,string entityAuthor,string AuthorUsername)
         {
             Complaints.Add(new Complaint()
             {

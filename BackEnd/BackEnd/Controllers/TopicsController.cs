@@ -26,9 +26,12 @@ namespace BackEnd.Controllers
         // GET: api/Topics/5
         public Topic Get(int id)
         {
-            Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
-
-            return sub.Topics.Where(x => x.Id == id).FirstOrDefault();
+            var topic = from subforum in Models.Models.Subforums
+                          from top in subforum.Topics
+                          where top.Id == id
+                          select top;
+              
+            return topic.ToList().FirstOrDefault();
         }
 
         // POST: api/Topics
@@ -57,8 +60,12 @@ namespace BackEnd.Controllers
         // DELETE: api/Topics/5
         public IHttpActionResult Delete(int id)
         {
-            Subforum sub = null;
-            sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
+            var temp = from subforum in Models.Models.Subforums
+                       from top in subforum.Topics
+                       where top.Id == id
+                       select subforum;
+
+            Subforum sub = temp.ToList().FirstOrDefault();
             if(sub.Topics.Where(x => x.Id == id).FirstOrDefault() == null)
             {
                 return BadRequest("Topic is already deleted.");

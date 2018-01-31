@@ -17,8 +17,11 @@ namespace BackEnd.Controllers
         // GET: api/Comments
         public IQueryable<Comment> Get(int id)
         {
-            Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == id).FirstOrDefault() == x.Topics.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
-            Topic topic = sub.Topics.Where(x => x.Id == id).FirstOrDefault();
+            var temp = from subforum in Models.Models.Subforums
+                       from top in subforum.Topics
+                       where top.Id == id
+                       select top;
+            Topic topic = temp.ToList().FirstOrDefault();
             if (topic.Comments != null)
                 return topic.Comments.AsQueryable();
             return null;
@@ -28,8 +31,11 @@ namespace BackEnd.Controllers
         public void Put(int id, object comment)
         {
             Comment comm = JsonConvert.DeserializeObject<Comment>(comment.ToString());
-            Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => y.Id == comm.TopicId).FirstOrDefault() == x.Topics.Where(y => y.Id == comm.TopicId).FirstOrDefault()).FirstOrDefault();
-            Topic topic = sub.Topics.Where(x => x.Id == comm.TopicId).FirstOrDefault();
+            var temp = from subforum in Models.Models.Subforums
+                        from top in subforum.Topics
+                        where top.Id == id
+                        select top;
+            Topic topic = temp.ToList().FirstOrDefault();
             if (comm.ParentCommentId == null)
             {
                 if (topic.Comments.Where(x => x.Id == comm.Id).FirstOrDefault() == null)
@@ -71,20 +77,24 @@ namespace BackEnd.Controllers
 
         // DELETE: api/Comments/5
 
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(string commentAndTopicIds)
         {
-            Subforum sub = Models.Models.Subforums.Where(x => x.Topics.Where(y => 
-            y.Comments.Where(z => z.Id == id).FirstOrDefault() == y.Comments.Where(z => 
-            z.Id == id).FirstOrDefault()).FirstOrDefault() == x.Topics.Where(y => 
-            y.Comments.Where(z => z.Id == id).FirstOrDefault() == y.Comments.Where(z => 
-            z.Id == id).FirstOrDefault()).FirstOrDefault()).FirstOrDefault();
-            Topic topic = sub.Topics.Where(x => x.Comments.Where(y => y.Id == id).FirstOrDefault() == x.Comments.Where(y => y.Id == id).FirstOrDefault()).FirstOrDefault();
-            Comment comment = topic.Comments.Where(x => x.Id == id).FirstOrDefault();
+            string[] strtemp = commentAndTopicIds.Split('-');
+            int commentId = Int32.Parse(strtemp[0]);
+            int topicId = Int32.Parse(strtemp[1]);
+
+            var temp = from subforum in Models.Models.Subforums
+                       from top in subforum.Topics
+                       where top.Id == topicId
+                       select top;
+
+            Topic topic = temp.ToList().FirstOrDefault();
+            Comment comment = topic.Comments.Where(x => x.Id == commentId).FirstOrDefault();
             if (comment == null)
             {
                 foreach (var item in topic.Comments)
                 {
-                    comment = FindChildComment(item.ChildrenComments, id);
+                    comment = FindChildComment(item.ChildrenComments, commentId);
                     if (comment != null)
                     {
                         break;

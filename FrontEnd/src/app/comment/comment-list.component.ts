@@ -91,16 +91,16 @@ export class CommentListComponent implements OnInit{
       return false;
     }
 
-    delete(commentId: number) : void
+    delete(comment: Comment) : void
     {
-      this.httpCommentService.delete(commentId).subscribe(
+      this.httpCommentService.delete(comment.Id.toString()+"-"+comment.TopicId.toString()).subscribe(
         data => {
           alert("Comment is deleted.");
       },
       error => {
           alert("Comment is already deleted.");
       });
-      this.comments.splice(this.comments.findIndex(x=>x.Id==commentId),1);
+      this.comments.splice(this.comments.findIndex(x=>x.Id==comment.Id),1);
     }
 
     forEditing(commentId: number) : void
