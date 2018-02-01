@@ -89,7 +89,7 @@ export class ComplaintsComponent implements OnInit{
             }
             else
             {
-                this.httpCommentService.delete(this.complaint.EntityId+"+"+this.complaint.TopicId).subscribe(
+                this.httpCommentService.delete(this.complaint.EntityId.toString()+"-"+this.complaint.TopicId.toString()).subscribe(
                     data => {
                       alert("Comment is deleted.");
                       this.messagesAndDeleteComplaint();
