@@ -163,6 +163,7 @@ namespace TestData
                 Text = text,
                 EntityType = type,
                 EntityId = entityId,
+                TopicId = topicId,
                 EntityAuthor = entityAuthor,
                 AuthorUsername = AuthorUsername,
                 CreationDate = DateTime.Now
