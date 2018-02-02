@@ -227,4 +227,8 @@ export class SubforumComponent implements OnInit{
         this.user.SavedTopics.push(topic);
         this.httpAppUserService.put(this.user.Id,this.user);
     }
+    resetContent() : void
+    {
+        this.topicContent = "";
+    }
 }

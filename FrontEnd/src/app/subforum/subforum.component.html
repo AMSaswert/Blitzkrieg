@@ -30,9 +30,9 @@
 
 
 <div *ngIf = "isLoggedIn()">
-  <input type="radio" value="Text" name="topicType" [(ngModel)]="topicType" >Text
-  <input type="radio" value="Picture" name="topicType"  [(ngModel)]="topicType" >Picture
-  <input type="radio" value="Link" name="topicType"  [(ngModel)]="topicType">Link
+  <input type="radio" value="Text" name="topicType" [(ngModel)]="topicType" (click) = "resetContent()" >Text
+  <input type="radio" value="Picture" name="topicType"  [(ngModel)]="topicType" (click) = "resetContent()">Picture
+  <input type="radio" value="Link" name="topicType"  [(ngModel)]="topicType" (click) = "resetContent()">Link
   <a *ngIf = "!editBool">[Create topic]</a>
   <a *ngIf = "editBool">[Edit topic]</a>
   

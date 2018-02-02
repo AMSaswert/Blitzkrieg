@@ -60,6 +60,12 @@ export class SubforumsComponent implements OnInit{
           }
         }
 
+        if (subforum.Name === "" || subforum.Description === "" ||
+            subforum.Rules === "" || subforum.IconURL === undefined || subforum.IconURL === "") {
+              alert("All fields must be filled!");
+              return;
+        }
+
         subforum.Id = this.httpAppUserService.getRandomInt(1,9999999);
         subforum.Moderators = new Array<string>();
         subforum.Topics = new Array<Topic>();
