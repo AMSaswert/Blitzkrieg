@@ -62,7 +62,7 @@ export class FilterComponent implements OnInit{
 
     routingT(topic: Topic) : void
     {
-        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+this.subforumId.toString());
+        this.httpAppUserService.routing("/topic/"+topic.Id.toString()+"/"+topic.SubforumId.toString());
     }
 
     routingS(subforum: Subforum) : void

@@ -30,30 +30,52 @@
 
 
 <div *ngIf = "isLoggedIn()">
-  <input type="radio" value="Text" name="topicType" [(ngModel)]="topicType" (click) = "resetContent()" >Text
-  <input type="radio" value="Picture" name="topicType"  [(ngModel)]="topicType" (click) = "resetContent()">Picture
-  <input type="radio" value="Link" name="topicType"  [(ngModel)]="topicType" (click) = "resetContent()">Link
-  <a *ngIf = "!editBool">[Create topic]</a>
-  <a *ngIf = "editBool">[Edit topic]</a>
-  
-    <tr>
-        <td>
-        <label for="Name">Name</label>
-        <input type="text"  [(ngModel)] = "topicName">
-          </td>
-
-        <div *ngIf="topicType != 'Picture'">
+  <div *ngIf="!editBool">
+    <input type="radio" value="Text" name="createTopic" [(ngModel)]="topicType" (click) = "resetContent()" >Text
+    <input type="radio" value="Picture" name="createTopic"  [(ngModel)]="topicType" (click) = "resetContent()">Picture
+    <input type="radio" value="Link" name="createTopic"  [(ngModel)]="topicType" (click) = "resetContent()">Link
+    
+      <tr>
           <td>
-          <label for="Content">Content</label>
-          <input type="text" [(ngModel)] = "topicContent">
-          </td>
-        </div>
-        <td>
-            <button (click)="create()">Create or edit topic</button>
-        </td>
-    </tr> 
+          <label for="Name">Name</label>
+          <input type="text"  [(ngModel)] = "topicName">
+            </td>
 
-<div *ngIf="topicType == 'Picture'">
+          <div *ngIf="topicType != 'Picture'">
+            <td>
+            <label for="Content">Content</label>
+            <input type="text" [(ngModel)] = "topicContent">
+            </td>
+          </div>
+          <td>
+              <button (click)="create()">Create</button>
+          </td>
+      </tr> 
+  </div>
+
+  <div *ngIf="editBool">
+    <input type="radio" value="Text" name="editTopic" [(ngModel)]="topicTypeForEdit" (click) = "resetContent()" >Text
+    <input type="radio" value="Picture" name="editTopic"  [(ngModel)]="topicTypeForEdit" (click) = "resetContent()">Picture
+    <input type="radio" value="Link" name="editTopic"  [(ngModel)]="topicTypeForEdit" (click) = "resetContent()">Link
+    <tr>
+      <td>
+      <label for="Name">Name</label>
+      <input type="text"  [(ngModel)] = "topicNameForEdit">
+        </td>
+
+      <div *ngIf="topicType != 'Picture'">
+        <td>
+        <label for="Content">Content</label>
+        <input type="text" [(ngModel)] = "topicContentForEdit">
+        </td>
+      </div>
+      <td>
+          <button (click)="edit()">Edit</button>
+      </td>
+  </tr> 
+  </div>
+
+<div *ngIf="topicType == 'Picture' || topicTypeForEdit == 'Picture'">
   <image-upload url="http://localhost:13124/api/Upload"
           [max]="1"
           [preview]="true"

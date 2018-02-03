@@ -14,6 +14,7 @@ import { NgFor } from '@angular/common/src/directives';
 import { Comment } from '../models/comment.model';
 import { AppUser } from '../models/appUser.model';
 import { AppComponent } from '../app.component';
+import { Button } from 'selenium-webdriver';
 @Component({
     selector: 'app-subforum',
     templateUrl: './subforum.component.html',
@@ -27,9 +28,13 @@ export class SubforumComponent implements OnInit{
     complaintType : string = "Topic";
     entityType : EntityType = EntityType.Topic;
     topicType : string = "";
+    topicTypeForEdit : string = "";
     topicContent: string = "";
     topicName : string = "";
+    topicNameForEdit : string = "";
+    topicContentForEdit : string = "";
     topic : Topic = new Topic();
+    topicForEdit : Topic = new Topic();
     editBool : boolean = false;
     user : AppUser = new AppUser();
     constructor(private httpSubforumService: SubforumService,private httpComplaintService : ComplaintService
@@ -145,9 +150,6 @@ export class SubforumComponent implements OnInit{
         this.topic.Name = this.topicName;
         this.topic.Content = this.topicContent;
 
-        if(this.editBool == false)
-        {
-       
         this.topic.Id = this.httpAppUserService.getRandomInt(1,9999999);
         this.topic.AuthorUsername = sessionStorage.getItem("username");
         this.topic.SubforumId = this.subforumId;
@@ -157,17 +159,55 @@ export class SubforumComponent implements OnInit{
         this.topic.LikesNum = 0;
         this.topic.UsersWhoVoted = new Array<string>();
         
-
         this.httpTopicService.put(this.subforumId,this.topic);
         this.topics.push(this.topic);
         this.topicName = "";
         this.topicContent = "";
-        }
-        else
+    }
+
+    edit()
+    {
+        if(this.topicTypeForEdit == "")
         {
-             this.topics[this.topics.findIndex(x=>x.Id == this.topic.Id)] = this.topic;
-             this.httpTopicService.put(this.subforumId,this.topic);
+            alert("Chose type of topic!");
+            return;
         }
+
+        if(this.topicNameForEdit == "" || this.topicContentForEdit == "")
+        {
+            alert("Topic name and content must be filled!");
+            return;
+        }
+
+        for(var top of this.topics)
+        {
+            if(this.topicNameForEdit == top.Name)
+            {
+                alert("Topic with that name already exists!");
+                return;
+            }
+        }
+        if(this.topicTypeForEdit == "Text")
+        {
+            this.topicForEdit.TopicType = TopicType.Text;
+            
+        }
+        else if(this.topicTypeForEdit == "Link")
+        {
+            this.topicForEdit.TopicType = TopicType.Link;
+        }
+        else if(this.topicTypeForEdit == "Picture")
+        {
+            this.topicForEdit.TopicType = TopicType.Picture;
+        }
+
+        this.topicForEdit.Name = this.topicNameForEdit;
+        this.topicForEdit.Content = this.topicContentForEdit;
+        this.topics[this.topics.findIndex(x=>x.Id == this.topicForEdit.Id)] = this.topicForEdit;
+        this.httpTopicService.put(this.subforumId,this.topic);
+        this.topicNameForEdit = "";
+        this.topicContentForEdit = "";
+        
     }
 
 
@@ -194,16 +234,15 @@ export class SubforumComponent implements OnInit{
         if(this.editBool == false)
         {
             this.editBool = true;
-            this.topicName = topic.Name;
-            this.topicContent = topic.Content;
-            this.topic = topic;
+            this.topicNameForEdit = topic.Name;
+            this.topicContentForEdit = topic.Content;
+            this.topicForEdit = topic;
+            this.topicType = "";
         }
         else
         {
             this.editBool = false;
-            this.topicName = "";
-            this.topicContent = "";
-            this.topic = new Topic();
+            this.topicTypeForEdit = "";
         }    
 
         
@@ -230,5 +269,6 @@ export class SubforumComponent implements OnInit{
     resetContent() : void
     {
         this.topicContent = "";
+        this.topicContentForEdit = "";
     }
 }
