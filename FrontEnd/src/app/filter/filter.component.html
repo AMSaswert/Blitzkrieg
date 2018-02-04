@@ -12,7 +12,7 @@
                 <span>{{subforum.Id}}</span>
                 <span>{{subforum.Name}}</span>
                 <span>{{subforum.Description}}</span>
-                <span>{{subforum.IconURL}}</span>
+                <span><img src ={{subforum.IconURL}} height="10" width="10"/></span>
                 <span>{{subforum.Rules}}</span>
                 <span>{{subforum.LeadModeratorUsername}}</span>
                 <button (click)="routingS(subforum)">Open</button>
@@ -35,12 +35,12 @@
                 <span>{{topic.Name}}</span>
                 <span>{{topic.TopicType}}</span>
                 <span>{{topic.AuthorUsername}}</span>
-                <a *ngIf="topic.TopicType != 0">
+                <!--<a *ngIf="topic.TopicType != 0">
                 <span><img src={{topic.Content}} /></span>
                 </a>
                 <a *ngIf="topic.TopicType == 0">
                 <span>{{topic.Content}}</span>
-                </a>
+                </a>-->
                 <span>{{topic.CreationDate}}</span>
                 <span>{{topic.LikesNum}}</span>
                 <span>{{topic.DislikesNum}}</span>
