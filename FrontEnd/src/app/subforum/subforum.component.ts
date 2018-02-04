@@ -231,21 +231,18 @@ export class SubforumComponent implements OnInit{
 
     forEditTopic(topic : Topic) : void
     {
-        if(this.editBool == false)
-        {
-            this.editBool = true;
-            this.topicNameForEdit = topic.Name;
-            this.topicContentForEdit = topic.Content;
-            this.topicForEdit = topic;
-            this.topicType = "";
-        }
-        else
-        {
-            this.editBool = false;
-            this.topicTypeForEdit = "";
-        }    
+        this.editBool = true;
+        this.topicNameForEdit = topic.Name;
+        this.topicContentForEdit = topic.Content;
+        this.topicForEdit = topic;
+        this.topicType = "";
+              
+    }
 
-        
+    undoEdit()
+    {
+        this.editBool = false;
+        this.topicTypeForEdit = "";
     }
 
     deleteTopic(topic : Topic) : void
