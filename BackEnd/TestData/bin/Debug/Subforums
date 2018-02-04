@@ -408,4 +408,14 @@
       </Topic>
     </Topics>
   </Subforum>
+  <Subforum>
+    <Id>5419604</Id>
+    <Name>a1</Name>
+    <Description>a1</Description>
+    <IconURL>http://localhost:13124/Content/Images/img-unnamed.png</IconURL>
+    <Rules>a1</Rules>
+    <LeadModeratorUsername>admin</LeadModeratorUsername>
+    <Moderators />
+    <Topics />
+  </Subforum>
 </ArrayOfSubforum>

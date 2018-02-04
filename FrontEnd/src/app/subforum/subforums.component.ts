@@ -49,7 +49,7 @@ export class SubforumsComponent implements OnInit{
 
     onSubmit(subforum: Subforum, form: NgForm) {
         
-
+        subforum.IconURL = this.subIcon;
         for(var sub of this.subforums)
         {
           if(sub.Name == subforum.Name)
