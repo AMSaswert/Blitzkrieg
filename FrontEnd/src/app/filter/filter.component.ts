@@ -46,6 +46,13 @@ export class FilterComponent implements OnInit{
     }
 
     ngOnInit() {
+        if (sessionStorage.getItem("topicRoute") !== null) {
+            if (sessionStorage.getItem("topicRoute").length > 1) {
+                let quickRoute = sessionStorage.getItem("topicRoute");
+                sessionStorage.setItem("topicRoute","");
+                this.httpAppUserService.routing(quickRoute);
+            }
+        }
         this.httpSubforumService.getData().subscribe(
             (prod: any) => {this.subforums = prod;  this.getAllTopics();});
 
