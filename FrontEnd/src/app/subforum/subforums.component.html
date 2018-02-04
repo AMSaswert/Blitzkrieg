@@ -14,7 +14,7 @@
         <a *ngIf="isCreatorOrAdmin(subforum.LeadModeratorUsername)"> 
             <button (click) = "deleteSubforum(subforum.Id)">Delete</button>
             <button (click) = "moderators(subforum)">New moderators</button></a>
-            <a *ngIf="isLoggedIn()"><button [disabled] = "bookmarked(subforum.Id)" (click) = "bookmarkSubforum(subforum.Id)">Bookmark subforum</button></a>
+            <a *ngIf="isLoggedIn()"><button [disabled] = "bookmarked(subforum.Name)" (click) = "bookmarkSubforum(subforum.Name)">Bookmark subforum</button></a>
         <div *ngIf =" subforum.Id == addModerator ">
 
                 <tr>

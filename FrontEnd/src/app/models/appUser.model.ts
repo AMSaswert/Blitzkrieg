@@ -12,7 +12,7 @@ export class AppUser{
     Surname: string;
     ContactPhone: string;
     RegistrationDate: Date;
-    BookmarkedSubforums: Array<number>;
+    BookmarkedSubforums: Array<string>;
     SavedTopics : Array<Topic>;
     SavedComments : Array<Comment>;
     ReceivedMessages : Array<Message>;

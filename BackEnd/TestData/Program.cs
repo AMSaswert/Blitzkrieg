@@ -27,7 +27,7 @@ namespace TestData
                 Password = "admin",
                 Role = "Admin",
                 RegistrationDate = DateTime.Now,
-                BookmarkedSubforums = new List<int>(),
+                BookmarkedSubforums = new List<string>(),
                 ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "Bem ti lebac" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "aaaaaaaaa" } },
                 SavedComments = new List<Comment>(),
                 SavedTopics = new List<Topic>()
@@ -44,7 +44,7 @@ namespace TestData
                 Password = "mica",
                 Role = "Moderator",
                 RegistrationDate = DateTime.Now,
-                BookmarkedSubforums = new List<int>(),
+                BookmarkedSubforums = new List<string>(),
                 ReceivedMessages = new List<Message>() { new Message { Id = random.Next(),SenderUsername = "aca", Content = "Bem ti lebac" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "aaaaaaaaa" } },
                 SavedComments = new List<Comment>(),
                 SavedTopics = new List<Topic>()
@@ -61,7 +61,7 @@ namespace TestData
                 Role = "AppUser",
                 ContactPhone = "021/1353545",
                 RegistrationDate = DateTime.Now,
-                BookmarkedSubforums = new List<int>(),
+                BookmarkedSubforums = new List<string>(),
                 ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "opassada" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "ajsasa" } },
                 SavedComments = new List<Comment>(),
                 SavedTopics = new List<Topic>()
@@ -78,7 +78,7 @@ namespace TestData
                 Password = "moderator",
                 Role = "Moderator",
                 RegistrationDate = DateTime.Now,
-                BookmarkedSubforums = new List<int>(),
+                BookmarkedSubforums = new List<string>(),
                 ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "mhmhm" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "frik" } },
                 SavedComments = new List<Comment>(),
                 SavedTopics = new List<Topic>()
@@ -95,7 +95,7 @@ namespace TestData
                 Role = "AppUser",
                 ContactPhone = "021/1353545",
                 RegistrationDate = DateTime.Now,
-                BookmarkedSubforums = new List<int>(),
+                BookmarkedSubforums = new List<string>(),
                 ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "opassada" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "ajsasa" } },
                 SavedComments = new List<Comment>(),
                 SavedTopics = new List<Topic>()
@@ -112,7 +112,7 @@ namespace TestData
                 Role = "AppUser",
                 ContactPhone = "021/1353545",
                 RegistrationDate = DateTime.Now,
-                BookmarkedSubforums = new List<int>(),
+                BookmarkedSubforums = new List<string>(),
                 ReceivedMessages = new List<Message>() { new Message { Id = random.Next(), SenderUsername = "aca", Content = "opassada" }, new Message { Id = random.Next(), SenderUsername = "aca", Content = "ajsasa" } },
                 SavedComments = new List<Comment>(),
                 SavedTopics = new List<Topic>()

@@ -129,11 +129,11 @@ export class SubforumsComponent implements OnInit{
         this.subIcon = response["path"];
     }
 
-    bookmarked(subforumId : number) : boolean
+    bookmarked(subforumName : string) : boolean
     {
       for(var bookmarked of this.user.BookmarkedSubforums)
       {
-        if(subforumId == bookmarked)
+        if(subforumName == bookmarked)
         {
           return true;
         }
@@ -142,9 +142,9 @@ export class SubforumsComponent implements OnInit{
       return false;
     }
 
-    bookmarkSubforum(subforumId : number) : void
+    bookmarkSubforum(subforumName : string) : void
     {
-      this.user.BookmarkedSubforums.push(subforumId);
+      this.user.BookmarkedSubforums.push(subforumName);
       this.httpAppUserService.put(this.user.Id,this.user);
     }
 

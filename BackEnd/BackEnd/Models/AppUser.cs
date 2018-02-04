@@ -28,7 +28,7 @@ namespace BackEnd.Models
 
         public DateTime RegistrationDate { get; set; }
         
-        public List<int> BookmarkedSubforums { get; set; }
+        public List<string> BookmarkedSubforums { get; set; }
 
         public List<Topic> SavedTopics { get; set; }
 
