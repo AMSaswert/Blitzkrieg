@@ -23,7 +23,7 @@ export class RegisterComponent{
 
         user.Id = this.httpAppUserService.getRandomInt(1,9999999);
         user.Role = "AppUser";
-        user.BookmarkedSubforums = new Array<number>();
+        user.BookmarkedSubforums = new Array<string>();
         user.SavedTopics = new Array<Topic>();
         user.SavedComments = new Array<Comment>();
         user.ReceivedMessages = new Array<Message>();

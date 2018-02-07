@@ -80,21 +80,21 @@ export class SubforumComponent implements OnInit{
     Like(topic:Topic) : void
     {
         topic.LikesNum +=1;
-        topic.UsersWhoVoted.push(sessionStorage.getItem("user"));
-        this.httpTopicService.put(this.subforumId,topic);
+        topic.UsersWhoVoted.push(sessionStorage.getItem("username"));
+        this.httpTopicService.put(topic.SubforumId,topic);
     }
 
     Dislike(topic:Topic) : void
     {
         topic.DislikesNum +=1;
-        topic.UsersWhoVoted.push(sessionStorage.getItem("user"));
-        this.httpTopicService.put(this.subforumId,topic);
+        topic.UsersWhoVoted.push(sessionStorage.getItem("username"));
+        this.httpTopicService.put(topic.SubforumId,topic);
     }
 
     voted(topic:Topic) : boolean
     {
     var x = -1;
-    x = topic.UsersWhoVoted.indexOf(sessionStorage.getItem("user"));
+    x = topic.UsersWhoVoted.findIndex(x=> x == sessionStorage.getItem("username"));
     if(x != -1)
         return true;
     return false;

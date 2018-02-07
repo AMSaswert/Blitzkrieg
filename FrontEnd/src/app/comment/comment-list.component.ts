@@ -44,21 +44,21 @@ export class CommentListComponent implements OnInit{
     like(comment:Comment) : void
     {
         comment.LikesNo +=1;
-        comment.UsersWhoVoted.push(sessionStorage.getItem("user"));
-        this.httpCommentService.put(comment.Id,comment);
+        comment.UsersWhoVoted.push(sessionStorage.getItem("username"));
+        this.httpCommentService.put(comment.TopicId,comment);
     }
 
     dislike(comment:Comment) : void
     {
         comment.DislikesNo +=1;
-        comment.UsersWhoVoted.push(sessionStorage.getItem("user"));
-        this.httpCommentService.put(comment.Id,comment);
+        comment.UsersWhoVoted.push(sessionStorage.getItem("username"));
+        this.httpCommentService.put(comment.TopicId,comment);
     }
 
     voted(comment:Comment) : boolean
     {
       var x = -1;
-      x = comment.UsersWhoVoted.indexOf(sessionStorage.getItem("user"));
+      x = comment.UsersWhoVoted.findIndex(x=> x == sessionStorage.getItem("username"));
       if(x != -1)
         return true;
       return false;
